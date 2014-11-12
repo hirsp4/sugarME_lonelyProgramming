@@ -12,6 +12,8 @@
 	<dict>
 		<key>46EE69E3BB6CB1DF650CBB29EB7714A9C36343D4</key>
 		<string>https://bitbucket.org/hirsp4/sugarme.git</string>
+		<key>BD19765CAAF7FC35DC2AD380DBF0C27F6CB088F3</key>
+		<string>https://github.com/hirsp4/sugarME_lonelyProgramming.git</string>
 		<key>BE901100A7DAA4EFD526B2B2EDCEE8C060522E7D</key>
 		<string>https://bitbucket.org/hirsp4/sugarme.git</string>
 	</dict>
@@ -20,16 +22,18 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>46EE69E3BB6CB1DF650CBB29EB7714A9C36343D4</key>
+		<string>../../../clapps4tabs</string>
+		<key>BD19765CAAF7FC35DC2AD380DBF0C27F6CB088F3</key>
 		<string>../..</string>
 		<key>BE901100A7DAA4EFD526B2B2EDCEE8C060522E7D</key>
 		<string>../../../Clinical_Apps_Project</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/hirsp4/sugarme.git</string>
+	<string>https://github.com/hirsp4/sugarME_lonelyProgramming.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>46EE69E3BB6CB1DF650CBB29EB7714A9C36343D4</string>
+	<string>BD19765CAAF7FC35DC2AD380DBF0C27F6CB088F3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -47,6 +51,14 @@
 			<string>BE901100A7DAA4EFD526B2B2EDCEE8C060522E7D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Clinical_Apps_Project</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BD19765CAAF7FC35DC2AD380DBF0C27F6CB088F3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>sugarME_Development</string>
 		</dict>
 	</array>
 </dict>
