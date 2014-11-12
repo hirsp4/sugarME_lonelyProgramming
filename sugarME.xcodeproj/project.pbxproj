@@ -1,0 +1,670 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF1915BD1A04004400605B73 /* ValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1915BC1A04004400605B73 /* ValueCell.xib */; };
+		EF1915C31A04008A00605B73 /* ValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1915C21A04008A00605B73 /* ValueCell.m */; };
+		EF1915C51A04052D00605B73 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1915C41A04052D00605B73 /* EmptyCell.xib */; };
+		EF1915C81A04056B00605B73 /* EmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1915C71A04056B00605B73 /* EmptyCell.m */; };
+		EF1915D31A04147000605B73 /* AddValueController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1915D21A04147000605B73 /* AddValueController.m */; };
+		EF68EC911A02CB8600AD9663 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC901A02CB8600AD9663 /* main.m */; };
+		EF68EC941A02CB8600AD9663 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC931A02CB8600AD9663 /* AppDelegate.m */; };
+		EF68EC971A02CB8600AD9663 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC961A02CB8600AD9663 /* FirstViewController.m */; };
+		EF68EC9A1A02CB8600AD9663 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC991A02CB8600AD9663 /* SecondViewController.m */; };
+		EF68EC9D1A02CB8600AD9663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68EC9B1A02CB8600AD9663 /* Main.storyboard */; };
+		EF68EC9F1A02CB8600AD9663 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF68EC9E1A02CB8600AD9663 /* Images.xcassets */; };
+		EF68ECA21A02CB8600AD9663 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECA01A02CB8600AD9663 /* LaunchScreen.xib */; };
+		EF68ECAE1A02CB8600AD9663 /* sugarMETests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68ECAD1A02CB8600AD9663 /* sugarMETests.m */; };
+		EF68ECB91A02CF1500AD9663 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68ECB81A02CF1500AD9663 /* ThirdViewController.m */; };
+		EF68ECBC1A02CF2B00AD9663 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68ECBB1A02CF2B00AD9663 /* FourthViewController.m */; };
+		EF68ECBF1A02D15900AD9663 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68ECBE1A02D15900AD9663 /* TabBarController.m */; };
+		EF68ECC21A02D2EC00AD9663 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68ECC11A02D2EC00AD9663 /* FifthViewController.m */; };
+		EF68ECC61A02D46400AD9663 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECC41A02D46400AD9663 /* home@2x.png */; };
+		EF68ECC71A02D46400AD9663 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECC51A02D46400AD9663 /* home.png */; };
+		EF68ECCA1A02D5C300AD9663 /* werte.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECC81A02D5C300AD9663 /* werte.png */; };
+		EF68ECCB1A02D5C300AD9663 /* werte@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECC91A02D5C300AD9663 /* werte@2x.png */; };
+		EF68ECCE1A02D68200AD9663 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECCC1A02D68200AD9663 /* settings.png */; };
+		EF68ECCF1A02D68200AD9663 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECCD1A02D68200AD9663 /* settings@2x.png */; };
+		EF68ECD21A02D78A00AD9663 /* tools@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECD01A02D78A00AD9663 /* tools@2x.png */; };
+		EF68ECD31A02D78A00AD9663 /* tools.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECD11A02D78A00AD9663 /* tools.png */; };
+		EF68ECD61A02D82F00AD9663 /* hba1c.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECD41A02D82F00AD9663 /* hba1c.png */; };
+		EF68ECD71A02D82F00AD9663 /* hba1c@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECD51A02D82F00AD9663 /* hba1c@2x.png */; };
+		EF7163B61A04365700CDF001 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7163B51A04365700CDF001 /* ExportViewController.m */; };
+		EF7163B81A04382300CDF001 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7163B71A04382300CDF001 /* MessageUI.framework */; };
+		EF92FFD31A02E541000AAE45 /* HighLowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF92FFD21A02E541000AAE45 /* HighLowCell.xib */; };
+		EF92FFD61A02E763000AAE45 /* HighLowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF92FFD51A02E763000AAE45 /* HighLowCell.m */; };
+		EF92FFDB1A02EF0F000AAE45 /* MeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF92FFDA1A02EF0F000AAE45 /* MeasureCell.m */; };
+		EF92FFDF1A02F5CB000AAE45 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF92FFDE1A02F5CB000AAE45 /* UserCell.xib */; };
+		EF92FFE11A02F6A0000AAE45 /* user-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92FFE01A02F6A0000AAE45 /* user-icon.png */; };
+		EF92FFE41A02F764000AAE45 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF92FFE31A02F764000AAE45 /* UserCell.m */; };
+		EFBF64F81A0A312A00D31A8B /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF64F71A0A312A00D31A8B /* GraphView.m */; };
+		EFEADD2C1A037B1F001332C7 /* MeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */; };
+		EFF89A681A06415700398332 /* sugarmeDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A661A06415700398332 /* sugarmeDB.xcdatamodeld */; };
+		EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A6B1A06428B00398332 /* Blutzucker.m */; };
+		EFF89A6E1A0642C700398332 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF89A6D1A0642C700398332 /* CoreData.framework */; };
+		EFF89AA61A0690D300398332 /* Blutdruck.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89AA51A0690D300398332 /* Blutdruck.m */; };
+		EFF89AA91A0690DF00398332 /* Puls.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89AA81A0690DF00398332 /* Puls.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF68ECA81A02CB8600AD9663 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF68EC831A02CB8600AD9663 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF68EC8A1A02CB8600AD9663;
+			remoteInfo = sugarME;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF1915BC1A04004400605B73 /* ValueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValueCell.xib; sourceTree = "<group>"; };
+		EF1915C11A04008A00605B73 /* ValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCell.h; sourceTree = "<group>"; };
+		EF1915C21A04008A00605B73 /* ValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueCell.m; sourceTree = "<group>"; };
+		EF1915C41A04052D00605B73 /* EmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
+		EF1915C61A04056B00605B73 /* EmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyCell.h; sourceTree = "<group>"; };
+		EF1915C71A04056B00605B73 /* EmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyCell.m; sourceTree = "<group>"; };
+		EF1915D11A04147000605B73 /* AddValueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddValueController.h; sourceTree = "<group>"; };
+		EF1915D21A04147000605B73 /* AddValueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddValueController.m; sourceTree = "<group>"; };
+		EF68EC8B1A02CB8600AD9663 /* sugarME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sugarME.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF68EC8F1A02CB8600AD9663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF68EC901A02CB8600AD9663 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF68EC921A02CB8600AD9663 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EF68EC931A02CB8600AD9663 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EF68EC951A02CB8600AD9663 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		EF68EC961A02CB8600AD9663 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		EF68EC981A02CB8600AD9663 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		EF68EC991A02CB8600AD9663 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		EF68EC9C1A02CB8600AD9663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF68EC9E1A02CB8600AD9663 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EF68ECA11A02CB8600AD9663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EF68ECA71A02CB8600AD9663 /* sugarMETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sugarMETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF68ECAC1A02CB8600AD9663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF68ECAD1A02CB8600AD9663 /* sugarMETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sugarMETests.m; sourceTree = "<group>"; };
+		EF68ECB71A02CF1500AD9663 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		EF68ECB81A02CF1500AD9663 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		EF68ECBA1A02CF2B00AD9663 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
+		EF68ECBB1A02CF2B00AD9663 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
+		EF68ECBD1A02D15900AD9663 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		EF68ECBE1A02D15900AD9663 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		EF68ECC01A02D2EC00AD9663 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
+		EF68ECC11A02D2EC00AD9663 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
+		EF68ECC41A02D46400AD9663 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
+		EF68ECC51A02D46400AD9663 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		EF68ECC81A02D5C300AD9663 /* werte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = werte.png; sourceTree = "<group>"; };
+		EF68ECC91A02D5C300AD9663 /* werte@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "werte@2x.png"; sourceTree = "<group>"; };
+		EF68ECCC1A02D68200AD9663 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		EF68ECCD1A02D68200AD9663 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		EF68ECD01A02D78A00AD9663 /* tools@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tools@2x.png"; sourceTree = "<group>"; };
+		EF68ECD11A02D78A00AD9663 /* tools.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tools.png; sourceTree = "<group>"; };
+		EF68ECD41A02D82F00AD9663 /* hba1c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hba1c.png; sourceTree = "<group>"; };
+		EF68ECD51A02D82F00AD9663 /* hba1c@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hba1c@2x.png"; sourceTree = "<group>"; };
+		EF7163B41A04365700CDF001 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
+		EF7163B51A04365700CDF001 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
+		EF7163B71A04382300CDF001 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EF92FFD21A02E541000AAE45 /* HighLowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighLowCell.xib; sourceTree = "<group>"; };
+		EF92FFD41A02E763000AAE45 /* HighLowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighLowCell.h; sourceTree = "<group>"; };
+		EF92FFD51A02E763000AAE45 /* HighLowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighLowCell.m; sourceTree = "<group>"; };
+		EF92FFD91A02EF0F000AAE45 /* MeasureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureCell.h; sourceTree = "<group>"; };
+		EF92FFDA1A02EF0F000AAE45 /* MeasureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureCell.m; sourceTree = "<group>"; };
+		EF92FFDE1A02F5CB000AAE45 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		EF92FFE01A02F6A0000AAE45 /* user-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-icon.png"; sourceTree = "<group>"; };
+		EF92FFE21A02F764000AAE45 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		EF92FFE31A02F764000AAE45 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		EFBF64F61A0A312A00D31A8B /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		EFBF64F71A0A312A00D31A8B /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureCell.xib; sourceTree = "<group>"; };
+		EFF89A671A06415700398332 /* sugarmeDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sugarmeDB.xcdatamodel; sourceTree = "<group>"; };
+		EFF89A6A1A06428B00398332 /* Blutzucker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blutzucker.h; sourceTree = "<group>"; };
+		EFF89A6B1A06428B00398332 /* Blutzucker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blutzucker.m; sourceTree = "<group>"; };
+		EFF89A6D1A0642C700398332 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EFF89AA41A0690D300398332 /* Blutdruck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blutdruck.h; sourceTree = "<group>"; };
+		EFF89AA51A0690D300398332 /* Blutdruck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blutdruck.m; sourceTree = "<group>"; };
+		EFF89AA71A0690DF00398332 /* Puls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Puls.h; sourceTree = "<group>"; };
+		EFF89AA81A0690DF00398332 /* Puls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Puls.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF68EC881A02CB8600AD9663 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF89A6E1A0642C700398332 /* CoreData.framework in Frameworks */,
+				EF7163B81A04382300CDF001 /* MessageUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF68ECA41A02CB8600AD9663 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF1915B81A03FE4800605B73 /* Werte */ = {
+			isa = PBXGroup;
+			children = (
+				EF68EC981A02CB8600AD9663 /* SecondViewController.h */,
+				EF68EC991A02CB8600AD9663 /* SecondViewController.m */,
+				EF1915C41A04052D00605B73 /* EmptyCell.xib */,
+				EF1915BC1A04004400605B73 /* ValueCell.xib */,
+				EF1915C11A04008A00605B73 /* ValueCell.h */,
+				EF1915C21A04008A00605B73 /* ValueCell.m */,
+				EF1915C61A04056B00605B73 /* EmptyCell.h */,
+				EF1915C71A04056B00605B73 /* EmptyCell.m */,
+				EFBF64F61A0A312A00D31A8B /* GraphView.h */,
+				EFBF64F71A0A312A00D31A8B /* GraphView.m */,
+			);
+			name = Werte;
+			sourceTree = "<group>";
+		};
+		EF1915B91A03FE5400605B73 /* HbA1c */ = {
+			isa = PBXGroup;
+			children = (
+				EF68ECB71A02CF1500AD9663 /* ThirdViewController.h */,
+				EF68ECB81A02CF1500AD9663 /* ThirdViewController.m */,
+			);
+			name = HbA1c;
+			sourceTree = "<group>";
+		};
+		EF1915BA1A03FE6500605B73 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				EF68ECBA1A02CF2B00AD9663 /* FourthViewController.h */,
+				EF68ECBB1A02CF2B00AD9663 /* FourthViewController.m */,
+			);
+			name = Material;
+			sourceTree = "<group>";
+		};
+		EF1915BB1A03FE6B00605B73 /* Einstellungen */ = {
+			isa = PBXGroup;
+			children = (
+				EF68ECC01A02D2EC00AD9663 /* FifthViewController.h */,
+				EF68ECC11A02D2EC00AD9663 /* FifthViewController.m */,
+			);
+			name = Einstellungen;
+			sourceTree = "<group>";
+		};
+		EF68EC821A02CB8600AD9663 = {
+			isa = PBXGroup;
+			children = (
+				EFF89A6D1A0642C700398332 /* CoreData.framework */,
+				EF7163B71A04382300CDF001 /* MessageUI.framework */,
+				EF68ECC31A02D44C00AD9663 /* Bilder */,
+				EF68EC8D1A02CB8600AD9663 /* sugarME */,
+				EF68ECAA1A02CB8600AD9663 /* sugarMETests */,
+				EF68EC8C1A02CB8600AD9663 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF68EC8C1A02CB8600AD9663 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF68EC8B1A02CB8600AD9663 /* sugarME.app */,
+				EF68ECA71A02CB8600AD9663 /* sugarMETests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF68EC8D1A02CB8600AD9663 /* sugarME */ = {
+			isa = PBXGroup;
+			children = (
+				EFF89A691A06425A00398332 /* Objects */,
+				EF1915BB1A03FE6B00605B73 /* Einstellungen */,
+				EF1915BA1A03FE6500605B73 /* Material */,
+				EF1915B91A03FE5400605B73 /* HbA1c */,
+				EF1915B81A03FE4800605B73 /* Werte */,
+				EF92FFD11A02E506000AAE45 /* Uebersicht */,
+				EF68ECBD1A02D15900AD9663 /* TabBarController.h */,
+				EF68ECBE1A02D15900AD9663 /* TabBarController.m */,
+				EF68EC921A02CB8600AD9663 /* AppDelegate.h */,
+				EF68EC931A02CB8600AD9663 /* AppDelegate.m */,
+				EF68EC9B1A02CB8600AD9663 /* Main.storyboard */,
+				EF68EC9E1A02CB8600AD9663 /* Images.xcassets */,
+				EF68ECA01A02CB8600AD9663 /* LaunchScreen.xib */,
+				EF68EC8E1A02CB8600AD9663 /* Supporting Files */,
+			);
+			path = sugarME;
+			sourceTree = "<group>";
+		};
+		EF68EC8E1A02CB8600AD9663 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF68EC8F1A02CB8600AD9663 /* Info.plist */,
+				EFF89A661A06415700398332 /* sugarmeDB.xcdatamodeld */,
+				EF68EC901A02CB8600AD9663 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF68ECAA1A02CB8600AD9663 /* sugarMETests */ = {
+			isa = PBXGroup;
+			children = (
+				EF68ECAD1A02CB8600AD9663 /* sugarMETests.m */,
+				EF68ECAB1A02CB8600AD9663 /* Supporting Files */,
+			);
+			path = sugarMETests;
+			sourceTree = "<group>";
+		};
+		EF68ECAB1A02CB8600AD9663 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF68ECAC1A02CB8600AD9663 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF68ECC31A02D44C00AD9663 /* Bilder */ = {
+			isa = PBXGroup;
+			children = (
+				EF92FFE01A02F6A0000AAE45 /* user-icon.png */,
+				EF68ECD01A02D78A00AD9663 /* tools@2x.png */,
+				EF68ECD11A02D78A00AD9663 /* tools.png */,
+				EF68ECC41A02D46400AD9663 /* home@2x.png */,
+				EF68ECD41A02D82F00AD9663 /* hba1c.png */,
+				EF68ECD51A02D82F00AD9663 /* hba1c@2x.png */,
+				EF68ECC51A02D46400AD9663 /* home.png */,
+				EF68ECCC1A02D68200AD9663 /* settings.png */,
+				EF68ECCD1A02D68200AD9663 /* settings@2x.png */,
+				EF68ECC81A02D5C300AD9663 /* werte.png */,
+				EF68ECC91A02D5C300AD9663 /* werte@2x.png */,
+			);
+			name = Bilder;
+			sourceTree = "<group>";
+		};
+		EF92FFD11A02E506000AAE45 /* Uebersicht */ = {
+			isa = PBXGroup;
+			children = (
+				EF68EC951A02CB8600AD9663 /* FirstViewController.h */,
+				EF68EC961A02CB8600AD9663 /* FirstViewController.m */,
+				EF92FFD21A02E541000AAE45 /* HighLowCell.xib */,
+				EF1915D11A04147000605B73 /* AddValueController.h */,
+				EF1915D21A04147000605B73 /* AddValueController.m */,
+				EF92FFD41A02E763000AAE45 /* HighLowCell.h */,
+				EF92FFD51A02E763000AAE45 /* HighLowCell.m */,
+				EF92FFD91A02EF0F000AAE45 /* MeasureCell.h */,
+				EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */,
+				EF92FFDA1A02EF0F000AAE45 /* MeasureCell.m */,
+				EF92FFDE1A02F5CB000AAE45 /* UserCell.xib */,
+				EF92FFE21A02F764000AAE45 /* UserCell.h */,
+				EF92FFE31A02F764000AAE45 /* UserCell.m */,
+				EF7163B41A04365700CDF001 /* ExportViewController.h */,
+				EF7163B51A04365700CDF001 /* ExportViewController.m */,
+			);
+			name = Uebersicht;
+			sourceTree = "<group>";
+		};
+		EFF89A691A06425A00398332 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				EFF89A6A1A06428B00398332 /* Blutzucker.h */,
+				EFF89A6B1A06428B00398332 /* Blutzucker.m */,
+				EFF89AA41A0690D300398332 /* Blutdruck.h */,
+				EFF89AA51A0690D300398332 /* Blutdruck.m */,
+				EFF89AA71A0690DF00398332 /* Puls.h */,
+				EFF89AA81A0690DF00398332 /* Puls.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF68EC8A1A02CB8600AD9663 /* sugarME */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF68ECB11A02CB8600AD9663 /* Build configuration list for PBXNativeTarget "sugarME" */;
+			buildPhases = (
+				EF68EC871A02CB8600AD9663 /* Sources */,
+				EF68EC881A02CB8600AD9663 /* Frameworks */,
+				EF68EC891A02CB8600AD9663 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sugarME;
+			productName = sugarME;
+			productReference = EF68EC8B1A02CB8600AD9663 /* sugarME.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF68ECA61A02CB8600AD9663 /* sugarMETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF68ECB41A02CB8600AD9663 /* Build configuration list for PBXNativeTarget "sugarMETests" */;
+			buildPhases = (
+				EF68ECA31A02CB8600AD9663 /* Sources */,
+				EF68ECA41A02CB8600AD9663 /* Frameworks */,
+				EF68ECA51A02CB8600AD9663 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF68ECA91A02CB8600AD9663 /* PBXTargetDependency */,
+			);
+			name = sugarMETests;
+			productName = sugarMETests;
+			productReference = EF68ECA71A02CB8600AD9663 /* sugarMETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF68EC831A02CB8600AD9663 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Berner Fachhochschule";
+				TargetAttributes = {
+					EF68EC8A1A02CB8600AD9663 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					EF68ECA61A02CB8600AD9663 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = EF68EC8A1A02CB8600AD9663;
+					};
+				};
+			};
+			buildConfigurationList = EF68EC861A02CB8600AD9663 /* Build configuration list for PBXProject "sugarME" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF68EC821A02CB8600AD9663;
+			productRefGroup = EF68EC8C1A02CB8600AD9663 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF68EC8A1A02CB8600AD9663 /* sugarME */,
+				EF68ECA61A02CB8600AD9663 /* sugarMETests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF68EC891A02CB8600AD9663 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF68ECCE1A02D68200AD9663 /* settings.png in Resources */,
+				EF1915BD1A04004400605B73 /* ValueCell.xib in Resources */,
+				EF68ECCF1A02D68200AD9663 /* settings@2x.png in Resources */,
+				EF68ECD31A02D78A00AD9663 /* tools.png in Resources */,
+				EF68EC9D1A02CB8600AD9663 /* Main.storyboard in Resources */,
+				EF68ECC71A02D46400AD9663 /* home.png in Resources */,
+				EF68ECD21A02D78A00AD9663 /* tools@2x.png in Resources */,
+				EF68ECCB1A02D5C300AD9663 /* werte@2x.png in Resources */,
+				EF68ECC61A02D46400AD9663 /* home@2x.png in Resources */,
+				EF68ECA21A02CB8600AD9663 /* LaunchScreen.xib in Resources */,
+				EF92FFE11A02F6A0000AAE45 /* user-icon.png in Resources */,
+				EF1915C51A04052D00605B73 /* EmptyCell.xib in Resources */,
+				EF68ECD71A02D82F00AD9663 /* hba1c@2x.png in Resources */,
+				EF92FFD31A02E541000AAE45 /* HighLowCell.xib in Resources */,
+				EF92FFDF1A02F5CB000AAE45 /* UserCell.xib in Resources */,
+				EFEADD2C1A037B1F001332C7 /* MeasureCell.xib in Resources */,
+				EF68EC9F1A02CB8600AD9663 /* Images.xcassets in Resources */,
+				EF68ECCA1A02D5C300AD9663 /* werte.png in Resources */,
+				EF68ECD61A02D82F00AD9663 /* hba1c.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF68ECA51A02CB8600AD9663 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF68EC871A02CB8600AD9663 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF89AA91A0690DF00398332 /* Puls.m in Sources */,
+				EF1915C81A04056B00605B73 /* EmptyCell.m in Sources */,
+				EF92FFDB1A02EF0F000AAE45 /* MeasureCell.m in Sources */,
+				EF68ECC21A02D2EC00AD9663 /* FifthViewController.m in Sources */,
+				EF68ECBF1A02D15900AD9663 /* TabBarController.m in Sources */,
+				EF68ECBC1A02CF2B00AD9663 /* FourthViewController.m in Sources */,
+				EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */,
+				EF68EC9A1A02CB8600AD9663 /* SecondViewController.m in Sources */,
+				EF92FFD61A02E763000AAE45 /* HighLowCell.m in Sources */,
+				EF1915D31A04147000605B73 /* AddValueController.m in Sources */,
+				EFF89A681A06415700398332 /* sugarmeDB.xcdatamodeld in Sources */,
+				EFBF64F81A0A312A00D31A8B /* GraphView.m in Sources */,
+				EF68ECB91A02CF1500AD9663 /* ThirdViewController.m in Sources */,
+				EF68EC941A02CB8600AD9663 /* AppDelegate.m in Sources */,
+				EFF89AA61A0690D300398332 /* Blutdruck.m in Sources */,
+				EF68EC971A02CB8600AD9663 /* FirstViewController.m in Sources */,
+				EF92FFE41A02F764000AAE45 /* UserCell.m in Sources */,
+				EF68EC911A02CB8600AD9663 /* main.m in Sources */,
+				EF1915C31A04008A00605B73 /* ValueCell.m in Sources */,
+				EF7163B61A04365700CDF001 /* ExportViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF68ECA31A02CB8600AD9663 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF68ECAE1A02CB8600AD9663 /* sugarMETests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF68ECA91A02CB8600AD9663 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF68EC8A1A02CB8600AD9663 /* sugarME */;
+			targetProxy = EF68ECA81A02CB8600AD9663 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF68EC9B1A02CB8600AD9663 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF68EC9C1A02CB8600AD9663 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF68ECA01A02CB8600AD9663 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF68ECA11A02CB8600AD9663 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF68ECAF1A02CB8600AD9663 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EF68ECB01A02CB8600AD9663 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF68ECB21A02CB8600AD9663 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = sugarME/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EF68ECB31A02CB8600AD9663 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = sugarME/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EF68ECB51A02CB8600AD9663 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = sugarMETests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sugarME.app/sugarME";
+			};
+			name = Debug;
+		};
+		EF68ECB61A02CB8600AD9663 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = sugarMETests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sugarME.app/sugarME";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF68EC861A02CB8600AD9663 /* Build configuration list for PBXProject "sugarME" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF68ECAF1A02CB8600AD9663 /* Debug */,
+				EF68ECB01A02CB8600AD9663 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF68ECB11A02CB8600AD9663 /* Build configuration list for PBXNativeTarget "sugarME" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF68ECB21A02CB8600AD9663 /* Debug */,
+				EF68ECB31A02CB8600AD9663 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF68ECB41A02CB8600AD9663 /* Build configuration list for PBXNativeTarget "sugarMETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF68ECB51A02CB8600AD9663 /* Debug */,
+				EF68ECB61A02CB8600AD9663 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFF89A661A06415700398332 /* sugarmeDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFF89A671A06415700398332 /* sugarmeDB.xcdatamodel */,
+			);
+			currentVersion = EFF89A671A06415700398332 /* sugarmeDB.xcdatamodel */;
+			path = sugarmeDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EF68EC831A02CB8600AD9663 /* Project object */;
+}
