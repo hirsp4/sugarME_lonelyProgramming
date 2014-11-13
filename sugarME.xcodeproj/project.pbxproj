@@ -235,7 +235,7 @@
 		EF68EC8D1A02CB8600AD9663 /* sugarME */ = {
 			isa = PBXGroup;
 			children = (
-				EFF89A691A06425A00398332 /* Objects */,
+				EFF89A691A06425A00398332 /* ManagedObjects */,
 				EF1915BB1A03FE6B00605B73 /* Einstellungen */,
 				EF1915BA1A03FE6500605B73 /* Material */,
 				EF1915B91A03FE5400605B73 /* HbA1c */,
@@ -328,7 +328,7 @@
 			name = Uebersicht;
 			sourceTree = "<group>";
 		};
-		EFF89A691A06425A00398332 /* Objects */ = {
+		EFF89A691A06425A00398332 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
 				EFF89A6A1A06428B00398332 /* Blutzucker.h */,
@@ -340,7 +340,7 @@
 				EFFFA2151A14C4A0003D55D7 /* Material.h */,
 				EFFFA2161A14C4A0003D55D7 /* Material.m */,
 			);
-			name = Objects;
+			name = ManagedObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
