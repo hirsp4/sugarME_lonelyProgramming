@@ -49,6 +49,8 @@
 		EFF89A6E1A0642C700398332 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF89A6D1A0642C700398332 /* CoreData.framework */; };
 		EFF89AA61A0690D300398332 /* Blutdruck.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89AA51A0690D300398332 /* Blutdruck.m */; };
 		EFF89AA91A0690DF00398332 /* Puls.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89AA81A0690DF00398332 /* Puls.m */; };
+		EFFFA2021A14B315003D55D7 /* bfh-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFFA2011A14B315003D55D7 /* bfh-logo.png */; };
+		EFFFA2061A14B782003D55D7 /* sugarMElogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFFA2051A14B782003D55D7 /* sugarMElogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,8 @@
 		EFF89AA51A0690D300398332 /* Blutdruck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blutdruck.m; sourceTree = "<group>"; };
 		EFF89AA71A0690DF00398332 /* Puls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Puls.h; sourceTree = "<group>"; };
 		EFF89AA81A0690DF00398332 /* Puls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Puls.m; sourceTree = "<group>"; };
+		EFFFA2011A14B315003D55D7 /* bfh-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bfh-logo.png"; sourceTree = "<group>"; };
+		EFFFA2051A14B782003D55D7 /* sugarMElogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sugarMElogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,9 +269,11 @@
 			isa = PBXGroup;
 			children = (
 				EF92FFE01A02F6A0000AAE45 /* user-icon.png */,
+				EFFFA2011A14B315003D55D7 /* bfh-logo.png */,
 				EF68ECD01A02D78A00AD9663 /* tools@2x.png */,
 				EF68ECD11A02D78A00AD9663 /* tools.png */,
 				EF68ECC41A02D46400AD9663 /* home@2x.png */,
+				EFFFA2051A14B782003D55D7 /* sugarMElogo.png */,
 				EF68ECD41A02D82F00AD9663 /* hba1c.png */,
 				EF68ECD51A02D82F00AD9663 /* hba1c@2x.png */,
 				EF68ECC51A02D46400AD9663 /* home.png */,
@@ -407,6 +413,8 @@
 				EF92FFE11A02F6A0000AAE45 /* user-icon.png in Resources */,
 				EF1915C51A04052D00605B73 /* EmptyCell.xib in Resources */,
 				EF68ECD71A02D82F00AD9663 /* hba1c@2x.png in Resources */,
+				EFFFA2021A14B315003D55D7 /* bfh-logo.png in Resources */,
+				EFFFA2061A14B782003D55D7 /* sugarMElogo.png in Resources */,
 				EF92FFD31A02E541000AAE45 /* HighLowCell.xib in Resources */,
 				EF92FFDF1A02F5CB000AAE45 /* UserCell.xib in Resources */,
 				EFEADD2C1A037B1F001332C7 /* MeasureCell.xib in Resources */,

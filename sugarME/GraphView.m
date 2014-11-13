@@ -110,6 +110,8 @@ CGRect touchAreas[100];
     [fetchRequest setEntity:entity];
     NSError *error;
     self.blutzuckerValues = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSSortDescriptor* sortByDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    self.blutzuckerValues=[self.blutzuckerValues sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByDate]];
 }
 
 
