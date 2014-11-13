@@ -29,7 +29,7 @@
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.76555956872706554" green="0.79172133778813358" blue="0.85810122280000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="0.98849824335500336" blue="0.78589047488513197" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="activeLabel" destination="3ll-Wc-HEd" id="4lO-tZ-QTC"/>
                 <outlet property="titleLabel" destination="8uk-2I-Ebc" id="Cvh-5U-fKd"/>

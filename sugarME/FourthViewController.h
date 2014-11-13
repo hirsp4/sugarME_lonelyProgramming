@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FourthViewController : UIViewController
+
+
+@interface FourthViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *materialNames;
+@property (strong, nonatomic) NSMutableArray *thumbs;
 
 @end
+
+

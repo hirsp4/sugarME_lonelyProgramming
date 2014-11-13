@@ -76,7 +76,19 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g4Z-aw-YeA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <string key="text">Impressum
+
+Kontakt
+
+Berner Fachhochschule
+Faton Shabanaj
+Patrick Hirschi
+Maja Kelterborn
+Serafin Albin
+
+Höheweg 80
+CH-2501 Biel/Bienne
+E: info@bfh.ch</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -368,13 +380,59 @@
                     <view key="view" contentMode="scaleToFill" id="9ao-Xs-KvZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="F5w-f0-JfE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="7Uq-u7-lFF" id="6v9-NZ-JaS"/>
+                                    <outlet property="delegate" destination="7Uq-u7-lFF" id="ARg-vx-LQa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="F5w-f0-JfE" secondAttribute="trailing" id="NPP-r7-MHz"/>
+                            <constraint firstItem="F5w-f0-JfE" firstAttribute="top" secondItem="nF4-vp-qU9" secondAttribute="bottom" constant="-64" id="Yg0-bt-Bhw"/>
+                            <constraint firstItem="F5w-f0-JfE" firstAttribute="bottom" secondItem="sU0-tZ-jFD" secondAttribute="top" id="asV-5L-PhW"/>
+                            <constraint firstItem="F5w-f0-JfE" firstAttribute="leading" secondItem="9ao-Xs-KvZ" secondAttribute="leading" id="baN-4P-aRH"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Material" image="tools.png" id="kLK-9V-bUw"/>
+                    <navigationItem key="navigationItem" id="cmM-UB-jvG"/>
+                    <connections>
+                        <outlet property="tableView" destination="F5w-f0-JfE" id="aA8-kS-kCU"/>
+                        <segue destination="Ye6-Ex-biI" kind="custom" identifier="showAddMaterial_segue" id="fko-wu-IvA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="teS-3b-XTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1246" y="640"/>
+            <point key="canvasLocation" x="2058" y="648"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="274-yh-rmc">
+            <objects>
+                <viewController id="Ye6-Ex-biI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eoh-Kh-eYx"/>
+                        <viewControllerLayoutGuide type="bottom" id="aeb-6U-R3G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lcl-hv-yFO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Material" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-ZX-rfT">
+                                <rect key="frame" x="203" y="191" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvy-dG-eqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2797" y="643"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -390,7 +448,7 @@
                         <segue destination="Pl7-f7-LAh" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="fOL-j9-sMz" kind="relationship" relationship="viewControllers" id="Gud-wd-vLx"/>
-                        <segue destination="7Uq-u7-lFF" kind="relationship" relationship="viewControllers" id="2hc-8h-5wg"/>
+                        <segue destination="77W-62-TRj" kind="relationship" relationship="viewControllers" id="2hc-8h-5wg"/>
                         <segue destination="OxH-zS-IU1" kind="relationship" relationship="viewControllers" id="5Lw-qH-vbZ"/>
                     </connections>
                 </tabBarController>
@@ -435,6 +493,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omt-No-fez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1246" y="-1360"/>
+        </scene>
+        <!--Material-->
+        <scene sceneID="33P-7k-WmO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="77W-62-TRj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Material" image="tools.png" id="kLK-9V-bUw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tUb-Kx-xRL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Uq-u7-lFF" kind="relationship" relationship="rootViewController" id="lwv-Or-J3u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hOd-05-MYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1246" y="648"/>
         </scene>
     </scenes>
     <resources>
