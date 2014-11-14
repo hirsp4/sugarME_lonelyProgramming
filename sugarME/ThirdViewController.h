@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdViewController : UIViewController
+@interface ThirdViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableWerte;
+@property (weak, nonatomic) IBOutlet UIView *ampelView;
+
+@property (nonatomic, strong) NSArray *hba1cValues;
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @end

@@ -12,7 +12,6 @@
 
 @implementation GraphView
 @synthesize blutzuckerValues, managedObjectContext;
-CGRect touchAreas[100];
 
 - (void)drawBarGraphWithContext:(CGContextRef)ctx
 {
@@ -29,7 +28,6 @@ CGRect touchAreas[100];
             CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
         }else CGContextSetFillColorWithColor(ctx, [UIColor greenColor].CGColor);
         [self drawBar:barRect context:ctx];
-        touchAreas[i] = barRect;
         i++;
     }
     
@@ -82,10 +80,10 @@ CGRect touchAreas[100];
         CGContextSelectFont(context, "Helvetica", 10, kCGEncodingMacRoman);
         NSString *theText = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:[[blutzuckerValues objectAtIndex:i]valueForKey:@"date"]]];
         CGContextShowTextAtPoint(context, kOffsetX -13 + (i +1)* kStepX, kGraphBottom+3, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
-        CGContextSelectFont(context, "Helvetica", 14, kCGEncodingMacRoman);
+        CGContextSelectFont(context, "Helvetica", 12, kCGEncodingMacRoman);
 
             NSString *theText2 = [NSString stringWithFormat:@"%@", [[blutzuckerValues objectAtIndex:i]valueForKey:@"value"]];
-            CGContextShowTextAtPoint(context, kOffsetX -9 + (i +1)* kStepX, kGraphBottom-70, [theText2 cStringUsingEncoding:NSUTF8StringEncoding], [theText2 length]);
+            CGContextShowTextAtPoint(context, kOffsetX -8 + (i +1)* kStepX, kGraphBottom-70, [theText2 cStringUsingEncoding:NSUTF8StringEncoding], [theText2 length]);
 
     }    
 }

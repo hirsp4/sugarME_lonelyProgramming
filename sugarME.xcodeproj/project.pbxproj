@@ -43,6 +43,9 @@
 		EF92FFE11A02F6A0000AAE45 /* user-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92FFE01A02F6A0000AAE45 /* user-icon.png */; };
 		EF92FFE41A02F764000AAE45 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF92FFE31A02F764000AAE45 /* UserCell.m */; };
 		EFBF64F81A0A312A00D31A8B /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF64F71A0A312A00D31A8B /* GraphView.m */; };
+		EFD35D0C1A1607DF009A02AC /* HbA1c.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0B1A1607DF009A02AC /* HbA1c.m */; };
+		EFD35D0F1A160A52009A02AC /* AddHbA1cViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0E1A160A52009A02AC /* AddHbA1cViewController.m */; };
+		EFD35D121A160FED009A02AC /* AmpelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D111A160FED009A02AC /* AmpelView.m */; };
 		EFEADD2C1A037B1F001332C7 /* MeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */; };
 		EFF89A681A06415700398332 /* sugarmeDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A661A06415700398332 /* sugarmeDB.xcdatamodeld */; };
 		EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A6B1A06428B00398332 /* Blutzucker.m */; };
@@ -126,6 +129,12 @@
 		EF92FFE31A02F764000AAE45 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		EFBF64F61A0A312A00D31A8B /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		EFBF64F71A0A312A00D31A8B /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		EFD35D0A1A1607DF009A02AC /* HbA1c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HbA1c.h; sourceTree = "<group>"; };
+		EFD35D0B1A1607DF009A02AC /* HbA1c.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HbA1c.m; sourceTree = "<group>"; };
+		EFD35D0D1A160A52009A02AC /* AddHbA1cViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHbA1cViewController.h; sourceTree = "<group>"; };
+		EFD35D0E1A160A52009A02AC /* AddHbA1cViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHbA1cViewController.m; sourceTree = "<group>"; };
+		EFD35D101A160FED009A02AC /* AmpelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmpelView.h; sourceTree = "<group>"; };
+		EFD35D111A160FED009A02AC /* AmpelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmpelView.m; sourceTree = "<group>"; };
 		EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureCell.xib; sourceTree = "<group>"; };
 		EFF89A671A06415700398332 /* sugarmeDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sugarmeDB.xcdatamodel; sourceTree = "<group>"; };
 		EFF89A6A1A06428B00398332 /* Blutzucker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blutzucker.h; sourceTree = "<group>"; };
@@ -189,6 +198,10 @@
 			children = (
 				EF68ECB71A02CF1500AD9663 /* ThirdViewController.h */,
 				EF68ECB81A02CF1500AD9663 /* ThirdViewController.m */,
+				EFD35D0D1A160A52009A02AC /* AddHbA1cViewController.h */,
+				EFD35D0E1A160A52009A02AC /* AddHbA1cViewController.m */,
+				EFD35D101A160FED009A02AC /* AmpelView.h */,
+				EFD35D111A160FED009A02AC /* AmpelView.m */,
 			);
 			name = HbA1c;
 			sourceTree = "<group>";
@@ -339,6 +352,8 @@
 				EFF89AA81A0690DF00398332 /* Puls.m */,
 				EFFFA2151A14C4A0003D55D7 /* Material.h */,
 				EFFFA2161A14C4A0003D55D7 /* Material.m */,
+				EFD35D0A1A1607DF009A02AC /* HbA1c.h */,
+				EFD35D0B1A1607DF009A02AC /* HbA1c.m */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -468,12 +483,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFF89AA91A0690DF00398332 /* Puls.m in Sources */,
+				EFD35D0F1A160A52009A02AC /* AddHbA1cViewController.m in Sources */,
 				EF1915C81A04056B00605B73 /* EmptyCell.m in Sources */,
 				EF92FFDB1A02EF0F000AAE45 /* MeasureCell.m in Sources */,
 				EF68ECC21A02D2EC00AD9663 /* FifthViewController.m in Sources */,
 				EF68ECBF1A02D15900AD9663 /* TabBarController.m in Sources */,
 				EF68ECBC1A02CF2B00AD9663 /* FourthViewController.m in Sources */,
 				EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */,
+				EFD35D121A160FED009A02AC /* AmpelView.m in Sources */,
 				EF68EC9A1A02CB8600AD9663 /* SecondViewController.m in Sources */,
 				EF92FFD61A02E763000AAE45 /* HighLowCell.m in Sources */,
 				EF1915D31A04147000605B73 /* AddValueController.m in Sources */,
@@ -484,6 +501,7 @@
 				EFF89AA61A0690D300398332 /* Blutdruck.m in Sources */,
 				EFFFA2171A14C4A0003D55D7 /* Material.m in Sources */,
 				EF68EC971A02CB8600AD9663 /* FirstViewController.m in Sources */,
+				EFD35D0C1A1607DF009A02AC /* HbA1c.m in Sources */,
 				EF92FFE41A02F764000AAE45 /* UserCell.m in Sources */,
 				EF68EC911A02CB8600AD9663 /* main.m in Sources */,
 				EF1915C31A04008A00605B73 /* ValueCell.m in Sources */,
