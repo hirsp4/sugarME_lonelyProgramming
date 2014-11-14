@@ -12,6 +12,8 @@
 @synthesize highValueLabel = _highValueLabel;
 @synthesize lowValueLabel = _lowValueLabel;
 @synthesize titleLabel = _titleLabel;
+@synthesize highDateLabel = _highDateLabel;
+@synthesize lowDateLabel = _lowDateLabel;
 
 - (void)awakeFromNib {
     // Initialization code

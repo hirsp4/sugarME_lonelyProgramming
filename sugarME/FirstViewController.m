@@ -41,10 +41,10 @@
 }
 -(void) viewWillAppear:(BOOL)animated{
     [self performFetches];
-    NSIndexPath* indexPath1 = [NSIndexPath indexPathForRow:1 inSection:0];
-    NSIndexPath* indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
-    NSIndexPath* indexPath3 = [NSIndexPath indexPathForRow:3 inSection:0];
-    NSIndexPath* indexPath4 = [NSIndexPath indexPathForRow:4 inSection:0];
+    NSIndexPath* indexPath1 = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath* indexPath2 = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath* indexPath3 = [NSIndexPath indexPathForRow:2 inSection:0];
+    NSIndexPath* indexPath4 = [NSIndexPath indexPathForRow:3 inSection:0];
     NSArray* indexArray = [NSArray arrayWithObjects:indexPath1,indexPath2,indexPath3,indexPath4, nil];
     [_tableWerte reloadRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];}
 
@@ -55,23 +55,16 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return tableData.count+1;
+    return tableData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd.MM. - hh:mm"];
     static NSString *highLowCellIdentifier = @"HighLowCell";
     HighLowCell *cell = (HighLowCell *)[tableView dequeueReusableCellWithIdentifier:highLowCellIdentifier];
 
     if(indexPath.row==0){
-        UserCell *cell3 = (UserCell *)[tableView dequeueReusableCellWithIdentifier:@"UserCell"];
-        if (cell3 == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:self options:nil];
-            cell3 = [nib objectAtIndex:0];
-        }
-        cell3.titleLabel.text=@"Faton Shabanaj";
-        return cell3;
-    }
-    if(indexPath.row==1){
         MeasureCell *cell2 = (MeasureCell *)[tableView dequeueReusableCellWithIdentifier:@"MeasureCell"];
         if (cell2 == nil) {
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MeasureCell" owner:self options:nil];
@@ -94,7 +87,7 @@
         return cell2;
     }
 
-    if(indexPath.row==2){
+    if(indexPath.row==1){
         if (cell == nil) {
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HighLowCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
@@ -104,8 +97,10 @@
         cell.lowValueLabel.text=[[blutzuckerValues firstObject]valueForKey:@"value"];
         cell.highValueLabel.textColor=[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0];
         cell.lowValueLabel.textColor=[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+        cell.lowDateLabel.text=[dateFormat stringFromDate:[[blutzuckerValues firstObject]valueForKey:@"date"]];
+        cell.highDateLabel.text=[dateFormat stringFromDate:[[blutzuckerValues lastObject]valueForKey:@"date"]];
     }
-    if(indexPath.row==3){
+    if(indexPath.row==2){
         if (cell == nil) {
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HighLowCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
@@ -115,8 +110,10 @@
         cell.lowValueLabel.text=[[[[blutdruckValues firstObject]valueForKey:@"sys"]stringByAppendingString:@"/"]stringByAppendingString:[[blutdruckValues firstObject]valueForKey:@"dia"]];
         cell.highValueLabel.textColor=[UIColor colorWithRed:255.0f/255.0f green:217.0f/255.0f blue:102.0f/255.0f alpha:1.0];
         cell.lowValueLabel.textColor=[UIColor colorWithRed:255.0f/255.0f green:217.0f/255.0f blue:102.0f/255.0f alpha:1.0];
+        cell.lowDateLabel.text=[dateFormat stringFromDate:[[blutdruckValues firstObject]valueForKey:@"date"]];
+        cell.highDateLabel.text=[dateFormat stringFromDate:[[blutdruckValues lastObject]valueForKey:@"date"]];
     }
-    if(indexPath.row==4){
+    if(indexPath.row==3){
         if (cell == nil) {
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HighLowCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
@@ -126,19 +123,15 @@
         cell.lowValueLabel.text=[[pulsValues firstObject]valueForKey:@"value"];
         cell.highValueLabel.textColor=[UIColor colorWithRed:153.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:1.0];
         cell.lowValueLabel.textColor=[UIColor colorWithRed:153.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+        cell.lowDateLabel.text=[dateFormat stringFromDate:[[pulsValues firstObject]valueForKey:@"date"]];
+        cell.highDateLabel.text=[dateFormat stringFromDate:[[pulsValues lastObject]valueForKey:@"date"]];
     }
     return cell;
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==0){
-        return 50;
-    }else if(indexPath.row>1&&indexPath.row<5){
-        return 95;
-    }else{
     return 110;
-    }
 }
 - (IBAction) buttonTouchUpInside:(id)sender {
     [self performSegueWithIdentifier:@"addValueSegue" sender:self];

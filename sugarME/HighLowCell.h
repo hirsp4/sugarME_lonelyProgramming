@@ -12,4 +12,6 @@
     @property (nonatomic, weak) IBOutlet UILabel *highValueLabel;
     @property (nonatomic, weak) IBOutlet UILabel *lowValueLabel;
     @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+    @property (nonatomic, weak) IBOutlet UILabel *highDateLabel;
+    @property (nonatomic, weak) IBOutlet UILabel *lowDateLabel;
 @end
