@@ -54,7 +54,6 @@
               @"thumbsoftzellin.jpg",
               @"thumbaccucheck.jpg",
               nil];
-    
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Bearbeiten" style:UIBarButtonItemStyleDone target:self action:@selector(EditData:)];
     [self.navigationItem setLeftBarButtonItem:editButton];
     
@@ -104,6 +103,20 @@
 -(void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)performFetches{
+    // Material Daten lesen.
+    NSFetchRequest *fetchRequestMaterial = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Material" inManagedObjectContext:managedObjectContext];
+    [fetchRequestMaterial setEntity:entity];
+    NSError *error;
+    NSArray *result = [managedObjectContext executeFetchRequest:fetchRequestMaterial error:&error];
+    for(NSManagedObject *obj in result){
+        [_materialNames addObject:[obj valueForKey:@"name"]];
+        [_thumbs addObject:[obj valueForKey:@"image"]];
+    }
 }
 
 @end
