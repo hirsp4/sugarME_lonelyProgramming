@@ -26,7 +26,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" title="Übersicht" id="vWm-Fp-BC7"/>
@@ -504,7 +503,6 @@ E: info@bfh.ch</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="Pl7-f7-LAh" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
