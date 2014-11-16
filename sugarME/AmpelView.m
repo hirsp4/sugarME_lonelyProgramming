@@ -16,6 +16,8 @@
 - (void)drawRect:(CGRect)rect {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd.MM. - HH:mm"];
     [self performFetches];
 
     
@@ -60,6 +62,21 @@
     [self.layer addSublayer:circle];
     [self.layer addSublayer:circle2];
     [self.layer addSublayer:circle3];
+    
+    CGContextSetTextMatrix(context, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
+    CGContextSetTextDrawingMode(context, kCGTextFill);
+    CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor]);
+    CGContextSelectFont(context, "Helvetica", 20, kCGEncodingMacRoman);
+    NSString *theText1 = [NSString stringWithFormat:@"%@", @"Letzter Wert:"];
+    CGContextShowTextAtPoint(context, 150,140, [theText1 cStringUsingEncoding:NSUTF8StringEncoding], [theText1 length]);
+    CGContextSelectFont(context, "Helvetica", 12, kCGEncodingMacRoman);
+    NSString *theText = [NSString stringWithFormat:@"%@", @"Gemessen am: "];
+    CGContextShowTextAtPoint(context, 168,205, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
+    NSString *theText3=[[NSString stringWithFormat:@"%@", [dateFormat stringFromDate:[[self.hba1cValues firstObject]valueForKey:@"date"]]]stringByAppendingString:@" Uhr"];
+    CGContextShowTextAtPoint(context, 158,220, [theText3 cStringUsingEncoding:NSUTF8StringEncoding], [theText3 length]);
+    CGContextSelectFont(context, "Helvetica", 30, kCGEncodingMacRoman);
+    NSString *theText2 = [[NSString stringWithFormat:@"%@", [[self.hba1cValues firstObject]valueForKey:@"value"]]stringByAppendingString:@"%"];
+    CGContextShowTextAtPoint(context, 178,180, [theText2 cStringUsingEncoding:NSUTF8StringEncoding], [theText2 length]);
     
 }
 -(void) performFetches{

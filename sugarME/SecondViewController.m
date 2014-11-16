@@ -42,7 +42,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd.MM - hh:mm"];
+    [dateFormat setDateFormat:@"dd.MM - HH:mm"];
     if(indexPath.row==0){
         static NSString *emptyCellIdentifier = @"EmptyCell";
         EmptyCell *cell = (EmptyCell *)[tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];

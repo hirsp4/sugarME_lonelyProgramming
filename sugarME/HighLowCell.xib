@@ -13,7 +13,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blutzuckerwerte diese Woche" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1b-In-TtF">
-                        <rect key="frame" x="8" y="2" width="227" height="21"/>
+                        <rect key="frame" x="8" y="3" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                 <outlet property="lowValueLabel" destination="afB-jA-jma" id="nAy-0O-px2"/>
                 <outlet property="titleLabel" destination="u1b-In-TtF" id="v1u-bz-WsN"/>
             </connections>
-            <point key="canvasLocation" x="348" y="361"/>
+            <point key="canvasLocation" x="348" y="360"/>
         </tableViewCell>
     </objects>
 </document>

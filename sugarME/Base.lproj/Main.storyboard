@@ -337,7 +337,7 @@ E: info@bfh.ch</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Werte" image="werte.png" id="cPa-gy-q4n"/>
                     <connections>

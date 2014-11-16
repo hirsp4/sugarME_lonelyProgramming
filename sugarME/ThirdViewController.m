@@ -14,6 +14,7 @@
 
 @implementation ThirdViewController
 @synthesize tableWerte=_tableWerte;
+@synthesize ampelView=_ampelView;
 @synthesize hba1cValues,managedObjectContext;
 
 - (void)viewDidLoad {
@@ -32,7 +33,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self refreshTableView];
+    [self refreshTableAndAmpelView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +47,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd.MM - hh:mm"];
+    [dateFormat setDateFormat:@"dd.MM - HH:mm"];
     if(indexPath.row==0){
         static NSString *emptyCellIdentifier = @"EmptyCell";
         EmptyCell *cell = (EmptyCell *)[tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
@@ -89,9 +90,10 @@
     self.hba1cValues =[[managedObjectContext executeFetchRequest:fetchRequest error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByDate]];
 
 }
-- (void)refreshTableView{
+- (void)refreshTableAndAmpelView{
     [self performFetches];
     [_tableWerte reloadData];
+    [_ampelView setNeedsDisplay];
 }
 
 @end

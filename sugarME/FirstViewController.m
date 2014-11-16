@@ -31,7 +31,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     // Do any additional setup after loading the view, typically from a nib.
-    tableData = [NSArray arrayWithObjects:@"Blutzuckermessungen",@"Blutzucker Werte dieser Woche", @"Blutdruck Werte dieser Woche", @"Puls Werte dieser Woche", nil];
+    tableData = [NSArray arrayWithObjects:@"Blutzuckermessungen",@"Blutzucker Werte dieser Woche (mmol/l)", @"Blutdruck Werte dieser Woche (mmHg)", @"Puls Werte dieser Woche (s/min)", nil];
     UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonItemStylePlain target:self action:@selector(showInfo:)];
      UIBarButtonItem *exportButton = [[UIBarButtonItem alloc] initWithTitle:@"Export" style:UIBarButtonItemStylePlain target:self action:@selector(exportData:)];
     self.navigationItem.rightBarButtonItem = infoButton;
@@ -60,7 +60,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd.MM. - hh:mm"];
+    [dateFormat setDateFormat:@"dd.MM. - HH:mm"];
     static NSString *highLowCellIdentifier = @"HighLowCell";
     HighLowCell *cell = (HighLowCell *)[tableView dequeueReusableCellWithIdentifier:highLowCellIdentifier];
 
