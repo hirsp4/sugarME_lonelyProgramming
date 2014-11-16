@@ -23,7 +23,7 @@
 @synthesize managedObjectContext;
 @synthesize selectedRowText=_selectedRowText;
 
--(IBAction)EditData:(id)sender{
+-(IBAction)addBarcodeMaterial:(id)sender{
     NSLog(@"Tapped Edit Data");
 }
 
@@ -39,8 +39,16 @@
     self.title = @"Material";
     [self performFetches];
     
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Bearbeiten" style:UIBarButtonItemStyleDone target:self action:@selector(EditData:)];
-    [self.navigationItem setLeftBarButtonItem:editButton];
+    UIImage *barcodeImage = [[UIImage imageNamed:@"barcode.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+
+    UIButton *barcode = [UIButton buttonWithType:UIButtonTypeCustom];
+    [barcode addTarget:self
+               action:@selector(addBarcodeMaterial:)
+     forControlEvents:UIControlEventTouchUpInside];
+    barcode.bounds = CGRectMake( 0, 0, 36, 31);
+    [barcode setImage:barcodeImage forState:UIControlStateNormal];
+    UIBarButtonItem *barcodeButton = [[UIBarButtonItem alloc] initWithCustomView:barcode];
+    [self.navigationItem setLeftBarButtonItem:barcodeButton];
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStyleDone target:self action:@selector(AddData:)];
     [self.navigationItem setRightBarButtonItem:addButton];
