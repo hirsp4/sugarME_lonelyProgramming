@@ -14,7 +14,6 @@
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *materialNames;
-@property (strong, nonatomic) NSMutableArray *thumbs;
 @property (strong, nonatomic) NSString *selectedRowText;
 
 @end

@@ -9,5 +9,5 @@
 #import "Material.h"
 
 @implementation Material
-@dynamic name, image;
+@dynamic name;
 @end

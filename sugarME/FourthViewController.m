@@ -12,7 +12,6 @@
 
 @interface FourthViewController () {
     NSMutableArray *materialNames;
-    NSMutableArray *thumbs;
 }
 
 @end
@@ -21,7 +20,6 @@
 
 @synthesize tableView=_tableView;
 @synthesize materialNames=_materialNames;
-@synthesize thumbs=_thumbs;
 @synthesize managedObjectContext;
 @synthesize selectedRowText=_selectedRowText;
 
@@ -39,28 +37,16 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     self.title = @"Material";
+    [self performFetches];
     
-    
-    _materialNames = [ [NSMutableArray alloc] initWithObjects:
-                     @"Lantus Solostar Pen",
-                     @"Novofine 30G",
-                     @"Novorapid FlexTouch",
-                     @"Soft Zellin Alkoholtupfer",
-                     @"Accu-Check Aviva",
-                     nil];
-    
-    _thumbs = [ [NSMutableArray alloc] initWithObjects:
-              @"thumblantus.jpg",
-              @"thumbnovofine.jpg",
-              @"thumbnovo2.jpg",
-              @"thumbsoftzellin.jpg",
-              @"thumbaccucheck.jpg",
-              nil];
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Bearbeiten" style:UIBarButtonItemStyleDone target:self action:@selector(EditData:)];
     [self.navigationItem setLeftBarButtonItem:editButton];
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStyleDone target:self action:@selector(AddData:)];
     [self.navigationItem setRightBarButtonItem:addButton];
+}
+-(void) viewWillAppear:(BOOL)animated{
+    [self refreshTableView];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -84,7 +70,6 @@
     
     cell.textLabel.text = [_materialNames objectAtIndex:indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.imageView.image = [UIImage imageNamed:[_thumbs objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -113,6 +98,7 @@
 
 -(void)performFetches{
     // Material Daten lesen.
+    _materialNames=[[NSMutableArray alloc]initWithObjects:nil];
     NSFetchRequest *fetchRequestMaterial = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"Material" inManagedObjectContext:managedObjectContext];
@@ -121,8 +107,11 @@
     NSArray *result = [managedObjectContext executeFetchRequest:fetchRequestMaterial error:&error];
     for(NSManagedObject *obj in result){
         [_materialNames addObject:[obj valueForKey:@"name"]];
-        [_thumbs addObject:[obj valueForKey:@"image"]];
     }
+}
+-(void)refreshTableView{
+    [self performFetches];
+    [_tableView reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

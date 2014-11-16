@@ -9,6 +9,5 @@
 #import <CoreData/CoreData.h>
 
 @interface Material : NSManagedObject
-@property NSData *image;
 @property NSString *name;
 @end

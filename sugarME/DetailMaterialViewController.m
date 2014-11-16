@@ -75,7 +75,7 @@
     if (indexPath.section==0) {
         cell.textLabel.text = [materialInformations objectAtIndex:indexPath.row];
         if (indexPath.row == 0) {
-            cell.detailTextLabel.text = self.title;
+            cell.detailTextLabel.text = self.navigationItem.title;
         }
         else if (indexPath.row == 1){
             cell.detailTextLabel.text = @"4 Einheiten";

@@ -48,6 +48,7 @@
 		EFD35D0C1A1607DF009A02AC /* HbA1c.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0B1A1607DF009A02AC /* HbA1c.m */; };
 		EFD35D0F1A160A52009A02AC /* AddHbA1cViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0E1A160A52009A02AC /* AddHbA1cViewController.m */; };
 		EFD35D121A160FED009A02AC /* AmpelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D111A160FED009A02AC /* AmpelView.m */; };
+		EFE720461A18DD2B00F7E637 /* AddMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE720451A18DD2B00F7E637 /* AddMaterialViewController.m */; };
 		EFEADD2C1A037B1F001332C7 /* MeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */; };
 		EFF89A681A06415700398332 /* sugarmeDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A661A06415700398332 /* sugarmeDB.xcdatamodeld */; };
 		EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A6B1A06428B00398332 /* Blutzucker.m */; };
@@ -140,6 +141,8 @@
 		EFD35D0E1A160A52009A02AC /* AddHbA1cViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHbA1cViewController.m; sourceTree = "<group>"; };
 		EFD35D101A160FED009A02AC /* AmpelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmpelView.h; sourceTree = "<group>"; };
 		EFD35D111A160FED009A02AC /* AmpelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmpelView.m; sourceTree = "<group>"; };
+		EFE720441A18DD2B00F7E637 /* AddMaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMaterialViewController.h; sourceTree = "<group>"; };
+		EFE720451A18DD2B00F7E637 /* AddMaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMaterialViewController.m; sourceTree = "<group>"; };
 		EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureCell.xib; sourceTree = "<group>"; };
 		EFF89A671A06415700398332 /* sugarmeDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sugarmeDB.xcdatamodel; sourceTree = "<group>"; };
 		EFF89A6A1A06428B00398332 /* Blutzucker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blutzucker.h; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				EF68ECBB1A02CF2B00AD9663 /* FourthViewController.m */,
 				EF869B6E1A18CBCC00D9F02A /* DetailMaterialViewController.h */,
 				EF869B6F1A18CBCC00D9F02A /* DetailMaterialViewController.m */,
+				EFE720441A18DD2B00F7E637 /* AddMaterialViewController.h */,
+				EFE720451A18DD2B00F7E637 /* AddMaterialViewController.m */,
 			);
 			name = Material;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				EF68ECBF1A02D15900AD9663 /* TabBarController.m in Sources */,
 				EF68ECBC1A02CF2B00AD9663 /* FourthViewController.m in Sources */,
 				EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */,
+				EFE720461A18DD2B00F7E637 /* AddMaterialViewController.m in Sources */,
 				EFD35D121A160FED009A02AC /* AmpelView.m in Sources */,
 				EF68EC9A1A02CB8600AD9663 /* SecondViewController.m in Sources */,
 				EF92FFD61A02E763000AAE45 /* HighLowCell.m in Sources */,
