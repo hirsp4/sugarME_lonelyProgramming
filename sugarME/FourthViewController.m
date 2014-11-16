@@ -82,6 +82,13 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remove the deleted object from your data source.
         //If your data source is an NSMutableArray, do this
+        NSFetchRequest *fetchRequestMaterial = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription
+                                       entityForName:@"Material" inManagedObjectContext:managedObjectContext];
+        [fetchRequestMaterial setEntity:entity];
+        NSError *error;
+        NSArray *result = [managedObjectContext executeFetchRequest:fetchRequestMaterial error:&error];
+        [managedObjectContext deleteObject:[result objectAtIndex:indexPath.row]];
         [_materialNames removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     }
