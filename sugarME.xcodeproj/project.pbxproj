@@ -36,6 +36,8 @@
 		EF68ECD71A02D82F00AD9663 /* hba1c@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECD51A02D82F00AD9663 /* hba1c@2x.png */; };
 		EF7163B61A04365700CDF001 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7163B51A04365700CDF001 /* ExportViewController.m */; };
 		EF7163B81A04382300CDF001 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7163B71A04382300CDF001 /* MessageUI.framework */; };
+		EF869B701A18CBCC00D9F02A /* DetailMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF869B6F1A18CBCC00D9F02A /* DetailMaterialViewController.m */; };
+		EF869B721A18CD9900D9F02A /* thumblantus-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF869B711A18CD9900D9F02A /* thumblantus-1.jpg */; };
 		EF92FFD31A02E541000AAE45 /* HighLowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF92FFD21A02E541000AAE45 /* HighLowCell.xib */; };
 		EF92FFD61A02E763000AAE45 /* HighLowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF92FFD51A02E763000AAE45 /* HighLowCell.m */; };
 		EF92FFDB1A02EF0F000AAE45 /* MeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF92FFDA1A02EF0F000AAE45 /* MeasureCell.m */; };
@@ -118,6 +120,9 @@
 		EF7163B41A04365700CDF001 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		EF7163B51A04365700CDF001 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
 		EF7163B71A04382300CDF001 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EF869B6E1A18CBCC00D9F02A /* DetailMaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMaterialViewController.h; sourceTree = "<group>"; };
+		EF869B6F1A18CBCC00D9F02A /* DetailMaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMaterialViewController.m; sourceTree = "<group>"; };
+		EF869B711A18CD9900D9F02A /* thumblantus-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "thumblantus-1.jpg"; sourceTree = "<group>"; };
 		EF92FFD21A02E541000AAE45 /* HighLowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighLowCell.xib; sourceTree = "<group>"; };
 		EF92FFD41A02E763000AAE45 /* HighLowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighLowCell.h; sourceTree = "<group>"; };
 		EF92FFD51A02E763000AAE45 /* HighLowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighLowCell.m; sourceTree = "<group>"; };
@@ -211,6 +216,8 @@
 			children = (
 				EF68ECBA1A02CF2B00AD9663 /* FourthViewController.h */,
 				EF68ECBB1A02CF2B00AD9663 /* FourthViewController.m */,
+				EF869B6E1A18CBCC00D9F02A /* DetailMaterialViewController.h */,
+				EF869B6F1A18CBCC00D9F02A /* DetailMaterialViewController.m */,
 			);
 			name = Material;
 			sourceTree = "<group>";
@@ -303,6 +310,7 @@
 				EF68ECC41A02D46400AD9663 /* home@2x.png */,
 				EFFFA2051A14B782003D55D7 /* sugarMElogo.png */,
 				EFFFA20C1A14BAEB003D55D7 /* barcode.png */,
+				EF869B711A18CD9900D9F02A /* thumblantus-1.jpg */,
 				EFFFA2071A14BAE7003D55D7 /* thumbnovo2.jpg */,
 				EFFFA20F1A14BAEF003D55D7 /* thumbsoftzellin.jpg */,
 				EFFFA2131A14BD85003D55D7 /* thumbaccucheck.jpg */,
@@ -455,6 +463,7 @@
 				EFFFA20E1A14BAEB003D55D7 /* barcode.png in Resources */,
 				EF1915C51A04052D00605B73 /* EmptyCell.xib in Resources */,
 				EF68ECD71A02D82F00AD9663 /* hba1c@2x.png in Resources */,
+				EF869B721A18CD9900D9F02A /* thumblantus-1.jpg in Resources */,
 				EFFFA20A1A14BAE7003D55D7 /* thumblantus.jpg in Resources */,
 				EFFFA2021A14B315003D55D7 /* bfh-logo.png in Resources */,
 				EFFFA2061A14B782003D55D7 /* sugarMElogo.png in Resources */,
@@ -487,6 +496,7 @@
 				EF1915C81A04056B00605B73 /* EmptyCell.m in Sources */,
 				EF92FFDB1A02EF0F000AAE45 /* MeasureCell.m in Sources */,
 				EF68ECC21A02D2EC00AD9663 /* FifthViewController.m in Sources */,
+				EF869B701A18CBCC00D9F02A /* DetailMaterialViewController.m in Sources */,
 				EF68ECBF1A02D15900AD9663 /* TabBarController.m in Sources */,
 				EF68ECBC1A02CF2B00AD9663 /* FourthViewController.m in Sources */,
 				EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */,

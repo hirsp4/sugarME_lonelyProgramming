@@ -2,8 +2,8 @@
 //  FourthViewController.h
 //  sugarME
 //
-//  Created by Fresh Prince on 30.10.14.
-//  Copyright (c) 2014 Berner Fachhochschule. All rights reserved.
+//  Created by Maja Kelterborn on 13.11.14.
+//  Copyright (c) 2014 Maja Kelterborn. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -15,6 +15,7 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *materialNames;
 @property (strong, nonatomic) NSMutableArray *thumbs;
+@property (strong, nonatomic) NSString *selectedRowText;
 
 @end
 

@@ -2,12 +2,13 @@
 //  FourthViewController.m
 //  sugarME
 //
-//  Created by Fresh Prince on 30.10.14.
-//  Copyright (c) 2014 Berner Fachhochschule. All rights reserved.
+//  Created by Maja Kelterborn on 13.11.14.
+//  Copyright (c) 2014 Maja Kelterborn. All rights reserved.
 //
 
 #import "FourthViewController.h"
 #import "AppDelegate.h"
+#import "DetailMaterialViewController.h"
 
 @interface FourthViewController () {
     NSMutableArray *materialNames;
@@ -22,6 +23,7 @@
 @synthesize materialNames=_materialNames;
 @synthesize thumbs=_thumbs;
 @synthesize managedObjectContext;
+@synthesize selectedRowText=_selectedRowText;
 
 -(IBAction)EditData:(id)sender{
     NSLog(@"Tapped Edit Data");
@@ -99,6 +101,10 @@
         [tableView reloadData]; // tell table to refresh now
     }
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _selectedRowText = [_materialNames objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"showMaterialDetail_segue" sender:self];
+}
 
 -(void)didReceiveMemoryWarning
 {
@@ -116,6 +122,19 @@
     for(NSManagedObject *obj in result){
         [_materialNames addObject:[obj valueForKey:@"name"]];
         [_thumbs addObject:[obj valueForKey:@"image"]];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showMaterialDetail_segue"]) {
+        
+        // Get destination view
+        DetailMaterialViewController *vc = [segue destinationViewController];
+        
+        
+        // Pass the information to your destination view
+        vc.navigationItem.title=_selectedRowText;
     }
 }
 
