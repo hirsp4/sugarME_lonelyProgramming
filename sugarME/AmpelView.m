@@ -28,6 +28,20 @@
     CGContextFillRect(context, rectangle);
     CGContextStrokeRect(context, rectangle);
     
+    CGRect rectangle2 = CGRectMake(50, 250, 30, 20);
+    context = UIGraphicsGetCurrentContext();
+    CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0,1.0);
+    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 0.5);
+    CGContextFillRect(context, rectangle2);
+    CGContextStrokeRect(context, rectangle2);
+    
+    CGRect rectangle3 = CGRectMake(60, 270, 10, 40);
+    context = UIGraphicsGetCurrentContext();
+    CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0,1.0);
+    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 0.5);
+    CGContextFillRect(context, rectangle3);
+    CGContextStrokeRect(context, rectangle3);
+        
     int radius = 20;
     CAShapeLayer *circle = [CAShapeLayer layer];
     circle.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius)
@@ -35,7 +49,6 @@
     circle.position = CGPointMake(45,
                                   95);
     
-    circle.fillColor = [UIColor redColor].CGColor;
     circle.strokeColor = [UIColor blackColor].CGColor;
     circle.lineWidth = 1;
     
@@ -45,7 +58,6 @@
     circle2.position = CGPointMake(45,
                                   145);
     
-    circle2.fillColor = [UIColor yellowColor].CGColor;
     circle2.strokeColor = [UIColor blackColor].CGColor;
     circle2.lineWidth = 1;
     
@@ -55,10 +67,21 @@
     circle3.position = CGPointMake(45,
                                   195);
     
-    circle3.fillColor = [UIColor greenColor].CGColor;
     circle3.strokeColor = [UIColor blackColor].CGColor;
     circle3.lineWidth = 1;
-    
+    if([[[self.hba1cValues firstObject]valueForKey:@"value"]integerValue]>10){
+        circle.fillColor = [UIColor redColor].CGColor;
+        circle2.fillColor = [UIColor lightGrayColor].CGColor;
+        circle3.fillColor = [UIColor lightGrayColor].CGColor;
+    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]integerValue]<8){
+        circle.fillColor = [UIColor lightGrayColor].CGColor;
+        circle2.fillColor = [UIColor lightGrayColor].CGColor;
+        circle3.fillColor = [UIColor greenColor].CGColor;
+    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]integerValue]>=8 && [[[self.hba1cValues firstObject]valueForKey:@"value"]integerValue]<=10){
+        circle.fillColor = [UIColor lightGrayColor].CGColor;
+        circle2.fillColor = [UIColor yellowColor].CGColor;
+        circle3.fillColor = [UIColor lightGrayColor].CGColor;
+    }
     [self.layer addSublayer:circle];
     [self.layer addSublayer:circle2];
     [self.layer addSublayer:circle3];

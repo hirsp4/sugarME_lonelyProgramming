@@ -370,7 +370,7 @@ E: info@bfh.ch</string>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXk-ny-KNt" customClass="AmpelView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="260"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
