@@ -17,7 +17,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd.MM. - HH:mm"];
+    [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm"];
     [self performFetches];
 
     
@@ -69,15 +69,15 @@
     
     circle3.strokeColor = [UIColor blackColor].CGColor;
     circle3.lineWidth = 1;
-    if([[[self.hba1cValues firstObject]valueForKey:@"value"]integerValue]>10){
+    if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>10.0f){
         circle.fillColor = [UIColor redColor].CGColor;
         circle2.fillColor = [UIColor lightGrayColor].CGColor;
         circle3.fillColor = [UIColor lightGrayColor].CGColor;
-    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]integerValue]<8){
+    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]<8.0f){
         circle.fillColor = [UIColor lightGrayColor].CGColor;
         circle2.fillColor = [UIColor lightGrayColor].CGColor;
         circle3.fillColor = [UIColor greenColor].CGColor;
-    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]integerValue]>=8 && [[[self.hba1cValues firstObject]valueForKey:@"value"]integerValue]<=10){
+    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>=8.0f && [[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]<=10.0f){
         circle.fillColor = [UIColor lightGrayColor].CGColor;
         circle2.fillColor = [UIColor yellowColor].CGColor;
         circle3.fillColor = [UIColor lightGrayColor].CGColor;
@@ -96,10 +96,18 @@
     NSString *theText = [NSString stringWithFormat:@"%@", @"Gemessen am: "];
     CGContextShowTextAtPoint(context, 168,205, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
     NSString *theText3=[[NSString stringWithFormat:@"%@", [dateFormat stringFromDate:[[self.hba1cValues firstObject]valueForKey:@"date"]]]stringByAppendingString:@" Uhr"];
-    CGContextShowTextAtPoint(context, 158,220, [theText3 cStringUsingEncoding:NSUTF8StringEncoding], [theText3 length]);
-    CGContextSelectFont(context, "Helvetica", 30, kCGEncodingMacRoman);
+    CGContextShowTextAtPoint(context, 145,220, [theText3 cStringUsingEncoding:NSUTF8StringEncoding], [theText3 length]);
+    CGContextSelectFont(context, "Helvetica-Bold", 30, kCGEncodingMacRoman);
     NSString *theText2 = [[NSString stringWithFormat:@"%@", [[self.hba1cValues firstObject]valueForKey:@"value"]]stringByAppendingString:@"%"];
     CGContextShowTextAtPoint(context, 178,180, [theText2 cStringUsingEncoding:NSUTF8StringEncoding], [theText2 length]);
+    
+    CGContextSelectFont(context, "Helvetica", 10, kCGEncodingMacRoman);
+    NSString *skala = [NSString stringWithFormat:@"%@", @"rot:  >10%"];
+    CGContextShowTextAtPoint(context, 220,280, [skala cStringUsingEncoding:NSUTF8StringEncoding], [skala length]);
+    NSString *skala1 = [NSString stringWithFormat:@"%@", @"gelb: >8% und <10%"];
+    CGContextShowTextAtPoint(context, 220,295, [skala1 cStringUsingEncoding:NSUTF8StringEncoding], [skala1 length]);
+    NSString *skala2 = [NSString stringWithFormat:@"%@", @"gruen: <8%"];
+    CGContextShowTextAtPoint(context, 220,310, [skala2 cStringUsingEncoding:NSUTF8StringEncoding], [skala2 length]);
     
 }
 -(void) performFetches{
