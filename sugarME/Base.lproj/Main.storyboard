@@ -482,31 +482,25 @@ E: info@bfh.ch</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Material" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-ZX-rfT">
-                                <rect key="frame" x="203" y="191" width="98" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFe-9K-If3">
-                                <rect key="frame" x="203" y="226" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBY-db-BEu">
-                                <rect key="frame" x="203" y="270" width="70" height="30"/>
-                                <state key="normal" title="Speichern">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-Cl-emR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="saveMaterial:" destination="Ye6-Ex-biI" eventType="touchUpInside" id="ovv-RU-ER7"/>
+                                    <outlet property="dataSource" destination="Ye6-Ex-biI" id="mQc-Kc-vdK"/>
+                                    <outlet property="delegate" destination="Ye6-Ex-biI" id="j4l-9b-JEx"/>
                                 </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sNq-Cl-emR" firstAttribute="bottom" secondItem="aeb-6U-R3G" secondAttribute="top" id="LqY-L7-iog"/>
+                            <constraint firstItem="sNq-Cl-emR" firstAttribute="top" secondItem="Lcl-hv-yFO" secondAttribute="top" id="mij-AE-f6Q"/>
+                            <constraint firstItem="sNq-Cl-emR" firstAttribute="leading" secondItem="Lcl-hv-yFO" secondAttribute="leading" id="qvC-es-FEF"/>
+                            <constraint firstAttribute="trailing" secondItem="sNq-Cl-emR" secondAttribute="trailing" id="tw7-B9-IzT"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="materialText" destination="JFe-9K-If3" id="sNh-UE-Jl2"/>
+                        <outlet property="tableView" destination="sNq-Cl-emR" id="ALt-CP-kO0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvy-dG-eqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
