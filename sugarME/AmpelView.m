@@ -82,6 +82,11 @@
         circle2.fillColor = [UIColor yellowColor].CGColor;
         circle3.fillColor = [UIColor lightGrayColor].CGColor;
     }
+    if(self.hba1cValues.count==0){
+        circle.fillColor = [UIColor lightGrayColor].CGColor;
+        circle2.fillColor = [UIColor lightGrayColor].CGColor;
+        circle3.fillColor = [UIColor lightGrayColor].CGColor;
+    }
     [self.layer addSublayer:circle];
     [self.layer addSublayer:circle2];
     [self.layer addSublayer:circle3];
@@ -92,6 +97,7 @@
     CGContextSelectFont(context, "Helvetica", 20, kCGEncodingMacRoman);
     NSString *theText1 = [NSString stringWithFormat:@"%@", @"Letzter Wert:"];
     CGContextShowTextAtPoint(context, 150,140, [theText1 cStringUsingEncoding:NSUTF8StringEncoding], [theText1 length]);
+    if (self.hba1cValues.count!=0) {
     CGContextSelectFont(context, "Helvetica", 12, kCGEncodingMacRoman);
     NSString *theText = [NSString stringWithFormat:@"%@", @"Gemessen am: "];
     CGContextShowTextAtPoint(context, 168,205, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
@@ -108,6 +114,8 @@
     CGContextShowTextAtPoint(context, 220,295, [skala1 cStringUsingEncoding:NSUTF8StringEncoding], [skala1 length]);
     NSString *skala2 = [NSString stringWithFormat:@"%@", @"gruen: <8%"];
     CGContextShowTextAtPoint(context, 220,310, [skala2 cStringUsingEncoding:NSUTF8StringEncoding], [skala2 length]);
+    }
+
     
 }
 -(void) performFetches{

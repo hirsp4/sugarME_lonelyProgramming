@@ -18,6 +18,7 @@
 
 #define kBarTop 10
 #define kBarWidth 20
+#define kCircleRadius 3
 
 @interface GraphView : UIView
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
