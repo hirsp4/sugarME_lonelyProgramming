@@ -87,6 +87,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.managedObjectContext = [appDelegate managedObjectContext];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remove the deleted object from your data source.
         //If your data source is an NSMutableArray, do this
@@ -97,6 +99,7 @@
         NSError *error;
         NSArray *result = [managedObjectContext executeFetchRequest:fetchRequestMaterial error:&error];
         [managedObjectContext deleteObject:[result objectAtIndex:indexPath.row]];
+        [appDelegate.managedObjectContext save:&error];
         [_materialNames removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     }

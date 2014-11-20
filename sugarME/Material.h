@@ -10,4 +10,7 @@
 
 @interface Material : NSManagedObject
 @property NSString *name;
+@property NSString *dosis;
+@property NSString *mengeSchachtel;
+@property NSString *mengeAktuell;
 @end

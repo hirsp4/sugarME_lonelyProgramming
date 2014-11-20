@@ -10,4 +10,7 @@
 
 @implementation Material
 @dynamic name;
+@dynamic dosis;
+@dynamic mengeSchachtel;
+@dynamic mengeAktuell;
 @end

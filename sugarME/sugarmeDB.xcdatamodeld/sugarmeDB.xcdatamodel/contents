@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Blutdruck" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dia" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,6 +18,9 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Material" syncable="YES">
+        <attribute name="dosis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mengeAktuell" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mengeSchachtel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Puls" syncable="YES">
@@ -29,7 +32,7 @@
         <element name="Blutdruck" positionX="54" positionY="36" width="128" height="105"/>
         <element name="Blutzucker" positionX="-90" positionY="-72" width="128" height="118"/>
         <element name="HbA1c" positionX="106" positionY="191" width="128" height="73"/>
-        <element name="Material" positionX="-81" positionY="222" width="128" height="58"/>
+        <element name="Material" positionX="-119" positionY="99" width="128" height="103"/>
         <element name="Puls" positionX="142" positionY="-144" width="128" height="88"/>
     </elements>
 </model>

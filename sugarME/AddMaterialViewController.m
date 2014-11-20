@@ -7,6 +7,8 @@
 //
 
 #import "AddMaterialViewController.h"
+#import "Material.h"
+#import "AppDelegate.h"
 
 @interface AddMaterialViewController () {
     NSArray *materialInformations;
@@ -17,14 +19,62 @@
 
 @implementation AddMaterialViewController
 
-@synthesize tableView;
+@synthesize tableView,managedObjectContext;
 
 -(IBAction)SaveData:(id)sender{
-    NSLog(@"Tapped Save Data");
+    UITextField *nameField,*dosisField,*mengeSchachtelField,*mengeAktuellField;
+    NSString *name,*dosis,*mengeSchachtel,*mengeAktuell;
+    for (int section = 0; section < 2; section++)
+    {
+        for(int row = 0; row < 2; row++)
+        {
+            UITableViewCell *nomeCell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+            if(section==0&&row==0){
+                 nameField=(UITextField*)[nomeCell.contentView viewWithTag:100];
+                name=nameField.text;
+            }
+            if(section==0&&row==1){
+                 dosisField=(UITextField*)[nomeCell.contentView viewWithTag:101];
+                dosis=dosisField.text;
+            }
+            if(section==1&&row==0){
+                 mengeSchachtelField=(UITextField*)[nomeCell.contentView viewWithTag:102];
+                mengeSchachtel=mengeSchachtelField.text;
+            }
+            if(section==1&&row==1){
+                 mengeAktuellField=(UITextField*)[nomeCell.contentView viewWithTag:103];
+                mengeAktuell=mengeAktuellField.text;
+            }
+        }
+    }
+    Material  *materialObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Material"
+                                                        inManagedObjectContext:self.managedObjectContext];
+    [materialObjekt setValue:name forKey:@"name"];
+    [materialObjekt setValue:dosis forKey:@"dosis"];
+     [materialObjekt setValue:mengeSchachtel forKey:@"mengeSchachtel"];
+     [materialObjekt setValue:mengeAktuell forKey:@"mengeAktuell"];
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Failed to save - error: %@", [error localizedDescription]);
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Speichern erfolgreich"
+                                                        message:@"Die eingegebenen Daten wurden erfolgreich gespeichert"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        [self.managedObjectContext processPendingChanges];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.managedObjectContext = [appDelegate managedObjectContext];
+
     
     self.title= @"Neues Material";
     
@@ -89,13 +139,14 @@
         
         if ([indexPath section] == 0) {
             UITextField *tableTextField = [[UITextField alloc] initWithFrame:CGRectMake(18, 10, 350, 30)];
+            tableTextField.delegate =self;
             tableTextField.adjustsFontSizeToFitWidth = YES;
             tableTextField.textColor = [UIColor blackColor];
             tableTextField.backgroundColor = [UIColor whiteColor];
             tableTextField.autocorrectionType = UITextAutocorrectionTypeNo;
             tableTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
             tableTextField.textAlignment = UITextAlignmentLeft;
-            tableTextField.tag = 0;
+            tableTextField.tag = 100;
             tableTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
             [tableTextField setEnabled: YES];
             
@@ -109,6 +160,7 @@
             else if ([indexPath row] == 1) {
                 tableTextField.placeholder = [materialInformations objectAtIndex:indexPath.row];                 tableTextField.keyboardType = UIKeyboardTypeAlphabet;
                 tableTextField.returnKeyType = UIReturnKeyNext;
+                tableTextField.tag = 101;
                 [cell.contentView addSubview:tableTextField];
             }
         }
@@ -122,7 +174,7 @@
             table1TextField.autocorrectionType = UITextAutocorrectionTypeNo;
             table1TextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
             table1TextField.textAlignment = UITextAlignmentLeft;
-            table1TextField.tag = 0;
+            table1TextField.tag = 102;
             table1TextField.clearButtonMode = UITextFieldViewModeWhileEditing;
             [table1TextField setEnabled: YES];
             
@@ -133,6 +185,7 @@
             }
             else if ([indexPath row] == 1) {
                 table1TextField.placeholder = [materialDetailInformations objectAtIndex:indexPath.row];                 table1TextField.keyboardType = UIKeyboardTypeDecimalPad;
+                table1TextField.tag = 103;
                 [cell.contentView addSubview:table1TextField];
             }
             else if ([indexPath row] == 2){
@@ -148,6 +201,7 @@
                 table2TextField.clearButtonMode = UITextFieldViewModeWhileEditing;
                 table2TextField.returnKeyType = UIReturnKeyNext;
                 table2TextField.textAlignment = UITextAlignmentRight;
+                table2TextField.tag = 104;
                 [table2TextField setEnabled: YES];
                 [cell.contentView addSubview:table2TextField];
             }
@@ -159,6 +213,7 @@
                 table2TextField.clearButtonMode = UITextFieldViewModeWhileEditing;
                 table2TextField.returnKeyType = UIReturnKeyNext;
                 table2TextField.textAlignment = UITextAlignmentRight;
+                table2TextField.tag = 105;
                 [table2TextField setEnabled: YES];
                 [cell.contentView addSubview:table2TextField];
             }
@@ -174,6 +229,7 @@
     return cell;
     
 }
+
 -(void)dismissKeyboard {
 [self.view endEditing:YES];
 }

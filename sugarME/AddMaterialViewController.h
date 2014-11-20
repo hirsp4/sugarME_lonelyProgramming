@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddMaterialViewController : UIViewController
+@interface AddMaterialViewController : UIViewController<UITextFieldDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property NSMutableArray *dataArray;
-
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @end
