@@ -40,11 +40,11 @@
     CGContextSetStrokeColorWithColor(ctx, [[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0] CGColor]);
     int maxGraphHeight = kGraphHeight - kOffsetY;
     CGContextBeginPath(ctx);
-    CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject]valueForKey:@"value"]floatValue]/9.0f));
+    CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject]valueForKey:@"value"]floatValue]/18.0f));
     int i=0;
     for (NSManagedObject *obj in blutzuckerValues)
     {
-        CGContextAddLineToPoint(ctx, kOffsetX + i * kStepX, kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/9.0f)-9);
+        CGContextAddLineToPoint(ctx, kOffsetX + i * kStepX, kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f)-9);
         i++;
     }
     
@@ -54,7 +54,7 @@
     for (NSManagedObject *obj in blutzuckerValues)
     {
         float x = kOffsetX + i * kStepX;
-        float y = kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/9.0f);
+        float y = kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f);
         CGRect rect = CGRectMake(x - kCircleRadius, y - kCircleRadius-9, 2 * kCircleRadius, 2 * kCircleRadius);
         CGContextAddEllipseInRect(ctx, rect);
         i++;
@@ -69,7 +69,7 @@
     for (NSManagedObject *obj in blutzuckerValues)
     {
         float x = kOffsetX + i * kStepX;
-        float y = kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/9.0f);
+        float y = kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f);
         CGContextSelectFont(ctx, "Helvetica", 10, kCGEncodingMacRoman);
         NSString *theText = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:[obj valueForKey:@"date"]]];
         CGContextShowTextAtPoint(ctx, kOffsetX -9 + i* kStepX, kGraphBottom+3, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
@@ -79,14 +79,14 @@
         i++;
     }
     
-    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.3] CGColor]);
+    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.2] CGColor]);
     CGContextBeginPath(ctx);
     CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight-10);
-    CGContextAddLineToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject] valueForKey:@"value"]floatValue]/9.0f));
+    CGContextAddLineToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject] valueForKey:@"value"]floatValue]/18.0f));
     i=0;
     for (NSManagedObject *obj in blutzuckerValues)
     {
-        CGContextAddLineToPoint(ctx, kOffsetX + i * kStepX, kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/9.0f)-9);
+        CGContextAddLineToPoint(ctx, kOffsetX + i * kStepX, kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f)-9);
         i++;
     }
     CGContextAddLineToPoint(ctx, kOffsetX + (blutzuckerValues.count - 1) * kStepX, kGraphHeight-10);
@@ -118,12 +118,19 @@
     }
     CGContextStrokePath(context);
     CGContextSetLineDash(context, 0, NULL, 0);
-    CGContextSetLineWidth(context,1.2);
+    CGContextSetLineWidth(context,1.4);
+    CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - normalLowValue * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - normalLowValue * kStepY);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
+    CGContextStrokePath(context);
     CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - 3.5 * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - 3.5 * kStepY);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - 5.7 * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - 5.7 * kStepY);
+    CGContextSetLineDash(context, 0.0, dash, 2);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
     CGContextStrokePath(context);
     CGContextSetLineWidth(context,2.0);
     CGContextSetLineDash(context, 0, NULL, 0);

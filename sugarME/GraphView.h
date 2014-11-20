@@ -13,12 +13,16 @@
 #define kStepX 30
 #define kGraphBottom 280
 #define kGraphTop 0
-#define kStepY 30
+#define kStepY 15
 #define kOffsetY 10
 
 #define kBarTop 10
 #define kBarWidth 20
-#define kCircleRadius 3
+#define kCircleRadius 2
+#define dangerousHighValue 15
+#define dangerousLowValue 2
+#define normalHighValue 5.7
+#define normalLowValue 3.5
 
 @interface GraphView : UIView
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
