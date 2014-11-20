@@ -22,5 +22,5 @@
 
 @interface GraphView : UIView
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSArray *blutzuckerValues;
+@property (nonatomic, strong) NSMutableArray *blutzuckerValues;
 @end

@@ -125,12 +125,6 @@
     CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - 5.7 * kStepY);
     CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - 5.7 * kStepY);
     CGContextStrokePath(context);
-    CGContextSetLineDash(context, 0.0, dash, 2);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - 2.0 * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - 2.0 * kStepY);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - 7.2 * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - 7.2 * kStepY);
-    CGContextStrokePath(context);
     CGContextSetLineWidth(context,2.0);
     CGContextSetLineDash(context, 0, NULL, 0);
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
@@ -178,9 +172,14 @@
                                    entityForName:@"Blutzucker" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError *error;
-    self.blutzuckerValues = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSArray *tempArray;
+    tempArray = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     NSSortDescriptor* sortByDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
-    self.blutzuckerValues=[self.blutzuckerValues sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByDate]];
+    tempArray=[tempArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByDate]];
+    self.blutzuckerValues=[[NSMutableArray alloc] initWithArray:tempArray];
+    while (self.blutzuckerValues.count>10) {
+        [self.blutzuckerValues removeObjectAtIndex:0];
+    }
 }
 
 
