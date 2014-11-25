@@ -36,6 +36,10 @@
 		EF68ECD71A02D82F00AD9663 /* hba1c@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF68ECD51A02D82F00AD9663 /* hba1c@2x.png */; };
 		EF7163B61A04365700CDF001 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7163B51A04365700CDF001 /* ExportViewController.m */; };
 		EF7163B81A04382300CDF001 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7163B71A04382300CDF001 /* MessageUI.framework */; };
+		EF867F151A24C3C800D3D1EA /* blutzucker.png in Resources */ = {isa = PBXBuildFile; fileRef = EF867F141A24C3C800D3D1EA /* blutzucker.png */; };
+		EF867F171A24C4DE00D3D1EA /* pulsimage.png in Resources */ = {isa = PBXBuildFile; fileRef = EF867F161A24C4DE00D3D1EA /* pulsimage.png */; };
+		EF867F191A24C58500D3D1EA /* pulsimage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF867F181A24C58500D3D1EA /* pulsimage2.jpg */; };
+		EF867F1B1A24C70C00D3D1EA /* blutdruckmesser-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF867F1A1A24C70C00D3D1EA /* blutdruckmesser-2.jpg */; };
 		EF869B701A18CBCC00D9F02A /* DetailMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF869B6F1A18CBCC00D9F02A /* DetailMaterialViewController.m */; };
 		EF869B721A18CD9900D9F02A /* thumblantus-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF869B711A18CD9900D9F02A /* thumblantus-1.jpg */; };
 		EF92FFD31A02E541000AAE45 /* HighLowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF92FFD21A02E541000AAE45 /* HighLowCell.xib */; };
@@ -44,6 +48,7 @@
 		EF92FFDF1A02F5CB000AAE45 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF92FFDE1A02F5CB000AAE45 /* UserCell.xib */; };
 		EF92FFE11A02F6A0000AAE45 /* user-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92FFE01A02F6A0000AAE45 /* user-icon.png */; };
 		EF92FFE41A02F764000AAE45 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF92FFE31A02F764000AAE45 /* UserCell.m */; };
+		EFB325C81A24E9280043C718 /* hba1cimage.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB325C71A24E9280043C718 /* hba1cimage.png */; };
 		EFBF64F81A0A312A00D31A8B /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF64F71A0A312A00D31A8B /* GraphView.m */; };
 		EFD35D0C1A1607DF009A02AC /* HbA1c.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0B1A1607DF009A02AC /* HbA1c.m */; };
 		EFD35D0F1A160A52009A02AC /* AddHbA1cViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0E1A160A52009A02AC /* AddHbA1cViewController.m */; };
@@ -121,6 +126,10 @@
 		EF7163B41A04365700CDF001 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		EF7163B51A04365700CDF001 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
 		EF7163B71A04382300CDF001 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EF867F141A24C3C800D3D1EA /* blutzucker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blutzucker.png; sourceTree = "<group>"; };
+		EF867F161A24C4DE00D3D1EA /* pulsimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulsimage.png; sourceTree = "<group>"; };
+		EF867F181A24C58500D3D1EA /* pulsimage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pulsimage2.jpg; sourceTree = "<group>"; };
+		EF867F1A1A24C70C00D3D1EA /* blutdruckmesser-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blutdruckmesser-2.jpg"; sourceTree = "<group>"; };
 		EF869B6E1A18CBCC00D9F02A /* DetailMaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMaterialViewController.h; sourceTree = "<group>"; };
 		EF869B6F1A18CBCC00D9F02A /* DetailMaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMaterialViewController.m; sourceTree = "<group>"; };
 		EF869B711A18CD9900D9F02A /* thumblantus-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "thumblantus-1.jpg"; sourceTree = "<group>"; };
@@ -133,6 +142,7 @@
 		EF92FFE01A02F6A0000AAE45 /* user-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-icon.png"; sourceTree = "<group>"; };
 		EF92FFE21A02F764000AAE45 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		EF92FFE31A02F764000AAE45 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		EFB325C71A24E9280043C718 /* hba1cimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hba1cimage.png; sourceTree = "<group>"; };
 		EFBF64F61A0A312A00D31A8B /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		EFBF64F71A0A312A00D31A8B /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		EFD35D0A1A1607DF009A02AC /* HbA1c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HbA1c.h; sourceTree = "<group>"; };
@@ -310,14 +320,19 @@
 			children = (
 				EF92FFE01A02F6A0000AAE45 /* user-icon.png */,
 				EFFFA2011A14B315003D55D7 /* bfh-logo.png */,
+				EF867F1A1A24C70C00D3D1EA /* blutdruckmesser-2.jpg */,
 				EF68ECD01A02D78A00AD9663 /* tools@2x.png */,
 				EF68ECD11A02D78A00AD9663 /* tools.png */,
+				EF867F181A24C58500D3D1EA /* pulsimage2.jpg */,
 				EF68ECC41A02D46400AD9663 /* home@2x.png */,
 				EFFFA2051A14B782003D55D7 /* sugarMElogo.png */,
 				EFFFA20C1A14BAEB003D55D7 /* barcode.png */,
 				EF869B711A18CD9900D9F02A /* thumblantus-1.jpg */,
 				EFFFA2071A14BAE7003D55D7 /* thumbnovo2.jpg */,
+				EFB325C71A24E9280043C718 /* hba1cimage.png */,
 				EFFFA20F1A14BAEF003D55D7 /* thumbsoftzellin.jpg */,
+				EF867F141A24C3C800D3D1EA /* blutzucker.png */,
+				EF867F161A24C4DE00D3D1EA /* pulsimage.png */,
 				EFFFA2131A14BD85003D55D7 /* thumbaccucheck.jpg */,
 				EFFFA2081A14BAE7003D55D7 /* thumblantus.jpg */,
 				EF68ECD41A02D82F00AD9663 /* hba1c.png */,
@@ -454,12 +469,17 @@
 			files = (
 				EFFFA2141A14BD85003D55D7 /* thumbaccucheck.jpg in Resources */,
 				EFFFA2101A14BAEF003D55D7 /* thumbsoftzellin.jpg in Resources */,
+				EF867F1B1A24C70C00D3D1EA /* blutdruckmesser-2.jpg in Resources */,
 				EF68ECCE1A02D68200AD9663 /* settings.png in Resources */,
+				EF867F171A24C4DE00D3D1EA /* pulsimage.png in Resources */,
 				EF1915BD1A04004400605B73 /* ValueCell.xib in Resources */,
 				EF68ECCF1A02D68200AD9663 /* settings@2x.png in Resources */,
 				EF68ECD31A02D78A00AD9663 /* tools.png in Resources */,
+				EFB325C81A24E9280043C718 /* hba1cimage.png in Resources */,
 				EFFFA2121A14BC60003D55D7 /* thumbnovofine.jpg in Resources */,
+				EF867F151A24C3C800D3D1EA /* blutzucker.png in Resources */,
 				EF68EC9D1A02CB8600AD9663 /* Main.storyboard in Resources */,
+				EF867F191A24C58500D3D1EA /* pulsimage2.jpg in Resources */,
 				EF68ECC71A02D46400AD9663 /* home.png in Resources */,
 				EF68ECD21A02D78A00AD9663 /* tools@2x.png in Resources */,
 				EF68ECCB1A02D5C300AD9663 /* werte@2x.png in Resources */,
