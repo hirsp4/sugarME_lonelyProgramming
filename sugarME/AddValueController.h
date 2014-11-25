@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddValueController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource>
-@property (weak, nonatomic) IBOutlet UITextField *diaText;
-@property (weak, nonatomic) IBOutlet UITextField *sysText;
-@property (weak, nonatomic) IBOutlet UITextField *pulsText;
-@property (weak, nonatomic) IBOutlet UITextField *kommentarText;
-@property (weak, nonatomic) IBOutlet UITextField *blutzuckerText;
 @property (weak, nonatomic) IBOutlet UIView *blutdruckView;
 @property (weak, nonatomic) IBOutlet UIView *pulsView;
 @property (weak, nonatomic) IBOutlet UIView *blutzuckerView;
@@ -26,6 +21,6 @@
 - (IBAction)savePuls:(id)sender;
 @property (weak, nonatomic) IBOutlet UIPickerView *bloodpressurePickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *pulsPickerView;
-
+@property (weak, nonatomic) IBOutlet UIPickerView *bloodsugarPickerView;
 
 @end

@@ -188,49 +188,32 @@ E: info@bfh.ch</string>
                                             <action selector="saveBlutzucker:" destination="ldZ-Yr-Wl6" eventType="touchUpInside" id="8mH-sg-oeB"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutzuckerwert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-6c-SdL">
-                                        <rect key="frame" x="15" y="162" width="115" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lh2-ZK-Bhg">
-                                        <rect key="frame" x="184" y="158" width="121" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="webSearch"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kommentar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEk-Iz-csF">
-                                        <rect key="frame" x="15" y="216" width="90" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMx-DA-bWG">
-                                        <rect key="frame" x="184" y="212" width="121" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="webSearch"/>
-                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kte-kk-eNh">
+                                        <rect key="frame" x="0.0" y="88" width="320" height="162"/>
+                                    </pickerView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blutzucker.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tza-jG-Iwx">
                                         <rect key="frame" x="0.0" y="284" width="320" height="120"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="gMx-DA-bWG" firstAttribute="trailing" secondItem="Lh2-ZK-Bhg" secondAttribute="trailing" id="5n6-UN-ORG"/>
-                                    <constraint firstItem="gMx-DA-bWG" firstAttribute="leading" secondItem="Lh2-ZK-Bhg" secondAttribute="leading" id="79e-Uk-y7A"/>
-                                    <constraint firstItem="Tza-jG-Iwx" firstAttribute="top" secondItem="BEk-Iz-csF" secondAttribute="bottom" constant="47" id="9ic-44-oq5"/>
-                                    <constraint firstItem="Tza-jG-Iwx" firstAttribute="top" secondItem="gMx-DA-bWG" secondAttribute="bottom" constant="42" id="EQ3-6U-XXo"/>
-                                    <constraint firstItem="GaD-6c-SdL" firstAttribute="leading" secondItem="S6P-oh-0Cl" secondAttribute="leading" constant="15" id="LaV-gb-HRV"/>
-                                    <constraint firstItem="gMx-DA-bWG" firstAttribute="trailing" secondItem="Q4m-Oe-ocn" secondAttribute="trailing" id="MrN-NW-hnD"/>
-                                    <constraint firstItem="Lh2-ZK-Bhg" firstAttribute="leading" secondItem="GaD-6c-SdL" secondAttribute="trailing" constant="54" id="Ry2-8A-1rj"/>
-                                    <constraint firstItem="Q4m-Oe-ocn" firstAttribute="top" secondItem="Tza-jG-Iwx" secondAttribute="bottom" constant="19" id="Wwn-uE-7Gc"/>
-                                    <constraint firstItem="gMx-DA-bWG" firstAttribute="top" secondItem="Lh2-ZK-Bhg" secondAttribute="bottom" constant="24" id="bKG-Ex-Sr0"/>
-                                    <constraint firstItem="Lh2-ZK-Bhg" firstAttribute="top" secondItem="S6P-oh-0Cl" secondAttribute="top" constant="158" id="nrs-dD-jnX"/>
-                                    <constraint firstAttribute="trailing" secondItem="Lh2-ZK-Bhg" secondAttribute="trailing" constant="15" id="o3R-0g-o72"/>
-                                    <constraint firstItem="GaD-6c-SdL" firstAttribute="leading" secondItem="BEk-Iz-csF" secondAttribute="leading" id="vRM-m1-C4k"/>
-                                    <constraint firstItem="BEk-Iz-csF" firstAttribute="top" secondItem="GaD-6c-SdL" secondAttribute="bottom" constant="33" id="wQV-OS-39i"/>
-                                    <constraint firstItem="Tza-jG-Iwx" firstAttribute="leading" secondItem="S6P-oh-0Cl" secondAttribute="leading" id="zq1-QY-Q7N"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q4m-Oe-ocn" secondAttribute="bottom" constant="105" id="Ibb-Ik-ioK"/>
+                                    <constraint firstItem="Tza-jG-Iwx" firstAttribute="leading" secondItem="S6P-oh-0Cl" secondAttribute="leading" id="QZT-ut-ikg"/>
+                                    <constraint firstItem="Q4m-Oe-ocn" firstAttribute="top" secondItem="Tza-jG-Iwx" secondAttribute="bottom" constant="19" id="RU5-nv-TRm"/>
+                                    <constraint firstItem="kte-kk-eNh" firstAttribute="top" secondItem="S6P-oh-0Cl" secondAttribute="top" constant="88" id="Ydh-34-Xg9"/>
+                                    <constraint firstItem="Tza-jG-Iwx" firstAttribute="top" secondItem="kte-kk-eNh" secondAttribute="bottom" constant="8" symbolic="YES" id="hjd-cE-mpJ"/>
+                                    <constraint firstItem="Tza-jG-Iwx" firstAttribute="leading" secondItem="kte-kk-eNh" secondAttribute="leading" id="hmu-ML-pSn"/>
+                                    <constraint firstItem="Tza-jG-Iwx" firstAttribute="top" secondItem="kte-kk-eNh" secondAttribute="bottom" constant="8" symbolic="YES" id="tQf-cN-gDO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q4m-Oe-ocn" secondAttribute="trailing" constant="15" id="u2W-Jq-x3G"/>
+                                    <constraint firstItem="kte-kk-eNh" firstAttribute="leading" secondItem="S6P-oh-0Cl" secondAttribute="leading" id="ueq-kn-5LA"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QZT-ut-ikg"/>
+                                        <exclude reference="hjd-cE-mpJ"/>
+                                        <exclude reference="tQf-cN-gDO"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ad8-Oi-7Jd">
                                 <rect key="frame" x="16" y="78" width="288" height="29"/>
@@ -268,10 +251,9 @@ E: info@bfh.ch</string>
                     <size key="freeformSize" width="320" height="558"/>
                     <connections>
                         <outlet property="bloodpressurePickerView" destination="mVv-VB-3hL" id="7fs-mF-VaJ"/>
+                        <outlet property="bloodsugarPickerView" destination="kte-kk-eNh" id="vgu-kp-cWQ"/>
                         <outlet property="blutdruckView" destination="SFj-sh-mi0" id="HQV-CI-NQf"/>
-                        <outlet property="blutzuckerText" destination="Lh2-ZK-Bhg" id="rIe-eL-uPS"/>
                         <outlet property="blutzuckerView" destination="S6P-oh-0Cl" id="Z9K-eh-VEd"/>
-                        <outlet property="kommentarText" destination="gMx-DA-bWG" id="3Dq-tI-8gQ"/>
                         <outlet property="pulsPickerView" destination="IsR-vq-Y7X" id="WVz-eD-1BS"/>
                         <outlet property="pulsView" destination="KWU-Iw-ui7" id="ve8-dB-Qwm"/>
                         <outlet property="segmentedControl" destination="ad8-Oi-7Jd" id="QAp-aq-E2W"/>

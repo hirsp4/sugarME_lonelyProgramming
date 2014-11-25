@@ -17,12 +17,13 @@
     NSMutableArray *sysValues;
     NSMutableArray *diaValues;
     NSMutableArray *pulsValues;
+    NSMutableArray *bzValues;
 }
 
 @end
 
 @implementation AddValueController
-@synthesize blutdruckView,blutzuckerView,pulsView,managedObjectContext,blutzuckerText,kommentarText, pulsText, sysText,diaText,bloodpressurePickerView, pulsPickerView;
+@synthesize blutdruckView,blutzuckerView,pulsView,managedObjectContext,bloodpressurePickerView, pulsPickerView, bloodsugarPickerView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +36,7 @@
 
     [self setBloodpressurePicker];
     [self setPulsePicker];
+    [self setBloodSugarPicker];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,17 +71,15 @@
     Blutzucker *blutzuckerObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Blutzucker"
                                                         inManagedObjectContext:self.managedObjectContext];
     [blutzuckerObjekt setValue:[NSDate date] forKey:@"date"];
-    [blutzuckerObjekt setValue:kommentarText.text forKey:@"kommentar"];
+    [blutzuckerObjekt setValue:@"" forKey:@"kommentar"];
     [blutzuckerObjekt setValue:@"mmol/l" forKey:@"unit"];
-    [blutzuckerObjekt setValue:blutzuckerText.text forKey:@"value"];
+    [blutzuckerObjekt setValue:[bzValues objectAtIndex:[bloodsugarPickerView selectedRowInComponent:1]] forKey:@"value"];
     [blutzuckerObjekt setValue:@"Blutzucker" forKey:@"type"];
 
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Failed to save - error: %@", [error localizedDescription]);
     }else{
-        blutzuckerText.text=@"";
-        kommentarText.text=@"";
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Speichern erfolgreich"
                                                         message:@"Die eingegebenen Daten wurden erfolgreich gespeichert"
                                                        delegate:nil
@@ -100,7 +100,6 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Failed to save - error: %@", [error localizedDescription]);
     }else{
-        pulsText.text=@"";
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Speichern erfolgreich"
                                                         message:@"Die eingegebenen Daten wurden erfolgreich gespeichert"
                                                        delegate:nil
@@ -121,8 +120,6 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Failed to save - error: %@", [error localizedDescription]);
     }else{
-        sysText.text=@"";
-        diaText.text=@"";
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Speichern erfolgreich"
                                                         message:@"Die eingegebenen Daten wurden erfolgreich gespeichert"
                                                        delegate:nil
@@ -134,11 +131,7 @@
     }
 }
 -(void)dismissKeyboard {
-    [kommentarText resignFirstResponder];
-    [blutzuckerText resignFirstResponder];
-    [pulsText resignFirstResponder];
-    [sysText resignFirstResponder];
-    [diaText resignFirstResponder];
+
 }
 -(void)setBloodpressurePicker{
     bloodpressurePickerView.transform = CGAffineTransformMakeScale(0.7, 0.7);
@@ -163,6 +156,24 @@
     [self.bloodpressurePickerView selectRow:40 inComponent:3 animated:NO];
 }
 
+-(void)setBloodSugarPicker{
+    bloodsugarPickerView.transform = CGAffineTransformMakeScale(0.7, 0.7);
+    bloodsugarPickerView.delegate = self;
+    bloodsugarPickerView.dataSource = self;
+    bloodsugarPickerView.showsSelectionIndicator = YES;
+    bloodsugarPickerView.opaque = NO;
+    
+    bzValues = [[NSMutableArray alloc] init];
+    for (int i = 0; i<=20; i++) {
+        for(int j=0; j<=9;j++){
+            NSString *myString = [[NSString stringWithFormat:@"%d",i]stringByAppendingString:@"."];
+            NSString *myString2 = [myString stringByAppendingString:[NSString stringWithFormat:@"%d",j]];
+            [bzValues addObject:myString2];
+        }
+    }
+    [self.bloodsugarPickerView selectRow:40 inComponent:1 animated:NO];
+}
+
 -(void)setPulsePicker{
     pulsPickerView.transform = CGAffineTransformMakeScale(0.7, 0.7);
     pulsPickerView.delegate = self;
@@ -181,6 +192,8 @@
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     if([pickerView isEqual: bloodpressurePickerView]){
         return 4;
+    }else if([pickerView isEqual: bloodsugarPickerView]){
+        return 3;
     }else{
         return 3;
     }
@@ -191,6 +204,12 @@
             return sysValues.count;
         }else if(component==3){
             return diaValues.count;
+        }else{
+            return 1;
+        }
+    }else if([pickerView isEqual: bloodsugarPickerView]){
+        if(component==1){
+            return bzValues.count;
         }else{
             return 1;
         }
@@ -240,6 +259,32 @@
         label.textAlignment = NSTextAlignmentCenter;
         return label;
     }
+    }else if([pickerView isEqual: bloodsugarPickerView]){
+        if(component==0){
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 130, 44)];
+            label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
+            label.text = @"Blutzucker  ";
+            label.textAlignment = NSTextAlignmentRight;
+            return label;
+        }else if(component==2){
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 44)];
+            label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
+            label.text = @"mmol/l  ";
+            label.textAlignment = NSTextAlignmentCenter;
+            return label;
+        }else{
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+            label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont fontWithName:@"Helvetica" size:28];
+            label.text = [bzValues objectAtIndex:row];
+            label.textAlignment = NSTextAlignmentCenter;
+            return label;
+        }
     }else{
         if(component==0){
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
@@ -253,7 +298,7 @@
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 70, 44)];
             label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
             label.textColor = [UIColor blackColor];
-            label.font = [UIFont fontWithName:@"Helvetica" size:28];
+            label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
             label.text = @"s/min  ";
             label.textAlignment = NSTextAlignmentCenter;
             return label;
