@@ -22,7 +22,7 @@
 @end
 
 @implementation AddValueController
-@synthesize blutdruckView,blutzuckerView,pulsView,managedObjectContext,blutzuckerText,kommentarText, pulsText, sysText,diaText,bloodpressurePickerView;
+@synthesize blutdruckView,blutzuckerView,pulsView,managedObjectContext,blutzuckerText,kommentarText, pulsText, sysText,diaText,bloodpressurePickerView, pulsPickerView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +34,7 @@
     [self.view addGestureRecognizer:tap];
 
     [self setBloodpressurePicker];
+    [self setPulsePicker];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,15 +42,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)segmentedValueChanged:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
@@ -101,7 +93,7 @@
     Puls *pulsObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Puls"
                                                                  inManagedObjectContext:self.managedObjectContext];
     [pulsObjekt setValue:[NSDate date] forKey:@"date"];
-    [pulsObjekt setValue:pulsText.text forKey:@"value"];
+    [pulsObjekt setValue:[pulsValues objectAtIndex:[pulsPickerView selectedRowInComponent:1]] forKey:@"value"];
     [pulsObjekt setValue:@"Puls" forKey:@"type"];
 
     NSError *error;
@@ -171,21 +163,49 @@
     [self.bloodpressurePickerView selectRow:40 inComponent:3 animated:NO];
 }
 
+-(void)setPulsePicker{
+    pulsPickerView.transform = CGAffineTransformMakeScale(0.7, 0.7);
+    pulsPickerView.delegate = self;
+    pulsPickerView.dataSource = self;
+    pulsPickerView.showsSelectionIndicator = YES;
+    pulsPickerView.opaque = NO;
+    
+    pulsValues = [[NSMutableArray alloc] init];
+    for (int i = 30; i<=220; i++) {
+        NSString *myString = [NSString stringWithFormat:@"%d",i];
+        [pulsValues addObject:myString];
+    }
+    [self.pulsPickerView selectRow:40 inComponent:1 animated:NO];
+}
+
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 4;
+    if([pickerView isEqual: bloodpressurePickerView]){
+        return 4;
+    }else{
+        return 3;
+    }
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    if(component==1){
-       return sysValues.count;
-    }else if(component==3){
-        return diaValues.count;
+    if([pickerView isEqual: bloodpressurePickerView]){
+        if(component==1){
+            return sysValues.count;
+        }else if(component==3){
+            return diaValues.count;
+        }else{
+            return 1;
+        }
     }else{
-        return 1;
+        if(component==1){
+            return pulsValues.count;
+        }else{
+            return 1;
+        }
     }
 }
 
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
+    if([pickerView isEqual: bloodpressurePickerView]){
     if(component==0){
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
         label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
@@ -219,6 +239,33 @@
         label.text = @"Diastole  ";
         label.textAlignment = NSTextAlignmentCenter;
         return label;
+    }
+    }else{
+        if(component==0){
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+            label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
+            label.text = @"Puls  ";
+            label.textAlignment = NSTextAlignmentCenter;
+            return label;
+        }else if(component==2){
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 70, 44)];
+            label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont fontWithName:@"Helvetica" size:28];
+            label.text = @"s/min  ";
+            label.textAlignment = NSTextAlignmentCenter;
+            return label;
+        }else{
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+            label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont fontWithName:@"Helvetica" size:28];
+            label.text = [pulsValues objectAtIndex:row];
+            label.textAlignment = NSTextAlignmentCenter;
+            return label;
+        }
     }
     
 }

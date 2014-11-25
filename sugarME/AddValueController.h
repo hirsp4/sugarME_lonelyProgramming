@@ -25,6 +25,7 @@
 - (IBAction)saveBlutdruck:(id)sender;
 - (IBAction)savePuls:(id)sender;
 @property (weak, nonatomic) IBOutlet UIPickerView *bloodpressurePickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *pulsPickerView;
 
 
 @end
