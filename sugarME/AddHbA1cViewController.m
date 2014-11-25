@@ -10,12 +10,14 @@
 #import "HbA1c.h"
 #import "AppDelegate.h"
 
-@interface AddHbA1cViewController ()
+@interface AddHbA1cViewController (){
+    NSMutableArray *hba1cValues;
+}
 
 @end
 
 @implementation AddHbA1cViewController
-@synthesize managedObjectContext, hba1cText;
+@synthesize managedObjectContext, hba1cText, hba1cPickerView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -25,6 +27,7 @@
                                                                           action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    [self setHba1cPicker];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,21 +35,72 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+        return 3;
 }
-*/
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    if(component==1){
+       return hba1cValues.count;
+    }else{
+        return 1;
+    }
+    
+}
 
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    if(component==0){
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+        label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
+        label.text = @"HbA1c  ";
+        label.textAlignment = NSTextAlignmentCenter;
+        return label;
+    }else if(component==2){
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+        label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
+        label.text = @"%  ";
+        label.textAlignment = NSTextAlignmentCenter;
+        return label;
+    }else{
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+        label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont fontWithName:@"Helvetica" size:28];
+        label.text = [hba1cValues objectAtIndex:row];
+        label.textAlignment = NSTextAlignmentCenter;
+        return label;
+    }
+}
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+    return 50;
+}
+
+-(void)setHba1cPicker{
+    hba1cPickerView.transform = CGAffineTransformMakeScale(0.9, 0.9);
+    hba1cPickerView.delegate = self;
+    hba1cPickerView.dataSource = self;
+    hba1cPickerView.showsSelectionIndicator = YES;
+    hba1cPickerView.opaque = NO;
+    
+    hba1cValues = [[NSMutableArray alloc] init];
+    for (int i = 0; i<=20; i++) {
+        for(int j=0; j<=9;j++){
+            NSString *myString = [[NSString stringWithFormat:@"%d",i]stringByAppendingString:@"."];
+            NSString *myString2 = [myString stringByAppendingString:[NSString stringWithFormat:@"%d",j]];
+            [hba1cValues addObject:myString2];
+        }
+    }
+    [self.hba1cPickerView selectRow:40 inComponent:1 animated:NO];
+}
 - (IBAction)saveHbA1c:(id)sender {
     HbA1c  *hba1cObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"HbA1c"
                                                                inManagedObjectContext:self.managedObjectContext];
     [hba1cObjekt setValue:[NSDate date] forKey:@"date"];
-    [hba1cObjekt setValue:hba1cText.text forKey:@"value"];
+    [hba1cObjekt setValue:[hba1cValues objectAtIndex:[hba1cPickerView selectedRowInComponent:1]] forKey:@"value"];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Failed to save - error: %@", [error localizedDescription]);

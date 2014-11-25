@@ -18,7 +18,7 @@
 
 #define kBarTop 10
 #define kBarWidth 20
-#define kCircleRadius 2
+#define kCircleRadius 1.3
 #define dangerousHighValue 15
 #define dangerousLowValue 2
 #define normalHighValue 5.7

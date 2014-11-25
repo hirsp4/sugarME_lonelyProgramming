@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddHbA1cViewController : UIViewController
+@interface AddHbA1cViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITextField *hba1cText;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 - (IBAction)saveHbA1c:(id)sender;
+@property (weak, nonatomic) IBOutlet UIPickerView *hba1cPickerView;
 
 @end

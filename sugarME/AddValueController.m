@@ -135,8 +135,6 @@
 }
 -(void)setBloodpressurePicker{
     bloodpressurePickerView.transform = CGAffineTransformMakeScale(0.7, 0.7);
-    
-    
     bloodpressurePickerView.delegate = self;
     bloodpressurePickerView.dataSource = self;
     bloodpressurePickerView.showsSelectionIndicator = YES;
@@ -313,5 +311,8 @@
         }
     }
     
+}
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+    return 50;
 }
 @end

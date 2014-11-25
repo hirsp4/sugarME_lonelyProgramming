@@ -36,8 +36,9 @@
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM"];
-    CGContextSetLineWidth(ctx, 2.0);
-    CGContextSetStrokeColorWithColor(ctx, [[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0] CGColor]);
+    // graph line
+    CGContextSetLineWidth(ctx, 3.0);
+    CGContextSetStrokeColorWithColor(ctx, [[UIColor blackColor] CGColor]);
     int maxGraphHeight = kGraphHeight - kOffsetY;
     CGContextBeginPath(ctx);
     CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject]valueForKey:@"value"]floatValue]/18.0f)-9);
@@ -47,39 +48,9 @@
         CGContextAddLineToPoint(ctx, kOffsetX + i * kStepX, kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f)-9);
         i++;
     }
-    
     CGContextDrawPath(ctx, kCGPathStroke);
-    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0] CGColor]);
-    i=0;
-    for (NSManagedObject *obj in blutzuckerValues)
-    {
-        float x = kOffsetX + i * kStepX;
-        float y = kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f);
-        CGRect rect = CGRectMake(x - kCircleRadius, y - kCircleRadius-9, 2 * kCircleRadius, 2 * kCircleRadius);
-        CGContextAddEllipseInRect(ctx, rect);
-        i++;
-    }
-    CGContextDrawPath(ctx, kCGPathFillStroke);
-    
-    CGContextSetTextMatrix(ctx, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
-    CGContextSetTextDrawingMode(ctx, kCGTextFill);
-    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor]);
-    
-    i=0;
-    for (NSManagedObject *obj in blutzuckerValues)
-    {
-        float x = kOffsetX + i * kStepX;
-        float y = kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f);
-        CGContextSelectFont(ctx, "Helvetica", 10, kCGEncodingMacRoman);
-        NSString *theText = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:[obj valueForKey:@"date"]]];
-        CGContextShowTextAtPoint(ctx, kOffsetX -9 + i* kStepX, kGraphBottom+3, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
-        CGContextSelectFont(ctx, "Helvetica-Bold", 12, kCGEncodingMacRoman);
-        NSString *theText2 = [NSString stringWithFormat:@"%@", [obj valueForKey:@"value"]];
-        CGContextShowTextAtPoint(ctx, x - kCircleRadius+10, y - kCircleRadius+1, [theText2 cStringUsingEncoding:NSUTF8StringEncoding], [theText2 length]);
-        i++;
-    }
-    
-    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.2] CGColor]);
+    //graph füllfarbe
+    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:52.0f/255.0f green:107.0f/255.0f blue:196.0f/255.0f alpha:0.9] CGColor]);
     CGContextBeginPath(ctx);
     CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight-10);
     CGContextAddLineToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject] valueForKey:@"value"]floatValue]/18.0f));
@@ -91,8 +62,40 @@
     }
     CGContextAddLineToPoint(ctx, kOffsetX + (blutzuckerValues.count - 1) * kStepX, kGraphHeight-10);
     CGContextClosePath(ctx);
-    
     CGContextDrawPath(ctx, kCGPathFill);
+    
+    // graph points
+    CGContextSetFillColorWithColor(ctx, [[UIColor blackColor] CGColor]);
+    i=0;
+    for (NSManagedObject *obj in blutzuckerValues)
+    {
+        float x = kOffsetX + i * kStepX;
+        float y = kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f);
+        CGRect rect = CGRectMake(x - kCircleRadius, y - kCircleRadius-9, 2 * kCircleRadius, 2 * kCircleRadius);
+        CGContextAddEllipseInRect(ctx, rect);
+        i++;
+    }
+    CGContextDrawPath(ctx, kCGPathFillStroke);
+    
+
+    // graph value labels
+    CGContextSetTextMatrix(ctx, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
+    CGContextSetTextDrawingMode(ctx, kCGTextFill);
+    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor]);
+    i=0;
+    for (NSManagedObject *obj in blutzuckerValues)
+    {
+        float x = kOffsetX + i * kStepX;
+        float y = kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f);
+        CGContextSelectFont(ctx, "Helvetica", 10, kCGEncodingMacRoman);
+        NSString *theText = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:[obj valueForKey:@"date"]]];
+        CGContextShowTextAtPoint(ctx, kOffsetX -9 + i* kStepX, kGraphBottom+3, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
+        CGContextSelectFont(ctx, "Helvetica-Bold", 14, kCGEncodingMacRoman);
+        NSString *theText2 = [NSString stringWithFormat:@"%@", [obj valueForKey:@"value"]];
+        CGContextShowTextAtPoint(ctx, x - kCircleRadius+10, y - kCircleRadius+1, [theText2 cStringUsingEncoding:NSUTF8StringEncoding], [theText2 length]);
+        i++;
+    }
+    
     
 }
 - (void)drawRect:(CGRect)rect
@@ -103,8 +106,9 @@
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM"];
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
+    [self drawLineGraphWithContext:context];
+    CGContextStrokePath(context);
     CGContextSetLineWidth(context, 0.6);
     CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
     CGFloat dash[] = {2.0, 2.0};
@@ -126,7 +130,7 @@
     CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
     CGContextStrokePath(context);
     CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
-    CGContextSetLineDash(context, 0.0, dash, 2);
+    CGContextSetLineDash(context, 0.0, NULL, 0);
     CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
     CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
     CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
@@ -141,8 +145,7 @@
     CGContextAddLineToPoint(context, kOffsetX + 0 * kStepX, kGraphBottom-kOffsetX);
 
     CGContextStrokePath(context);
-    
-    [self drawLineGraphWithContext:context];
+
 //    [self drawBarGraphWithContext:context];
 //    CGContextSetTextMatrix(context, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
 //    CGContextSetTextDrawingMode(context, kCGTextFill);
