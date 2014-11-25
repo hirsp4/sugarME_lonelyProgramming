@@ -13,12 +13,16 @@
 #import "AppDelegate.h"
 #import "SecondViewController.h"
 
-@interface AddValueController ()
+@interface AddValueController (){
+    NSMutableArray *sysValues;
+    NSMutableArray *diaValues;
+    NSMutableArray *pulsValues;
+}
 
 @end
 
 @implementation AddValueController
-@synthesize blutdruckView,blutzuckerView,pulsView,managedObjectContext,blutzuckerText,kommentarText, pulsText, sysText,diaText;
+@synthesize blutdruckView,blutzuckerView,pulsView,managedObjectContext,blutzuckerText,kommentarText, pulsText, sysText,diaText,bloodpressurePickerView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +32,8 @@
                                                                           action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    // Do any additional setup after loading the view.
+
+    [self setBloodpressurePicker];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,8 +122,8 @@
     Blutdruck *blutdruckObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Blutdruck"
                                                      inManagedObjectContext:self.managedObjectContext];
     [blutdruckObjekt setValue:[NSDate date] forKey:@"date"];
-    [blutdruckObjekt setValue:sysText.text forKey:@"sys"];
-    [blutdruckObjekt setValue:diaText.text forKey:@"dia"];
+    [blutdruckObjekt setValue:[sysValues objectAtIndex:[bloodpressurePickerView selectedRowInComponent:1]] forKey:@"sys"];
+    [blutdruckObjekt setValue:[diaValues objectAtIndex:[bloodpressurePickerView selectedRowInComponent:3]] forKey:@"dia"];
     [blutdruckObjekt setValue:@"Blutdruck" forKey:@"type"];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -142,5 +147,79 @@
     [pulsText resignFirstResponder];
     [sysText resignFirstResponder];
     [diaText resignFirstResponder];
+}
+-(void)setBloodpressurePicker{
+    bloodpressurePickerView.transform = CGAffineTransformMakeScale(0.7, 0.7);
+    
+    
+    bloodpressurePickerView.delegate = self;
+    bloodpressurePickerView.dataSource = self;
+    bloodpressurePickerView.showsSelectionIndicator = YES;
+    bloodpressurePickerView.opaque = NO;
+    
+    sysValues = [[NSMutableArray alloc] init];
+    for (int i = 90; i<=220; i++) {
+        NSString *myString = [NSString stringWithFormat:@"%d",i];
+        [sysValues addObject:myString];
+    }
+    diaValues = [[NSMutableArray alloc]init];
+    for (int i = 40; i<=120; i++) {
+        NSString *myString = [NSString stringWithFormat:@"%d",i];
+        [diaValues addObject:myString];
+    }
+    [self.bloodpressurePickerView selectRow:30 inComponent:1 animated:NO];
+    [self.bloodpressurePickerView selectRow:40 inComponent:3 animated:NO];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 4;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    if(component==1){
+       return sysValues.count;
+    }else if(component==3){
+        return diaValues.count;
+    }else{
+        return 1;
+    }
+}
+
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    if(component==0){
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+        label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
+        label.text = @"Systole  ";
+        label.textAlignment = NSTextAlignmentCenter;
+        return label;
+    }else if (component==1){
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+        label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont fontWithName:@"Helvetica" size:28];
+        label.text = [sysValues objectAtIndex:row];
+        label.textAlignment = NSTextAlignmentCenter;
+        return label;
+    }
+    else if (component==3){
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+        label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont fontWithName:@"Helvetica" size:28];
+        label.text = [diaValues objectAtIndex:row];
+        label.textAlignment = NSTextAlignmentCenter;
+        return label;
+    }else{
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+        label.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:218.0f/255.0f blue:248.0f/255.0f alpha:1.0];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
+        label.text = @"Diastole  ";
+        label.textAlignment = NSTextAlignmentCenter;
+        return label;
+    }
+    
 }
 @end

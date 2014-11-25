@@ -117,34 +117,6 @@ E: info@bfh.ch</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFj-sh-mi0" userLabel="View-blutdruck">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="558"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutdruck SYS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D6-Nz-DTF">
-                                        <rect key="frame" x="15" y="162" width="113" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutdruck DIA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jW4-dC-4P9">
-                                        <rect key="frame" x="15" y="216" width="107" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSv-xt-16o">
-                                        <rect key="frame" x="183" y="162" width="121" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="121" id="MlM-XM-BJk"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="68c-Kf-Vj9">
-                                        <rect key="frame" x="184" y="212" width="121" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="121" id="22y-77-bp3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyk-x6-NGR">
                                         <rect key="frame" x="235" y="423" width="70" height="30"/>
                                         <state key="normal" title="Speichern">
@@ -154,26 +126,25 @@ E: info@bfh.ch</string>
                                             <action selector="saveBlutdruck:" destination="ldZ-Yr-Wl6" eventType="touchUpInside" id="ikf-qX-J7y"/>
                                         </connections>
                                     </button>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVv-VB-3hL">
+                                        <rect key="frame" x="0.0" y="128" width="320" height="162"/>
+                                    </pickerView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="blutdruckmesser-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9BY-V7-2ys">
                                         <rect key="frame" x="0.0" y="284" width="320" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="RMM-yK-U5x"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="68c-Kf-Vj9" firstAttribute="top" secondItem="wSv-xt-16o" secondAttribute="bottom" constant="20" id="0zf-3u-tMx"/>
                                     <constraint firstAttribute="trailing" secondItem="9BY-V7-2ys" secondAttribute="trailing" id="3Yd-V4-aoW"/>
-                                    <constraint firstItem="68c-Kf-Vj9" firstAttribute="leading" secondItem="wSv-xt-16o" secondAttribute="leading" constant="1" id="AUl-7M-Z8d"/>
-                                    <constraint firstItem="4D6-Nz-DTF" firstAttribute="top" secondItem="SFj-sh-mi0" secondAttribute="top" constant="162" id="JRe-c7-WkM"/>
-                                    <constraint firstItem="wSv-xt-16o" firstAttribute="top" secondItem="SFj-sh-mi0" secondAttribute="top" constant="162" id="Khz-Nq-hRh"/>
-                                    <constraint firstItem="9BY-V7-2ys" firstAttribute="top" secondItem="68c-Kf-Vj9" secondAttribute="bottom" constant="42" id="LEe-HM-GiZ"/>
-                                    <constraint firstItem="68c-Kf-Vj9" firstAttribute="trailing" secondItem="cyk-x6-NGR" secondAttribute="trailing" id="Wzi-eo-UNd"/>
+                                    <constraint firstAttribute="trailing" secondItem="cyk-x6-NGR" secondAttribute="trailing" constant="15" id="cgO-nW-y5n"/>
                                     <constraint firstItem="cyk-x6-NGR" firstAttribute="top" secondItem="9BY-V7-2ys" secondAttribute="bottom" constant="19" id="dsf-eB-bH3"/>
-                                    <constraint firstItem="jW4-dC-4P9" firstAttribute="top" secondItem="4D6-Nz-DTF" secondAttribute="bottom" constant="33" id="h3m-8Y-vtd"/>
-                                    <constraint firstItem="68c-Kf-Vj9" firstAttribute="leading" secondItem="jW4-dC-4P9" secondAttribute="trailing" constant="62" id="hBm-4s-Q5m"/>
                                     <constraint firstAttribute="bottom" secondItem="cyk-x6-NGR" secondAttribute="bottom" constant="105" id="hUz-ok-h00"/>
-                                    <constraint firstItem="4D6-Nz-DTF" firstAttribute="leading" secondItem="SFj-sh-mi0" secondAttribute="leading" constant="15" id="hyr-Bx-GKw"/>
+                                    <constraint firstItem="mVv-VB-3hL" firstAttribute="leading" secondItem="9BY-V7-2ys" secondAttribute="leading" id="iV4-4G-mVu"/>
                                     <constraint firstItem="9BY-V7-2ys" firstAttribute="leading" secondItem="SFj-sh-mi0" secondAttribute="leading" id="j4F-J1-adv"/>
-                                    <constraint firstItem="wSv-xt-16o" firstAttribute="leading" secondItem="4D6-Nz-DTF" secondAttribute="trailing" constant="55" id="j9I-ja-6gx"/>
+                                    <constraint firstItem="9BY-V7-2ys" firstAttribute="top" secondItem="mVv-VB-3hL" secondAttribute="bottom" constant="-6" id="q6h-H9-I5u"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWU-Iw-ui7" userLabel="View-puls">
@@ -314,15 +285,14 @@ E: info@bfh.ch</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="558"/>
                     <connections>
+                        <outlet property="bloodpressurePickerView" destination="mVv-VB-3hL" id="7fs-mF-VaJ"/>
                         <outlet property="blutdruckView" destination="SFj-sh-mi0" id="HQV-CI-NQf"/>
                         <outlet property="blutzuckerText" destination="Lh2-ZK-Bhg" id="rIe-eL-uPS"/>
                         <outlet property="blutzuckerView" destination="S6P-oh-0Cl" id="Z9K-eh-VEd"/>
-                        <outlet property="diaText" destination="68c-Kf-Vj9" id="qJw-0m-E0Q"/>
                         <outlet property="kommentarText" destination="gMx-DA-bWG" id="3Dq-tI-8gQ"/>
                         <outlet property="pulsText" destination="W1I-F3-nAa" id="1bQ-mG-Yul"/>
                         <outlet property="pulsView" destination="KWU-Iw-ui7" id="ve8-dB-Qwm"/>
                         <outlet property="segmentedControl" destination="ad8-Oi-7Jd" id="QAp-aq-E2W"/>
-                        <outlet property="sysText" destination="wSv-xt-16o" id="C3L-6E-aLn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEh-Ni-BhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
