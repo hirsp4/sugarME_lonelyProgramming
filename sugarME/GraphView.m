@@ -40,7 +40,7 @@
     CGContextSetStrokeColorWithColor(ctx, [[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0] CGColor]);
     int maxGraphHeight = kGraphHeight - kOffsetY;
     CGContextBeginPath(ctx);
-    CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject]valueForKey:@"value"]floatValue]/18.0f));
+    CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject]valueForKey:@"value"]floatValue]/18.0f)-9);
     int i=0;
     for (NSManagedObject *obj in blutzuckerValues)
     {
