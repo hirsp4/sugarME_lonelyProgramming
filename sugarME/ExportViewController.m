@@ -41,104 +41,26 @@
     // generate PDF
     [self setupPDFDocumentNamed:@"NewPDF" Width:850 Height:1100];
     [self beginPDFPage];
+    //set Header
     NSDate *today =[NSDate date];
     NSString *title =@"sugarME - Verlaufsdokumentation";
     NSString *header = [[title stringByAppendingString:@"                               "]stringByAppendingString:[dateFormat stringFromDate:today]];
     CGRect textRect = [self addTitleText:header
                           withFrame:CGRectMake(kPadding, kPadding, 400, 100) fontSize:22.0f];
-    
-    
-    GraphView *graphView = [[GraphView alloc]init];
-    UIGraphicsBeginImageContext(graphView.bounds.size);
-    [graphView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *anImage = UIGraphicsGetImageFromCurrentImageContext();
-    CGRect blackLine = [self addLineWithFrame:CGRectMake(kPadding, textRect.origin.y + textRect.size.height + kPadding, _pageSize.width - kPadding*2, 4)
+    // top horicontal line
+    [self addLineWithFrame:CGRectMake(kPadding, textRect.origin.y + textRect.size.height + kPadding, _pageSize.width - kPadding*2, 4)
                                        withColor:[UIColor blackColor]];
-    CGRect imageRect = [self addImage:anImage
-                              atPoint:CGPointMake((_pageSize.width/2)-(anImage.size.width/2), blackLine.origin.y + blackLine.size.height+ kPadding)];
-    // start content: blutdruck
-    [self addTitleText:@"Blutdruckwerte in mmHG"
-             withFrame:CGRectMake(kPadding, kPadding+75, 200, 100) fontSize:16.0f];
-    for(int i=0; i<blutdruckValues.count;i++){
-        NSString *value1= [[blutdruckValues objectAtIndex:i]valueForKey:@"sys"];
-        NSString *value2= [[blutdruckValues objectAtIndex:i]valueForKey:@"dia"];
-        NSString *value= [[value1 stringByAppendingString:@"/"]stringByAppendingString:value2];
-        NSString *date= [dateFormat stringFromDate:[[blutdruckValues objectAtIndex:i]valueForKey:@"date"]];
-        NSString *combined = [[date stringByAppendingString:@"          "]stringByAppendingString:value];
-        [self addValueText:combined
-                 withFrame:CGRectMake(kPadding, kPadding+90+((i+1)*15), 200, 100) fontSize:14.0f];
-    }
-    // blutzucker
-    [self addTitleText:@"Blutzuckerwerte in mmol/l"
-             withFrame:CGRectMake(kPadding+285, kPadding+75, 200, 100) fontSize:16.0f];
-    for(int i=0; i<blutzuckerValues.count;i++){
-        NSString *value= [[blutzuckerValues objectAtIndex:i]valueForKey:@"value"];
-        NSString *date= [dateFormat stringFromDate:[[blutzuckerValues objectAtIndex:i]valueForKey:@"date"]];
-        NSString *combined = [[date stringByAppendingString:@"          "]stringByAppendingString:value];
-        [self addValueText:combined
-                 withFrame:CGRectMake(kPadding+285, kPadding+90+((i+1)*15), 400, 100) fontSize:14.0f];
-    }
-    // puls
-    [self addTitleText:@"Pulswerte in s/min"
-             withFrame:CGRectMake(kPadding+570, kPadding+75, 200, 100) fontSize:16.0f];
-    for(int i=0; i<pulsValues.count;i++){
-        NSString *value= [[pulsValues objectAtIndex:i]valueForKey:@"value"];
-        NSString *date= [dateFormat stringFromDate:[[pulsValues objectAtIndex:i]valueForKey:@"date"]];
-        NSString *combined = [[date stringByAppendingString:@"          "]stringByAppendingString:value];
-        [self addValueText:combined
-                 withFrame:CGRectMake(kPadding+570, kPadding+90+((i+1)*15), 600, 100) fontSize:14.0f];
-    }
-    
+    // bottom horicontal line
     [self addLineWithFrame:CGRectMake(kPadding, 1000, _pageSize.width - kPadding*2, 4)
                                     withColor:[UIColor blackColor]];
-    
-    // graph
-    dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd.MM"];
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context,270,400);
-    [self drawLineGraphWithContext:context];
-    CGContextStrokePath(context);
-    CGContextSetLineWidth(context, 0.6);
-    CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
-    CGFloat dash[] = {2.0, 2.0};
-    CGContextSetLineDash(context, 0.0, dash, 2);
-    
-    int howManyHorizontal = (kGraphBottom - kGraphTop - kOffsetY) / kStepY;
-    for (int i = 0; i <= howManyHorizontal; i++)
-    {
-        CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - i * kStepY);
-        CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - i * kStepY);
-    }
-    CGContextStrokePath(context);
-    CGContextSetLineDash(context, 0, NULL, 0);
-    CGContextSetLineWidth(context,1.4);
-    CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - normalLowValue * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - normalLowValue * kStepY);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
-    CGContextStrokePath(context);
-    CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
-    CGContextSetLineDash(context, 0.0, NULL, 0);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
-    CGContextStrokePath(context);
-    CGContextSetLineWidth(context,2.0);
-    CGContextSetLineDash(context, 0, NULL, 0);
-    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
-    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - 0 * kStepY);
-    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - 0 * kStepY);
-    CGContextMoveToPoint(context, kOffsetX + 0 * kStepX, kGraphTop);
-    CGContextAddLineToPoint(context, kOffsetX + 0 * kStepX, kGraphBottom-kOffsetX);
-    
-    CGContextStrokePath(context);
-
+    // draw content
+    [self drawBlutdruckValues];
+    [self drawBlutzuckerValues];
+    [self drawPulsValues];
+    [self drawGraph];
     [self finishPDF];
     
-    
+///////////////////////////////////////////
     
     //open PDF
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
@@ -349,6 +271,101 @@
     }
     
     
+}
+
+-(void)drawGraph{
+    // graph
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd.MM"];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context,270,400);
+    [self drawLineGraphWithContext:context];
+    CGContextStrokePath(context);
+    CGContextSetLineWidth(context, 0.6);
+    CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
+    CGFloat dash[] = {2.0, 2.0};
+    CGContextSetLineDash(context, 0.0, dash, 2);
+    
+    int howManyHorizontal = (kGraphBottom - kGraphTop - kOffsetY) / kStepY;
+    for (int i = 0; i <= howManyHorizontal; i++)
+    {
+        CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - i * kStepY);
+        CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - i * kStepY);
+    }
+    CGContextStrokePath(context);
+    CGContextSetLineDash(context, 0, NULL, 0);
+    CGContextSetLineWidth(context,1.4);
+    CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - normalLowValue * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - normalLowValue * kStepY);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
+    CGContextStrokePath(context);
+    CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
+    CGContextSetLineDash(context, 0.0, NULL, 0);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
+    CGContextStrokePath(context);
+    CGContextSetLineWidth(context,2.0);
+    CGContextSetLineDash(context, 0, NULL, 0);
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+    CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - 0 * kStepY);
+    CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - 0 * kStepY);
+    CGContextMoveToPoint(context, kOffsetX + 0 * kStepX, kGraphTop);
+    CGContextAddLineToPoint(context, kOffsetX + 0 * kStepX, kGraphBottom-kOffsetX);
+    
+    CGContextStrokePath(context);
+}
+
+-(void)drawBlutzuckerValues{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
+    // blutzucker
+    [self addTitleText:@"Blutzuckerwerte in mmol/l"
+             withFrame:CGRectMake(kPadding+285, kPadding+75, 200, 100) fontSize:16.0f];
+    for(int i=0; i<blutzuckerValues.count;i++){
+        NSString *value= [[blutzuckerValues objectAtIndex:i]valueForKey:@"value"];
+        NSString *date= [dateFormat stringFromDate:[[blutzuckerValues objectAtIndex:i]valueForKey:@"date"]];
+        NSString *combined = [[date stringByAppendingString:@"          "]stringByAppendingString:value];
+        [self addValueText:combined
+                 withFrame:CGRectMake(kPadding+285, kPadding+90+((i+1)*15), 400, 100) fontSize:14.0f];
+    }
+
+    
+}
+-(void)drawBlutdruckValues{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
+    // start content: blutdruck
+    [self addTitleText:@"Blutdruckwerte in mmHG"
+             withFrame:CGRectMake(kPadding, kPadding+75, 200, 100) fontSize:16.0f];
+    for(int i=0; i<blutdruckValues.count;i++){
+        NSString *value1= [[blutdruckValues objectAtIndex:i]valueForKey:@"sys"];
+        NSString *value2= [[blutdruckValues objectAtIndex:i]valueForKey:@"dia"];
+        NSString *value= [[value1 stringByAppendingString:@"/"]stringByAppendingString:value2];
+        NSString *date= [dateFormat stringFromDate:[[blutdruckValues objectAtIndex:i]valueForKey:@"date"]];
+        NSString *combined = [[date stringByAppendingString:@"          "]stringByAppendingString:value];
+        [self addValueText:combined
+                 withFrame:CGRectMake(kPadding, kPadding+90+((i+1)*15), 200, 100) fontSize:14.0f];
+    }
+
+    
+}
+-(void)drawPulsValues{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
+    // puls
+    [self addTitleText:@"Pulswerte in s/min"
+             withFrame:CGRectMake(kPadding+570, kPadding+75, 200, 100) fontSize:16.0f];
+    for(int i=0; i<pulsValues.count;i++){
+        NSString *value= [[pulsValues objectAtIndex:i]valueForKey:@"value"];
+        NSString *date= [dateFormat stringFromDate:[[pulsValues objectAtIndex:i]valueForKey:@"date"]];
+        NSString *combined = [[date stringByAppendingString:@"          "]stringByAppendingString:value];
+        [self addValueText:combined
+                 withFrame:CGRectMake(kPadding+570, kPadding+90+((i+1)*15), 600, 100) fontSize:14.0f];
+    }
 }
 
 
