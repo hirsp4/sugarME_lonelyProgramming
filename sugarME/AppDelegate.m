@@ -15,12 +15,14 @@
 
 @implementation AppDelegate
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize globalMailComposer = _globalMailComposer;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     sleep(1);
+    [self cycleTheGlobalMailComposer];
     return YES;
 }
 
@@ -123,7 +125,12 @@
         }
     }
 }
-
+-(void)cycleTheGlobalMailComposer
+{
+    // we are cycling the damned GlobalMailComposer... due to horrible iOS issue
+    self.globalMailComposer = nil;
+    self.globalMailComposer = [[MFMailComposeViewController alloc] init];
+}
 
 
 @end

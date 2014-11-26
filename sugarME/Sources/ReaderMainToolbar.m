@@ -132,28 +132,7 @@
 
 		CGFloat rightButtonX = viewWidth; // Right-side buttons start X position
 
-#if (READER_BOOKMARKS == TRUE) // Option
 
-		rightButtonX -= (iconButtonWidth + buttonSpacing); // Position
-
-		UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		flagButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
-		//[flagButton setImage:[UIImage imageNamed:@"Reader-Mark-N"] forState:UIControlStateNormal];
-		[flagButton addTarget:self action:@selector(markButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-		[flagButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-		[flagButton setBackgroundImage:buttonN forState:UIControlStateNormal];
-		flagButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-		//flagButton.backgroundColor = [UIColor grayColor];
-		flagButton.exclusiveTouch = YES;
-
-		[self addSubview:flagButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
-
-		markButton = flagButton; markButton.enabled = NO; markButton.tag = NSIntegerMin;
-
-		markImageN = [UIImage imageNamed:@"Reader-Mark-N"]; // N image
-		markImageY = [UIImage imageNamed:@"Reader-Mark-Y"]; // Y image
-
-#endif // end of READER_BOOKMARKS Option
 
 		if (document.canEmail == YES) // Document email enabled
 		{
@@ -202,22 +181,7 @@
 			}
 		}
 
-		if (document.canExport == YES) // Document export enabled
-		{
-			rightButtonX -= (iconButtonWidth + buttonSpacing); // Next position
 
-			UIButton *exportButton = [UIButton buttonWithType:UIButtonTypeCustom];
-			exportButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
-			[exportButton setImage:[UIImage imageNamed:@"Reader-Export"] forState:UIControlStateNormal];
-			[exportButton addTarget:self action:@selector(exportButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-			[exportButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-			[exportButton setBackgroundImage:buttonN forState:UIControlStateNormal];
-			exportButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-			//exportButton.backgroundColor = [UIColor grayColor];
-			exportButton.exclusiveTouch = YES;
-
-			[self addSubview:exportButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
-		}
 
 		if (largeDevice == YES) // Show document filename in toolbar
 		{

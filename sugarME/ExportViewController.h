@@ -10,8 +10,11 @@
 #import <MessageUI/MessageUI.h>
 #import "ReaderViewController.h"
 #define kPadding 20
-@interface ExportViewController : UIViewController <MFMailComposeViewControllerDelegate, ReaderViewControllerDelegate>
+@interface ExportViewController : UIViewController <ReaderViewControllerDelegate>
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSArray *blutzuckerValues, *pulsValues, *blutdruckValues;
 @property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
+
 - (IBAction)generatePDF:(id)sender;
 
 @end
