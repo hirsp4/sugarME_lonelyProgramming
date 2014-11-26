@@ -54,24 +54,97 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD1-aE-9k0">
-                                <rect key="frame" x="52" y="187" width="98" height="30"/>
-                                <state key="normal" title="generiere PDF">
+                                <rect key="frame" x="178" y="402" width="101" height="30"/>
+                                <state key="normal" title="Generiere PDF">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="generatePDF:" destination="gMo-BA-jYe" eventType="touchUpInside" id="5us-TF-liu"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l34-yz-PMW">
+                                <rect key="frame" x="230" y="156" width="51" height="31"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pe3-Ww-rPT">
+                                <rect key="frame" x="230" y="224" width="51" height="31"/>
+                                <connections>
+                                    <action selector="setGraphOnOff:" destination="gMo-BA-jYe" eventType="valueChanged" id="euO-p6-zyf"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eU0-Jl-7UE">
+                                <rect key="frame" x="230" y="330" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutdruckwerte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYQ-oT-hS2">
+                                <rect key="frame" x="35" y="161" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutzuckerwerte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP3-pM-mWp">
+                                <rect key="frame" x="35" y="229" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gti-aR-jUC">
+                                <rect key="frame" x="230" y="262" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pulswerte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqm-kf-3RJ">
+                                <rect key="frame" x="35" y="335" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PDF erstellen mit:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-bT-cQc">
+                                <rect key="frame" x="35" y="99" width="164" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="rLx-Op-Yqh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(...mit Grafik)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xd-oU-UNS">
+                                <rect key="frame" x="61" y="267" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kD1-aE-9k0" firstAttribute="top" secondItem="vLL-t1-gci" secondAttribute="bottom" constant="123" id="Dgy-qF-sHN"/>
-                            <constraint firstItem="kD1-aE-9k0" firstAttribute="leading" secondItem="jFs-XM-YGX" secondAttribute="leadingMargin" constant="36" id="Gaq-DH-hyP"/>
+                            <constraint firstItem="cYQ-oT-hS2" firstAttribute="top" secondItem="cHc-bT-cQc" secondAttribute="bottom" constant="38" id="31q-Yo-6Mx"/>
+                            <constraint firstItem="cHc-bT-cQc" firstAttribute="top" secondItem="vLL-t1-gci" secondAttribute="bottom" constant="35" id="3Ii-YV-MgX"/>
+                            <constraint firstItem="Cqm-kf-3RJ" firstAttribute="centerY" secondItem="eU0-Jl-7UE" secondAttribute="centerY" id="5Mk-b9-eQk"/>
+                            <constraint firstItem="cHc-bT-cQc" firstAttribute="leading" secondItem="cYQ-oT-hS2" secondAttribute="leading" id="8hi-74-Wrx"/>
+                            <constraint firstItem="cYQ-oT-hS2" firstAttribute="centerY" secondItem="l34-yz-PMW" secondAttribute="centerY" id="ATV-ba-AOv"/>
+                            <constraint firstItem="Cqm-kf-3RJ" firstAttribute="leading" secondItem="HP3-pM-mWp" secondAttribute="leading" id="Bg0-di-lqf"/>
+                            <constraint firstItem="HP3-pM-mWp" firstAttribute="leading" secondItem="cYQ-oT-hS2" secondAttribute="leading" id="Cjw-Ca-Yre"/>
+                            <constraint firstItem="kD1-aE-9k0" firstAttribute="top" secondItem="vLL-t1-gci" secondAttribute="bottom" constant="338" id="Dgy-qF-sHN"/>
+                            <constraint firstItem="kD1-aE-9k0" firstAttribute="leading" secondItem="jFs-XM-YGX" secondAttribute="leadingMargin" constant="162" id="Gaq-DH-hyP"/>
+                            <constraint firstItem="eU0-Jl-7UE" firstAttribute="trailing" secondItem="kD1-aE-9k0" secondAttribute="trailing" id="KHV-Ec-bOe"/>
+                            <constraint firstItem="l34-yz-PMW" firstAttribute="leading" secondItem="Pe3-Ww-rPT" secondAttribute="leading" id="KMh-w2-Pm9"/>
+                            <constraint firstItem="kD1-aE-9k0" firstAttribute="top" secondItem="eU0-Jl-7UE" secondAttribute="bottom" constant="41" id="Tqk-2k-77x"/>
+                            <constraint firstItem="Pe3-Ww-rPT" firstAttribute="leading" secondItem="eU0-Jl-7UE" secondAttribute="leading" id="Xjo-bh-TkY"/>
+                            <constraint firstItem="9xd-oU-UNS" firstAttribute="centerY" secondItem="gti-aR-jUC" secondAttribute="centerY" id="ZNg-jY-qCP"/>
+                            <constraint firstItem="Pe3-Ww-rPT" firstAttribute="leading" secondItem="HP3-pM-mWp" secondAttribute="trailing" constant="71" id="aSc-8D-GBl"/>
+                            <constraint firstItem="Pe3-Ww-rPT" firstAttribute="top" secondItem="l34-yz-PMW" secondAttribute="bottom" constant="37" id="hQ6-hq-S9Z"/>
+                            <constraint firstItem="eU0-Jl-7UE" firstAttribute="top" secondItem="Pe3-Ww-rPT" secondAttribute="bottom" constant="75" id="piQ-4L-Prk"/>
+                            <constraint firstItem="gti-aR-jUC" firstAttribute="top" secondItem="Pe3-Ww-rPT" secondAttribute="bottom" constant="7" id="wMM-SW-ohz"/>
+                            <constraint firstItem="HP3-pM-mWp" firstAttribute="centerY" secondItem="Pe3-Ww-rPT" secondAttribute="centerY" id="wfC-MD-kLC"/>
+                            <constraint firstItem="gti-aR-jUC" firstAttribute="leading" secondItem="9xd-oU-UNS" secondAttribute="trailing" constant="71" id="x3n-NP-cdR"/>
+                            <constraint firstItem="gti-aR-jUC" firstAttribute="leading" secondItem="Pe3-Ww-rPT" secondAttribute="leading" id="xob-9m-5A8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WH0-iq-lQQ"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="558"/>
+                    <connections>
+                        <outlet property="blutdruckSwitch" destination="l34-yz-PMW" id="ktB-QE-OiV"/>
+                        <outlet property="blutzuckerSwitch" destination="Pe3-Ww-rPT" id="eIg-cG-ktd"/>
+                        <outlet property="graphSwitch" destination="gti-aR-jUC" id="lzl-ZA-56f"/>
+                        <outlet property="pulsSwitch" destination="eU0-Jl-7UE" id="g67-jO-dDa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7I-Rj-peZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

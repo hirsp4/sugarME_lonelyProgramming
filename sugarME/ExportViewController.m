@@ -19,7 +19,7 @@
 @end
 
 @implementation ExportViewController
-@synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues,globalMailComposer;
+@synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues,globalMailComposer, blutdruckSwitch, blutzuckerSwitch, pulsSwitch, graphSwitch;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,10 +54,30 @@
     [self addLineWithFrame:CGRectMake(kPadding, 1000, _pageSize.width - kPadding*2, 4)
                                     withColor:[UIColor blackColor]];
     // draw content
-    [self drawBlutdruckValues];
-    [self drawBlutzuckerValues];
-    [self drawPulsValues];
-    [self drawGraph];
+    if([blutdruckSwitch isOn]){
+       [self drawBlutdruckValues];
+    }
+    if([pulsSwitch isOn]){
+        if([blutzuckerSwitch isOn]&&[blutdruckSwitch isOn]){
+            [self drawPulsValues:570];
+        }
+        if((![blutzuckerSwitch isOn])&&(![blutdruckSwitch isOn])){
+            [self drawPulsValues:0];
+        }
+        if([blutzuckerSwitch isOn]&&(![blutdruckSwitch isOn])){
+            [self drawPulsValues:0];
+        }
+        if((![blutzuckerSwitch isOn])&&[blutdruckSwitch isOn]){
+            [self drawPulsValues:285];
+        }
+    }
+    if([blutzuckerSwitch isOn]){
+        [self drawBlutzuckerValues];
+        if([graphSwitch isOn]){
+            [self drawGraph];
+        }
+    }
+    
     [self finishPDF];
     
 ///////////////////////////////////////////
@@ -83,6 +103,14 @@
         }
     }
 
+}
+
+- (IBAction)setGraphOnOff:(id)sender {
+    if(![sender isOn]){
+        [graphSwitch setOn:NO];
+    }else{
+       [graphSwitch setOn:YES];
+    }
 }
 
 
@@ -353,18 +381,18 @@
 
     
 }
--(void)drawPulsValues{
+-(void)drawPulsValues:(CGFloat)int1{
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
     // puls
     [self addTitleText:@"Pulswerte in s/min"
-             withFrame:CGRectMake(kPadding+570, kPadding+75, 200, 100) fontSize:16.0f];
+             withFrame:CGRectMake(kPadding+int1, kPadding+75, 200, 100) fontSize:16.0f];
     for(int i=0; i<pulsValues.count;i++){
         NSString *value= [[pulsValues objectAtIndex:i]valueForKey:@"value"];
         NSString *date= [dateFormat stringFromDate:[[pulsValues objectAtIndex:i]valueForKey:@"date"]];
         NSString *combined = [[date stringByAppendingString:@"          "]stringByAppendingString:value];
         [self addValueText:combined
-                 withFrame:CGRectMake(kPadding+570, kPadding+90+((i+1)*15), 600, 100) fontSize:14.0f];
+                 withFrame:CGRectMake(kPadding+int1, kPadding+90+((i+1)*15), 600, 100) fontSize:14.0f];
     }
 }
 

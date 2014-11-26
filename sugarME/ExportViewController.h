@@ -30,5 +30,12 @@
 @property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
 
 - (IBAction)generatePDF:(id)sender;
+- (IBAction)setGraphOnOff:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UISwitch *blutdruckSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *blutzuckerSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *pulsSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *graphSwitch;
 
 @end
