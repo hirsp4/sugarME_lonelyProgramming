@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
-
-@interface ExportViewController : UIViewController <MFMailComposeViewControllerDelegate>
+#import "ReaderViewController.h"
+#define kPadding 20
+@interface ExportViewController : UIViewController <MFMailComposeViewControllerDelegate, ReaderViewControllerDelegate>
 @property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
+- (IBAction)generatePDF:(id)sender;
 
 @end
