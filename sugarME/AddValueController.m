@@ -229,6 +229,7 @@
         label.textColor = [UIColor blackColor];
         label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
         label.text = @"Systole  ";
+        label.textColor=[UIColor redColor];
         label.textAlignment = NSTextAlignmentCenter;
         return label;
     }else if (component==1){
@@ -254,6 +255,7 @@
         label.textColor = [UIColor blackColor];
         label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
         label.text = @"Diastole  ";
+        label.textColor = [UIColor blueColor];
         label.textAlignment = NSTextAlignmentCenter;
         return label;
     }

@@ -13,5 +13,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *typeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *valueLabel;
 @property (nonatomic, weak) IBOutlet UILabel *unitLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueTagLabel;
 
 @end

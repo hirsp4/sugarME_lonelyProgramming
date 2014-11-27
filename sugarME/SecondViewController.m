@@ -63,7 +63,9 @@
         cell.valueLabel.text = [[self.allValues objectAtIndex:indexPath.row-1]valueForKey:@"value"];
         cell.unitLabel.text = [[self.allValues objectAtIndex:indexPath.row-1]valueForKey:@"unit"];
         cell.timeLabel.text = [dateFormat stringFromDate:[[self.allValues objectAtIndex:indexPath.row-1] valueForKey:@"date"]];
-            cell.backgroundColor= [UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+            cell.backgroundColor= [UIColor whiteColor];
+            cell.valueTagLabel.backgroundColor=[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+            cell.valueTagLabel.text=@"";
 
         }
         if ([[[self.allValues objectAtIndex:indexPath.row-1]valueForKey:@"type"] isEqualToString:@"Blutdruck"]) {
@@ -71,7 +73,9 @@
             cell.valueLabel.text = [[[[self.allValues objectAtIndex:indexPath.row-1]valueForKey:@"sys"]stringByAppendingString:@"/"]stringByAppendingString:[[self.allValues objectAtIndex:indexPath.row-1]valueForKey:@"dia"]];
             cell.unitLabel.text = @"mmHG";
             cell.timeLabel.text = [dateFormat stringFromDate:[[self.allValues objectAtIndex:indexPath.row-1] valueForKey:@"date"]];
-            cell.backgroundColor= [UIColor colorWithRed:255.0f/255.0f green:217.0f/255.0f blue:102.0f/255.0f alpha:1.0];
+            cell.backgroundColor= [UIColor whiteColor];
+            cell.valueTagLabel.backgroundColor=[UIColor colorWithRed:255.0f/255.0f green:217.0f/255.0f blue:102.0f/255.0f alpha:1.0];
+            cell.valueTagLabel.text=@"";
         }
 
         if ([[[self.allValues objectAtIndex:indexPath.row-1]valueForKey:@"type"] isEqualToString:@"Puls"]) {
@@ -79,9 +83,9 @@
             cell.valueLabel.text = [[self.allValues objectAtIndex:indexPath.row-1]valueForKey:@"value"];
             cell.unitLabel.text = @"s/min";
             cell.timeLabel.text = [dateFormat stringFromDate:[[self.allValues objectAtIndex:indexPath.row-1] valueForKey:@"date"]];
-            cell.backgroundColor= [UIColor colorWithRed:153.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:1.0];
-
-            
+            cell.backgroundColor= [UIColor whiteColor];
+            cell.valueTagLabel.backgroundColor=[UIColor colorWithRed:153.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+            cell.valueTagLabel.text=@"";
         }
 
             return cell;

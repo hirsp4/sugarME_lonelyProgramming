@@ -11,6 +11,7 @@
 #import "ValueCell.h"
 #import "EmptyCell.h"
 #import "HbA1c.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ThirdViewController
 @synthesize tableWerte=_tableWerte;
@@ -68,8 +69,11 @@
             cell.valueLabel.text = [[self.hba1cValues objectAtIndex:indexPath.row-1]valueForKey:@"value"];
             cell.unitLabel.text = @"%";
             cell.timeLabel.text = [dateFormat stringFromDate:[[self.hba1cValues objectAtIndex:indexPath.row-1] valueForKey:@"date"]];
-            cell.backgroundColor= [UIColor colorWithRed:0.29 green:0.53 blue:0.91 alpha:1.0];
-            
+            cell.backgroundColor= [UIColor whiteColor];
+        cell.valueTagLabel.backgroundColor=[UIColor colorWithRed:245.0f/255.0f green:155.0f/255.0f blue:199.0f/255.0f alpha:1.0];
+        cell.valueTagLabel.text=@"";
+
+    
         return cell;}
 
 }

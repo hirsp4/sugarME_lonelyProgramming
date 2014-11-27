@@ -69,6 +69,18 @@
     
     circle3.strokeColor = [UIColor blackColor].CGColor;
     circle3.lineWidth = 1;
+    
+    radius = 80;
+    CAShapeLayer *circle4 = [CAShapeLayer layer];
+    circle4.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius)
+                                             cornerRadius:radius].CGPath;
+    circle4.position = CGPointMake(125,
+                                  95);
+    
+    circle4.strokeColor = [UIColor blackColor].CGColor;
+    circle4.lineWidth = 1;
+    circle4.fillColor=[[UIColor colorWithRed:125.0f/255.0f green:190.0f/255.0f blue:249.0f/255.0f alpha:0.2] CGColor];
+
     if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>10.0f){
         circle.fillColor = [UIColor redColor].CGColor;
         circle2.fillColor = [UIColor lightGrayColor].CGColor;
@@ -90,6 +102,7 @@
     [self.layer addSublayer:circle];
     [self.layer addSublayer:circle2];
     [self.layer addSublayer:circle3];
+
     
     CGContextSetTextMatrix(context, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
     CGContextSetTextDrawingMode(context, kCGTextFill);
