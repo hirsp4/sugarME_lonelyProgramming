@@ -9,6 +9,11 @@
 
 #import "ScannerViewController.h"
 #import "Barcode.h"
+#import "TIFws_Pharma_V101Soap.h"
+#import "TIFPHARMA_ITEM.h"
+#import "TIFPHARMA_RESULT.h"
+#import "AppDelegate.h"
+#import "Material.h"
 @import AVFoundation;   // iOS7 only import style
 
 @interface ScannerViewController ()
@@ -42,6 +47,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.managedObjectContext = [appDelegate managedObjectContext];
     
     [self setupCaptureSession];
     _previewLayer.frame = _previewView.bounds;
@@ -59,6 +66,7 @@
      selector:@selector(applicationDidEnterBackground:)
      name:UIApplicationDidEnterBackgroundNotification
      object:nil];
+    
     
     // set default allowed barcode types, remove types via setings menu if you don't want them to be able to be scanned
     self.allowedBarcodeTypes = [NSMutableArray new];
@@ -197,8 +205,8 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
         // Code to do in background processing
         NSString * alertMessage = @"You found a barcode with type ";
         alertMessage = [alertMessage stringByAppendingString:[barcode getBarcodeType]];
-        //        alertMessage = [alertMessage stringByAppendingString:@" and data "];
-        //        alertMessage = [alertMessage stringByAppendingString:[barcode getBarcodeData]];
+        alertMessage = [alertMessage stringByAppendingString:@" and data "];
+        alertMessage = [alertMessage stringByAppendingString:[barcode getBarcodeData]];
         alertMessage = [alertMessage stringByAppendingString:@"\n\nBarcode added to array of "];
         alertMessage = [alertMessage stringByAppendingString:[NSString stringWithFormat:@"%lu",(unsigned long)[self.foundBarcodes count]-1]];
         alertMessage = [alertMessage stringByAppendingString:@" previously found barcodes."];
@@ -219,8 +227,25 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex == 0){
-        //Code for Done button
-        // TODO: Create a finished view
+        TIFws_Pharma_V101Soap* service = [[TIFws_Pharma_V101Soap alloc]init];
+        NSString *gtin = [[self.foundBarcodes firstObject]getBarcodeData];
+        TIFPHARMA *pharma = [service GetByGTIN:gtin lang:@"DE" __error:nil];
+        Material  *materialObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Material"
+                                                                  inManagedObjectContext:self.managedObjectContext];
+        [materialObjekt setValue:[[[pharma getITEM]firstObject] getDSCR] forKey:@"name"];
+        [materialObjekt setValue:[[[pharma getITEM]firstObject] getADDSCR] forKey:@"mengeSchachtel"];
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Failed to save - error: %@", [error localizedDescription]);
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Speichern erfolgreich"
+                                                            message:@"Die eingegebenen Daten wurden erfolgreich gespeichert"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [self.managedObjectContext processPendingChanges];
+        }
     }
     if(buttonIndex == 1){
         //Code for Scan more button

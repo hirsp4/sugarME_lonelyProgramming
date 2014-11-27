@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0BFB5C1A27DE1500F0F8AE /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB5B1A27DE1500F0F8AE /* DDXMLElementAdditions.m */; };
+		EF0BFB5F1A27DE1F00F0F8AE /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB5E1A27DE1F00F0F8AE /* NSString+DDXML.m */; };
+		EF0BFB671A27DE2700F0F8AE /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB621A27DE2700F0F8AE /* DDXMLDocument.m */; };
+		EF0BFB681A27DE2700F0F8AE /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB641A27DE2700F0F8AE /* DDXMLElement.m */; };
+		EF0BFB691A27DE2700F0F8AE /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB661A27DE2700F0F8AE /* DDXMLNode.m */; };
+		EF0BFB811A27DE4B00F0F8AE /* TIFHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB6C1A27DE4B00F0F8AE /* TIFHelper.m */; };
+		EF0BFB821A27DE4B00F0F8AE /* TIFPHARMA_ITEM_COMP.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB6E1A27DE4B00F0F8AE /* TIFPHARMA_ITEM_COMP.m */; };
+		EF0BFB831A27DE4B00F0F8AE /* TIFPHARMA_ITEM_STATUS.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB701A27DE4B00F0F8AE /* TIFPHARMA_ITEM_STATUS.m */; };
+		EF0BFB841A27DE4B00F0F8AE /* TIFPHARMA_ITEM.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB721A27DE4B00F0F8AE /* TIFPHARMA_ITEM.m */; };
+		EF0BFB851A27DE4B00F0F8AE /* TIFPHARMA_RESULT_OK_ERROR.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB741A27DE4B00F0F8AE /* TIFPHARMA_RESULT_OK_ERROR.m */; };
+		EF0BFB861A27DE4B00F0F8AE /* TIFPHARMA_RESULT.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB761A27DE4B00F0F8AE /* TIFPHARMA_RESULT.m */; };
+		EF0BFB871A27DE4B00F0F8AE /* TIFPHARMA.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB781A27DE4B00F0F8AE /* TIFPHARMA.m */; };
+		EF0BFB881A27DE4B00F0F8AE /* TIFRequestResultHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB7A1A27DE4B00F0F8AE /* TIFRequestResultHandler.m */; };
+		EF0BFB891A27DE4B00F0F8AE /* TIFSoapError.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB7C1A27DE4B00F0F8AE /* TIFSoapError.m */; };
+		EF0BFB8A1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB7E1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.m */; };
+		EF0BFB8B1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB801A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m */; };
 		EF1915BD1A04004400605B73 /* ValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1915BC1A04004400605B73 /* ValueCell.xib */; };
 		EF1915C31A04008A00605B73 /* ValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1915C21A04008A00605B73 /* ValueCell.m */; };
 		EF1915C51A04052D00605B73 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1915C41A04052D00605B73 /* EmptyCell.xib */; };
@@ -134,6 +150,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF0BFB5A1A27DE1500F0F8AE /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		EF0BFB5B1A27DE1500F0F8AE /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		EF0BFB5D1A27DE1F00F0F8AE /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		EF0BFB5E1A27DE1F00F0F8AE /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		EF0BFB601A27DE2700F0F8AE /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		EF0BFB611A27DE2700F0F8AE /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		EF0BFB621A27DE2700F0F8AE /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		EF0BFB631A27DE2700F0F8AE /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		EF0BFB641A27DE2700F0F8AE /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		EF0BFB651A27DE2700F0F8AE /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		EF0BFB661A27DE2700F0F8AE /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		EF0BFB6A1A27DE3700F0F8AE /* DDXMLPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		EF0BFB6B1A27DE4B00F0F8AE /* TIFHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFHelper.h; sourceTree = "<group>"; };
+		EF0BFB6C1A27DE4B00F0F8AE /* TIFHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFHelper.m; sourceTree = "<group>"; };
+		EF0BFB6D1A27DE4B00F0F8AE /* TIFPHARMA_ITEM_COMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFPHARMA_ITEM_COMP.h; sourceTree = "<group>"; };
+		EF0BFB6E1A27DE4B00F0F8AE /* TIFPHARMA_ITEM_COMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFPHARMA_ITEM_COMP.m; sourceTree = "<group>"; };
+		EF0BFB6F1A27DE4B00F0F8AE /* TIFPHARMA_ITEM_STATUS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFPHARMA_ITEM_STATUS.h; sourceTree = "<group>"; };
+		EF0BFB701A27DE4B00F0F8AE /* TIFPHARMA_ITEM_STATUS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFPHARMA_ITEM_STATUS.m; sourceTree = "<group>"; };
+		EF0BFB711A27DE4B00F0F8AE /* TIFPHARMA_ITEM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFPHARMA_ITEM.h; sourceTree = "<group>"; };
+		EF0BFB721A27DE4B00F0F8AE /* TIFPHARMA_ITEM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFPHARMA_ITEM.m; sourceTree = "<group>"; };
+		EF0BFB731A27DE4B00F0F8AE /* TIFPHARMA_RESULT_OK_ERROR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFPHARMA_RESULT_OK_ERROR.h; sourceTree = "<group>"; };
+		EF0BFB741A27DE4B00F0F8AE /* TIFPHARMA_RESULT_OK_ERROR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFPHARMA_RESULT_OK_ERROR.m; sourceTree = "<group>"; };
+		EF0BFB751A27DE4B00F0F8AE /* TIFPHARMA_RESULT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFPHARMA_RESULT.h; sourceTree = "<group>"; };
+		EF0BFB761A27DE4B00F0F8AE /* TIFPHARMA_RESULT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFPHARMA_RESULT.m; sourceTree = "<group>"; };
+		EF0BFB771A27DE4B00F0F8AE /* TIFPHARMA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFPHARMA.h; sourceTree = "<group>"; };
+		EF0BFB781A27DE4B00F0F8AE /* TIFPHARMA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFPHARMA.m; sourceTree = "<group>"; };
+		EF0BFB791A27DE4B00F0F8AE /* TIFRequestResultHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFRequestResultHandler.h; sourceTree = "<group>"; };
+		EF0BFB7A1A27DE4B00F0F8AE /* TIFRequestResultHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFRequestResultHandler.m; sourceTree = "<group>"; };
+		EF0BFB7B1A27DE4B00F0F8AE /* TIFSoapError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFSoapError.h; sourceTree = "<group>"; };
+		EF0BFB7C1A27DE4B00F0F8AE /* TIFSoapError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFSoapError.m; sourceTree = "<group>"; };
+		EF0BFB7D1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFws_Pharma_V101Soap.h; sourceTree = "<group>"; };
+		EF0BFB7E1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFws_Pharma_V101Soap.m; sourceTree = "<group>"; };
+		EF0BFB7F1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFws_Pharma_V101Soap12.h; sourceTree = "<group>"; };
+		EF0BFB801A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFws_Pharma_V101Soap12.m; sourceTree = "<group>"; };
 		EF1915BC1A04004400605B73 /* ValueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValueCell.xib; sourceTree = "<group>"; };
 		EF1915C11A04008A00605B73 /* ValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCell.h; sourceTree = "<group>"; };
 		EF1915C21A04008A00605B73 /* ValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueCell.m; sourceTree = "<group>"; };
@@ -325,6 +375,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF0BFB591A27DE0100F0F8AE /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				EF0BFB5A1A27DE1500F0F8AE /* DDXMLElementAdditions.h */,
+				EF0BFB5D1A27DE1F00F0F8AE /* NSString+DDXML.h */,
+				EF0BFB601A27DE2700F0F8AE /* DDXML.h */,
+				EF0BFB611A27DE2700F0F8AE /* DDXMLDocument.h */,
+				EF0BFB621A27DE2700F0F8AE /* DDXMLDocument.m */,
+				EF0BFB6B1A27DE4B00F0F8AE /* TIFHelper.h */,
+				EF0BFB6C1A27DE4B00F0F8AE /* TIFHelper.m */,
+				EF0BFB6D1A27DE4B00F0F8AE /* TIFPHARMA_ITEM_COMP.h */,
+				EF0BFB6E1A27DE4B00F0F8AE /* TIFPHARMA_ITEM_COMP.m */,
+				EF0BFB6F1A27DE4B00F0F8AE /* TIFPHARMA_ITEM_STATUS.h */,
+				EF0BFB701A27DE4B00F0F8AE /* TIFPHARMA_ITEM_STATUS.m */,
+				EF0BFB711A27DE4B00F0F8AE /* TIFPHARMA_ITEM.h */,
+				EF0BFB721A27DE4B00F0F8AE /* TIFPHARMA_ITEM.m */,
+				EF0BFB731A27DE4B00F0F8AE /* TIFPHARMA_RESULT_OK_ERROR.h */,
+				EF0BFB741A27DE4B00F0F8AE /* TIFPHARMA_RESULT_OK_ERROR.m */,
+				EF0BFB751A27DE4B00F0F8AE /* TIFPHARMA_RESULT.h */,
+				EF0BFB761A27DE4B00F0F8AE /* TIFPHARMA_RESULT.m */,
+				EF0BFB771A27DE4B00F0F8AE /* TIFPHARMA.h */,
+				EF0BFB781A27DE4B00F0F8AE /* TIFPHARMA.m */,
+				EF0BFB791A27DE4B00F0F8AE /* TIFRequestResultHandler.h */,
+				EF0BFB7A1A27DE4B00F0F8AE /* TIFRequestResultHandler.m */,
+				EF0BFB7B1A27DE4B00F0F8AE /* TIFSoapError.h */,
+				EF0BFB7C1A27DE4B00F0F8AE /* TIFSoapError.m */,
+				EF0BFB7D1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.h */,
+				EF0BFB7E1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.m */,
+				EF0BFB7F1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.h */,
+				EF0BFB801A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m */,
+				EF0BFB631A27DE2700F0F8AE /* DDXMLElement.h */,
+				EF0BFB6A1A27DE3700F0F8AE /* DDXMLPrivate.h */,
+				EF0BFB641A27DE2700F0F8AE /* DDXMLElement.m */,
+				EF0BFB651A27DE2700F0F8AE /* DDXMLNode.h */,
+				EF0BFB661A27DE2700F0F8AE /* DDXMLNode.m */,
+				EF0BFB5E1A27DE1F00F0F8AE /* NSString+DDXML.m */,
+				EF0BFB5B1A27DE1500F0F8AE /* DDXMLElementAdditions.m */,
+			);
+			name = WebService;
+			sourceTree = "<group>";
+		};
 		EF1915B81A03FE4800605B73 /* Werte */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +498,7 @@
 		EF68EC8D1A02CB8600AD9663 /* sugarME */ = {
 			isa = PBXGroup;
 			children = (
+				EF0BFB591A27DE0100F0F8AE /* WebService */,
 				EF7EB2081A254B55001F1302 /* PDFReader */,
 				EFF89A691A06425A00398332 /* ManagedObjects */,
 				EF1915BB1A03FE6B00605B73 /* Einstellungen */,
@@ -782,9 +874,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0BFB5F1A27DE1F00F0F8AE /* NSString+DDXML.m in Sources */,
+				EF0BFB831A27DE4B00F0F8AE /* TIFPHARMA_ITEM_STATUS.m in Sources */,
 				EFF89AA91A0690DF00398332 /* Puls.m in Sources */,
 				EFD35D0F1A160A52009A02AC /* AddHbA1cViewController.m in Sources */,
+				EF0BFB851A27DE4B00F0F8AE /* TIFPHARMA_RESULT_OK_ERROR.m in Sources */,
+				EF0BFB681A27DE2700F0F8AE /* DDXMLElement.m in Sources */,
 				EF1915C81A04056B00605B73 /* EmptyCell.m in Sources */,
+				EF0BFB8A1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.m in Sources */,
 				EF7EB2531A254B9C001F1302 /* ReaderAppDelegate.m in Sources */,
 				EF92FFDB1A02EF0F000AAE45 /* MeasureCell.m in Sources */,
 				EF68ECC21A02D2EC00AD9663 /* FifthViewController.m in Sources */,
@@ -797,9 +894,15 @@
 				EF7EB2721A254B9C001F1302 /* ReaderContentTile.m in Sources */,
 				EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */,
 				EFE720461A18DD2B00F7E637 /* AddMaterialViewController.m in Sources */,
+				EF0BFB671A27DE2700F0F8AE /* DDXMLDocument.m in Sources */,
+				EF0BFB811A27DE4B00F0F8AE /* TIFHelper.m in Sources */,
+				EF0BFB891A27DE4B00F0F8AE /* TIFSoapError.m in Sources */,
 				EF7EB27F1A254B9C001F1302 /* ReaderViewController.m in Sources */,
 				EF7EB2751A254B9C001F1302 /* ReaderDocumentOutline.m in Sources */,
+				EF0BFB8B1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m in Sources */,
 				EF7EB2771A254B9C001F1302 /* ReaderMainToolbar.m in Sources */,
+				EF0BFB871A27DE4B00F0F8AE /* TIFPHARMA.m in Sources */,
+				EF0BFB691A27DE2700F0F8AE /* DDXMLNode.m in Sources */,
 				EF7EB2801A254B9C001F1302 /* ThumbsMainToolbar.m in Sources */,
 				EF7EB2741A254B9C001F1302 /* ReaderDocument.m in Sources */,
 				EF7EB26F1A254B9C001F1302 /* CGPDFDocument.m in Sources */,
@@ -816,21 +919,26 @@
 				EFBF64F81A0A312A00D31A8B /* GraphView.m in Sources */,
 				EF68ECB91A02CF1500AD9663 /* ThirdViewController.m in Sources */,
 				EF7EB2701A254B9C001F1302 /* ReaderConstants.m in Sources */,
+				EF0BFB861A27DE4B00F0F8AE /* TIFPHARMA_RESULT.m in Sources */,
 				EF68EC941A02CB8600AD9663 /* AppDelegate.m in Sources */,
+				EF0BFB841A27DE4B00F0F8AE /* TIFPHARMA_ITEM.m in Sources */,
 				EFF89AA61A0690D300398332 /* Blutdruck.m in Sources */,
 				EF7EB2811A254B9C001F1302 /* ThumbsViewController.m in Sources */,
 				EFEB47F21A2751CE00284B64 /* ScannerViewController.m in Sources */,
 				EFFFA2171A14C4A0003D55D7 /* Material.m in Sources */,
 				EF7EB27A1A254B9C001F1302 /* ReaderThumbQueue.m in Sources */,
+				EF0BFB5C1A27DE1500F0F8AE /* DDXMLElementAdditions.m in Sources */,
 				EF7EB2711A254B9C001F1302 /* ReaderContentPage.m in Sources */,
 				EF68EC971A02CB8600AD9663 /* FirstViewController.m in Sources */,
 				EFD35D0C1A1607DF009A02AC /* HbA1c.m in Sources */,
 				EF7EB27C1A254B9C001F1302 /* ReaderThumbRequest.m in Sources */,
 				EF7EB27D1A254B9C001F1302 /* ReaderThumbsView.m in Sources */,
 				EF7EB2731A254B9C001F1302 /* ReaderContentView.m in Sources */,
+				EF0BFB821A27DE4B00F0F8AE /* TIFPHARMA_ITEM_COMP.m in Sources */,
 				EF92FFE41A02F764000AAE45 /* UserCell.m in Sources */,
 				EF68EC911A02CB8600AD9663 /* main.m in Sources */,
 				EF7EB2821A254B9C001F1302 /* UIXToolbarView.m in Sources */,
+				EF0BFB881A27DE4B00F0F8AE /* TIFRequestResultHandler.m in Sources */,
 				EF1915C31A04008A00605B73 /* ValueCell.m in Sources */,
 				EF7163B61A04365700CDF001 /* ExportViewController.m in Sources */,
 			);
@@ -954,8 +1062,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = sugarME/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -964,8 +1078,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = sugarME/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
