@@ -86,7 +86,6 @@
 		EF7EB2801A254B9C001F1302 /* ThumbsMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7EB24E1A254B9C001F1302 /* ThumbsMainToolbar.m */; };
 		EF7EB2811A254B9C001F1302 /* ThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7EB2501A254B9C001F1302 /* ThumbsViewController.m */; };
 		EF7EB2821A254B9C001F1302 /* UIXToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7EB2521A254B9C001F1302 /* UIXToolbarView.m */; };
-		EF867F151A24C3C800D3D1EA /* blutzucker.png in Resources */ = {isa = PBXBuildFile; fileRef = EF867F141A24C3C800D3D1EA /* blutzucker.png */; };
 		EF867F171A24C4DE00D3D1EA /* pulsimage.png in Resources */ = {isa = PBXBuildFile; fileRef = EF867F161A24C4DE00D3D1EA /* pulsimage.png */; };
 		EF867F191A24C58500D3D1EA /* pulsimage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF867F181A24C58500D3D1EA /* pulsimage2.jpg */; };
 		EF867F1B1A24C70C00D3D1EA /* blutdruckmesser-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF867F1A1A24C70C00D3D1EA /* blutdruckmesser-2.jpg */; };
@@ -105,6 +104,9 @@
 		EFD35D121A160FED009A02AC /* AmpelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D111A160FED009A02AC /* AmpelView.m */; };
 		EFE720461A18DD2B00F7E637 /* AddMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE720451A18DD2B00F7E637 /* AddMaterialViewController.m */; };
 		EFEADD2C1A037B1F001332C7 /* MeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */; };
+		EFEB47EF1A27514900284B64 /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEB47EE1A27514900284B64 /* Barcode.m */; };
+		EFEB47F21A2751CE00284B64 /* ScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEB47F11A2751CE00284B64 /* ScannerViewController.m */; };
+		EFEB47F61A276F8700284B64 /* blutzucker.png in Resources */ = {isa = PBXBuildFile; fileRef = EFEB47F51A276F8700284B64 /* blutzucker.png */; };
 		EFF89A681A06415700398332 /* sugarmeDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A661A06415700398332 /* sugarmeDB.xcdatamodeld */; };
 		EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A6B1A06428B00398332 /* Blutzucker.m */; };
 		EFF89A6E1A0642C700398332 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF89A6D1A0642C700398332 /* CoreData.framework */; };
@@ -249,7 +251,6 @@
 		EF7EB2501A254B9C001F1302 /* ThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbsViewController.m; sourceTree = "<group>"; };
 		EF7EB2511A254B9C001F1302 /* UIXToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXToolbarView.h; sourceTree = "<group>"; };
 		EF7EB2521A254B9C001F1302 /* UIXToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXToolbarView.m; sourceTree = "<group>"; };
-		EF867F141A24C3C800D3D1EA /* blutzucker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blutzucker.png; sourceTree = "<group>"; };
 		EF867F161A24C4DE00D3D1EA /* pulsimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulsimage.png; sourceTree = "<group>"; };
 		EF867F181A24C58500D3D1EA /* pulsimage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pulsimage2.jpg; sourceTree = "<group>"; };
 		EF867F1A1A24C70C00D3D1EA /* blutdruckmesser-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blutdruckmesser-2.jpg"; sourceTree = "<group>"; };
@@ -277,6 +278,11 @@
 		EFE720441A18DD2B00F7E637 /* AddMaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMaterialViewController.h; sourceTree = "<group>"; };
 		EFE720451A18DD2B00F7E637 /* AddMaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMaterialViewController.m; sourceTree = "<group>"; };
 		EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureCell.xib; sourceTree = "<group>"; };
+		EFEB47ED1A27514900284B64 /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barcode.h; sourceTree = "<group>"; };
+		EFEB47EE1A27514900284B64 /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barcode.m; sourceTree = "<group>"; };
+		EFEB47F01A2751CE00284B64 /* ScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScannerViewController.h; sourceTree = "<group>"; };
+		EFEB47F11A2751CE00284B64 /* ScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScannerViewController.m; sourceTree = "<group>"; };
+		EFEB47F51A276F8700284B64 /* blutzucker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blutzucker.png; sourceTree = "<group>"; };
 		EFF89A671A06415700398332 /* sugarmeDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sugarmeDB.xcdatamodel; sourceTree = "<group>"; };
 		EFF89A6A1A06428B00398332 /* Blutzucker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blutzucker.h; sourceTree = "<group>"; };
 		EFF89A6B1A06428B00398332 /* Blutzucker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blutzucker.m; sourceTree = "<group>"; };
@@ -358,6 +364,10 @@
 				EF869B6F1A18CBCC00D9F02A /* DetailMaterialViewController.m */,
 				EFE720441A18DD2B00F7E637 /* AddMaterialViewController.h */,
 				EFE720451A18DD2B00F7E637 /* AddMaterialViewController.m */,
+				EFEB47ED1A27514900284B64 /* Barcode.h */,
+				EFEB47EE1A27514900284B64 /* Barcode.m */,
+				EFEB47F01A2751CE00284B64 /* ScannerViewController.h */,
+				EFEB47F11A2751CE00284B64 /* ScannerViewController.m */,
 			);
 			name = Material;
 			sourceTree = "<group>";
@@ -456,10 +466,10 @@
 				EFFFA2051A14B782003D55D7 /* sugarMElogo.png */,
 				EFFFA20C1A14BAEB003D55D7 /* barcode.png */,
 				EF869B711A18CD9900D9F02A /* thumblantus-1.jpg */,
+				EFEB47F51A276F8700284B64 /* blutzucker.png */,
 				EFFFA2071A14BAE7003D55D7 /* thumbnovo2.jpg */,
 				EFB325C71A24E9280043C718 /* hba1cimage.png */,
 				EFFFA20F1A14BAEF003D55D7 /* thumbsoftzellin.jpg */,
-				EF867F141A24C3C800D3D1EA /* blutzucker.png */,
 				EF867F161A24C4DE00D3D1EA /* pulsimage.png */,
 				EFFFA2131A14BD85003D55D7 /* thumbaccucheck.jpg */,
 				EFFFA2081A14BAE7003D55D7 /* thumblantus.jpg */,
@@ -712,7 +722,6 @@
 				EF68ECD31A02D78A00AD9663 /* tools.png in Resources */,
 				EFB325C81A24E9280043C718 /* hba1cimage.png in Resources */,
 				EFFFA2121A14BC60003D55D7 /* thumbnovofine.jpg in Resources */,
-				EF867F151A24C3C800D3D1EA /* blutzucker.png in Resources */,
 				EF68EC9D1A02CB8600AD9663 /* Main.storyboard in Resources */,
 				EF7EB2691A254B9C001F1302 /* Reader-Mark-Y.png in Resources */,
 				EF7EB26B1A254B9C001F1302 /* Reader-Print.png in Resources */,
@@ -734,6 +743,7 @@
 				EF7EB2601A254B9C001F1302 /* Reader-Button-H@2x.png in Resources */,
 				EF1915C51A04052D00605B73 /* EmptyCell.xib in Resources */,
 				EF68ECD71A02D82F00AD9663 /* hba1c@2x.png in Resources */,
+				EFEB47F61A276F8700284B64 /* blutzucker.png in Resources */,
 				EF869B721A18CD9900D9F02A /* thumblantus-1.jpg in Resources */,
 				EF7EB26A1A254B9C001F1302 /* Reader-Mark-Y@2x.png in Resources */,
 				EF7EB2571A254B9C001F1302 /* AppIcon-072.png in Resources */,
@@ -794,6 +804,7 @@
 				EF7EB2741A254B9C001F1302 /* ReaderDocument.m in Sources */,
 				EF7EB26F1A254B9C001F1302 /* CGPDFDocument.m in Sources */,
 				EFD35D121A160FED009A02AC /* AmpelView.m in Sources */,
+				EFEB47EF1A27514900284B64 /* Barcode.m in Sources */,
 				EF7EB27B1A254B9C001F1302 /* ReaderThumbRender.m in Sources */,
 				EF7EB2551A254B9C001F1302 /* ReaderDemoController.m in Sources */,
 				EF68EC9A1A02CB8600AD9663 /* SecondViewController.m in Sources */,
@@ -808,6 +819,7 @@
 				EF68EC941A02CB8600AD9663 /* AppDelegate.m in Sources */,
 				EFF89AA61A0690D300398332 /* Blutdruck.m in Sources */,
 				EF7EB2811A254B9C001F1302 /* ThumbsViewController.m in Sources */,
+				EFEB47F21A2751CE00284B64 /* ScannerViewController.m in Sources */,
 				EFFFA2171A14C4A0003D55D7 /* Material.m in Sources */,
 				EF7EB27A1A254B9C001F1302 /* ReaderThumbQueue.m in Sources */,
 				EF7EB2711A254B9C001F1302 /* ReaderContentPage.m in Sources */,

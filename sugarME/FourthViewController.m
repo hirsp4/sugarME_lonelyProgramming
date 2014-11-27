@@ -24,7 +24,7 @@
 @synthesize selectedRowText=_selectedRowText;
 
 -(IBAction)addBarcodeMaterial:(id)sender{
-    NSLog(@"Tapped Edit Data");
+    [self performSegueWithIdentifier:@"showScanner_segue" sender:self];
 }
 
 -(IBAction)AddData:(id)sender{

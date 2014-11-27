@@ -522,6 +522,7 @@ E: info@bfh.ch</string>
                         <outlet property="tableView" destination="F5w-f0-JfE" id="aA8-kS-kCU"/>
                         <segue destination="Ye6-Ex-biI" kind="custom" identifier="showAddMaterial_segue" id="fko-wu-IvA"/>
                         <segue destination="xfW-v7-RtD" kind="custom" identifier="showMaterialDetail_segue" id="sgz-f0-D12"/>
+                        <segue destination="tCe-Hi-LT7" kind="custom" identifier="showScanner_segue" id="LCT-V3-v1m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="teS-3b-XTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -564,6 +565,41 @@ E: info@bfh.ch</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvy-dG-eqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2797" y="643"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="zmW-9U-vMc">
+            <objects>
+                <viewController id="tCe-Hi-LT7" customClass="ScannerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2cB-Sx-RLS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fpj-un-HZX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aHP-e3-SNE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="558"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTB-Dt-CCB">
+                                <rect key="frame" x="10" y="130" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fpj-un-HZX" firstAttribute="top" secondItem="QTB-Dt-CCB" secondAttribute="bottom" constant="128" id="9gx-k0-5JU"/>
+                            <constraint firstItem="QTB-Dt-CCB" firstAttribute="centerX" secondItem="aHP-e3-SNE" secondAttribute="centerX" id="DR2-iI-xVr"/>
+                            <constraint firstItem="QTB-Dt-CCB" firstAttribute="top" secondItem="2cB-Sx-RLS" secondAttribute="bottom" constant="110" id="fE7-YE-j6V"/>
+                            <constraint firstItem="QTB-Dt-CCB" firstAttribute="leading" secondItem="aHP-e3-SNE" secondAttribute="leading" constant="10" id="ful-zS-GPh"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="558"/>
+                    <connections>
+                        <outlet property="previewView" destination="QTB-Dt-CCB" id="M2w-ye-P0Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UUA-pT-wJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896" y="1397"/>
         </scene>
         <!--Detail Material View Controller-->
         <scene sceneID="nSA-3l-I6i">
