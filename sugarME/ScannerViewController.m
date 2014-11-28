@@ -37,6 +37,8 @@
      6. _metadataOutput - AVCaptureMetadataOutput provides a callback to the application when metadata is detected in a video frame. AV Foundation supports two types of metadata: machine readable codes and face detection.
      7. _backgroundQueue - Used for showing alert using a separate thread.
      */
+    
+ 
     AVCaptureSession *_captureSession;
     AVCaptureDevice *_videoDevice;
     AVCaptureDeviceInput *_videoInput;

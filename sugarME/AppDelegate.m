@@ -14,6 +14,9 @@
 @end
 
 @implementation AppDelegate
+/**
+ *  An instance of NSManagedObjectContext represents a single “object space” or scratch pad in an application. Its primary responsibility is to manage a collection of managed objects. These objects form a group of related model objects that represent an internally consistent view of one or more persistent stores. A single managed object instance exists in one and only one context, but multiple copies of an object can exist in different contexts. Thus object uniquing is scoped to a particular context. 
+ */
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize globalMailComposer = _globalMailComposer;
 @synthesize managedObjectModel = _managedObjectModel;
