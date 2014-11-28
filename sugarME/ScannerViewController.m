@@ -203,19 +203,21 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
 - (void) showBarcodeAlert:(Barcode *)barcode{
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Code to do in background processing
-        NSString * alertMessage = @"You found a barcode with type ";
+        TIFws_Pharma_V101Soap* service = [[TIFws_Pharma_V101Soap alloc]init];
+        NSString *gtin = [[self.foundBarcodes firstObject]getBarcodeData];
+        TIFPHARMA *pharma = [service GetByGTIN:gtin lang:@"DE" __error:nil];
+        NSString * alertMessage = @"Sie haben einen Barcode gefunden mit dem Typ: ";
         alertMessage = [alertMessage stringByAppendingString:[barcode getBarcodeType]];
-        alertMessage = [alertMessage stringByAppendingString:@" and data "];
+        alertMessage = [alertMessage stringByAppendingString:@" mit GTIN: "];
         alertMessage = [alertMessage stringByAppendingString:[barcode getBarcodeData]];
-        alertMessage = [alertMessage stringByAppendingString:@"\n\nBarcode added to array of "];
-        alertMessage = [alertMessage stringByAppendingString:[NSString stringWithFormat:@"%lu",(unsigned long)[self.foundBarcodes count]-1]];
-        alertMessage = [alertMessage stringByAppendingString:@" previously found barcodes."];
+        alertMessage = [alertMessage stringByAppendingString:@"\n\n Es handelt sich um das Produkt: "];
+        alertMessage = [alertMessage stringByAppendingString:[[[pharma getITEM]firstObject] getDSCR]];
         
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Barcode Found!"
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Barcode gefunden!"
                                                           message:alertMessage
                                                          delegate:self
-                                                cancelButtonTitle:@"Done"
-                                                otherButtonTitles:@"Scan again",nil];
+                                                cancelButtonTitle:@"Speichern"
+                                                otherButtonTitles:@"Erneut Scannen",nil];
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -230,6 +232,7 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
         TIFws_Pharma_V101Soap* service = [[TIFws_Pharma_V101Soap alloc]init];
         NSString *gtin = [[self.foundBarcodes firstObject]getBarcodeData];
         TIFPHARMA *pharma = [service GetByGTIN:gtin lang:@"DE" __error:nil];
+        
         Material  *materialObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Material"
                                                                   inManagedObjectContext:self.managedObjectContext];
         [materialObjekt setValue:[[[pharma getITEM]firstObject] getDSCR] forKey:@"name"];
