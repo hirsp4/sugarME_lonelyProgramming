@@ -1,13 +1,19 @@
 //
 //  FifthViewController.h
-//  sugarME
+//  SettingsViewController
 //
-//  Created by Fresh Prince on 30.10.14.
-//  Copyright (c) 2014 Berner Fachhochschule. All rights reserved.
+//  Created by Maja Kelterborn on 20.11.14.
+//  Copyright (c) 2014 Maja Kelterborn. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface FifthViewController : UIViewController
+@interface FifthViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSString *selectedRowText;
+@property (strong, nonatomic) NSArray *settingsTitles;
+
 
 @end
+
