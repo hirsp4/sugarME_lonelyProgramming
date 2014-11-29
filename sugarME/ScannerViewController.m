@@ -239,6 +239,9 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
                                                                   inManagedObjectContext:self.managedObjectContext];
         [materialObjekt setValue:[[[pharma getITEM]firstObject] getDSCR] forKey:@"name"];
         [materialObjekt setValue:[[[pharma getITEM]firstObject] getADDSCR] forKey:@"mengeSchachtel"];
+        [materialObjekt setValue:[[[pharma getITEM]firstObject] getADDSCR] forKey:@"mengeAktuell"];
+        [materialObjekt setValue:@"siehe Packung" forKey:@"dosis"];
+
         NSError *error;
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Failed to save - error: %@", [error localizedDescription]);
