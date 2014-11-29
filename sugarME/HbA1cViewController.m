@@ -27,6 +27,9 @@
 @synthesize pickerTextField2 = _pickerTextField2;
 @synthesize pickerView1 = _pickerView1;
 @synthesize pickerView2 = _pickerView2;
+@synthesize erinnerungSwitch = _erinnerungSwitch;
+
+
 @synthesize hba1cSettings, managedObjectContext;
 
 
@@ -36,6 +39,7 @@
                                                                      inManagedObjectContext:self.managedObjectContext];
     [hba1cObjekt setValue:_pickerTextField1.text forKey:@"zielbereich"];
     [hba1cObjekt setValue:_pickerTextField2.text forKey:@"messungen"];
+    [hba1cObjekt setValue:[NSNumber numberWithBool:_erinnerungSwitch.on] forKey:@"erinnerung"];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Failed to save - error: %@", [error localizedDescription]);
@@ -132,8 +136,7 @@
             [cell.contentView addSubview:_pickerTextField2];
         }
         if (indexPath.row==2){
-            UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-            cell.accessoryView = switchview;
+            cell.accessoryView = _erinnerungSwitch;
     }
     return cell;
 }
@@ -207,8 +210,15 @@
 -(void)setupTextFields{
     _pickerTextField1 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
     _pickerTextField2 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _erinnerungSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
     _pickerTextField1.text=[[self.hba1cSettings lastObject]valueForKey:@"zielbereich"];
     _pickerTextField2.text=[[self.hba1cSettings lastObject]valueForKey:@"messungen"];
+    BOOL on = [[[self.hba1cSettings lastObject]valueForKey:@"erinnerung"] boolValue];
+    if(on){
+        [_erinnerungSwitch setOn:YES];
+    }else{
+        [_erinnerungSwitch setOn:NO];
+    }
 }
 
 -(void)performFetches{

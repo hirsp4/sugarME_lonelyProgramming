@@ -13,4 +13,6 @@
 @property NSString *dosis;
 @property NSString *mengeSchachtel;
 @property NSString *mengeAktuell;
+@property NSString *erinnern;
+@property Boolean *nachfuellen;
 @end

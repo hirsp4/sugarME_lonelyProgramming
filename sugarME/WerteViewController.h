@@ -18,6 +18,8 @@
 @property (strong, nonatomic) UIPickerView *pickerView4;
 @property (strong, nonatomic) UIPickerView *pickerView5;
 @property (strong, nonatomic) UIPickerView *pickerView6;
+@property (strong,nonatomic) UISwitch *bzErinnerungSwitch;
+@property (strong,nonatomic) UISwitch *pulsErinnerungSwitch;
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSArray *werteeinstellungen;

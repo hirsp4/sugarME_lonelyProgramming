@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property NSMutableArray *dataArray;
+@property UISwitch *erinnernSwitch;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @end

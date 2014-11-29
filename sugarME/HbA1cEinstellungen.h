@@ -11,4 +11,5 @@
 @interface HbA1cEinstellungen : NSManagedObject
 @property NSString *zielbereich;
 @property NSString *messungen;
+@property Boolean *erinnerung;
 @end

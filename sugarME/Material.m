@@ -13,4 +13,6 @@
 @dynamic dosis;
 @dynamic mengeSchachtel;
 @dynamic mengeAktuell;
+@dynamic erinnern;
+@dynamic nachfuellen;
 @end

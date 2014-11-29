@@ -11,4 +11,7 @@
 @interface DetailMaterialViewController : UIViewController
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property NSMutableArray *dataArray;
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property NSArray *materialArray;
+
 @end

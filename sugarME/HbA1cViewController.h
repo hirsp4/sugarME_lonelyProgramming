@@ -13,6 +13,7 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) UITextField *pickerTextField1;
 @property (strong,nonatomic) UITextField *pickerTextField2;
+@property (strong,nonatomic) UISwitch *erinnerungSwitch;
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSArray *hba1cSettings;

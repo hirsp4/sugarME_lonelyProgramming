@@ -15,4 +15,6 @@
 @property NSString *diazielbereich;
 @property NSString *pulszielbereich;
 @property NSString *pulsmessungen;
+@property Boolean *pulserinnerung;
+@property Boolean *bzerinnerung;
 @end

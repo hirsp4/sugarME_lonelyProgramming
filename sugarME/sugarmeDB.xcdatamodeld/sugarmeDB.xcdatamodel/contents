@@ -18,13 +18,16 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="HbA1cEinstellungen" syncable="YES">
+        <attribute name="erinnerung" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="messungen" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zielbereich" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Material" syncable="YES">
         <attribute name="dosis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="erinnern" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mengeAktuell" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mengeSchachtel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nachfuellen" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Profil" syncable="YES">
@@ -44,9 +47,11 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Werteeinstellungen" syncable="YES">
+        <attribute name="bzerinnerung" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="bzmessungen" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bzzielbereich" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="diazielbereich" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pulserinnerung" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="pulsmessungen" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pulszielbereich" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="syszielbereich" optional="YES" attributeType="String" syncable="YES"/>
@@ -55,10 +60,10 @@
         <element name="Blutdruck" positionX="108" positionY="-216" width="128" height="105"/>
         <element name="Blutzucker" positionX="-164" positionY="-217" width="128" height="118"/>
         <element name="HbA1c" positionX="241" positionY="-216" width="128" height="73"/>
-        <element name="Material" positionX="-162" positionY="-90" width="128" height="103"/>
-        <element name="Puls" positionX="-27" positionY="-216" width="128" height="88"/>
+        <element name="HbA1cEinstellungen" positionX="243" positionY="-135" width="128" height="88"/>
+        <element name="Material" positionX="-162" positionY="-90" width="128" height="133"/>
         <element name="Profil" positionX="-27" positionY="-117" width="128" height="180"/>
-        <element name="Werteeinstellungen" positionX="108" positionY="-99" width="128" height="133"/>
-        <element name="HbA1cEinstellungen" positionX="243" positionY="-135" width="128" height="73"/>
+        <element name="Puls" positionX="-27" positionY="-216" width="128" height="88"/>
+        <element name="Werteeinstellungen" positionX="108" positionY="-99" width="128" height="165"/>
     </elements>
 </model>

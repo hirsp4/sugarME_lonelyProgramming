@@ -9,5 +9,5 @@
 #import "HbA1cEinstellungen.h"
 
 @implementation HbA1cEinstellungen
-@dynamic zielbereich,messungen;
+@dynamic zielbereich,messungen,erinnerung;
 @end

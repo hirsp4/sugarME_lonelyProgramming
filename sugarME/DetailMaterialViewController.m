@@ -7,6 +7,8 @@
 //
 
 #import "DetailMaterialViewController.h"
+#import "AppDelegate.h"
+#import "Material.h"
 
 @interface DetailMaterialViewController () {
     NSArray *materialInformations;
@@ -18,16 +20,18 @@
 @implementation DetailMaterialViewController
 
 @synthesize tableView=_tableView;
+@synthesize materialArray,managedObjectContext;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
+    self.managedObjectContext = [appDelegate managedObjectContext];
+    [self performFetches];
     
     materialInformations = [[NSArray alloc] initWithObjects:
                             @"Name",
                             @"Dosis pro Tag",
-                            @"Bild",
-                            @"Nicht mehr in Gebrauch",
                             nil];
     
     materialDetailInformations = [[NSArray alloc] initWithObjects:
@@ -35,8 +39,6 @@
                                   @"Aktuelle Menge",
                                   @"Nachfüllungs Erinnerung",
                                   @"Erinnern",
-                                  @"Zeit",
-                                  @"Automatische Bestellung",
                                   nil];
 }
 
@@ -78,45 +80,46 @@
             cell.detailTextLabel.text = self.navigationItem.title;
         }
         else if (indexPath.row == 1){
-            cell.detailTextLabel.text = @"4 Einheiten";
-        }
-        else if (indexPath.row == 2){
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"thumblantus-1.jpg"]];
-            cell.accessoryView = imageView;
-        }
-        else if (indexPath.row == 3){
-            UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-            cell.accessoryView = switchview;
+            cell.detailTextLabel.text = [[materialArray lastObject]valueForKey:@"dosis"];
         }
     }
     
     if(indexPath.section==1){
         cell.textLabel.text = [materialDetailInformations objectAtIndex:indexPath.row];
         if (indexPath.row == 0) {
-            cell.detailTextLabel.text = @"1500 Einheiten";
+            cell.detailTextLabel.text = [[materialArray lastObject]valueForKey:@"mengeSchachtel"];
         }
         else if (indexPath.row == 1){
-            cell.detailTextLabel.text = @"300 Einheiten";
+            cell.detailTextLabel.text = [[materialArray lastObject]valueForKey:@"mengeAktuell"];
         }
         else if (indexPath.row == 2){
             UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
+            BOOL on = [[[materialArray lastObject]valueForKey:@"nachfuellen"] boolValue];
+            if(on){
+                [switchview setOn:YES];
+            }else{
+                [switchview setOn:NO];
+            }
             cell.accessoryView = switchview;
         }
         else if (indexPath.row == 3){
-            cell.detailTextLabel.text = @"3 Tage vorher";
-        }
-        else if (indexPath.row == 4){
-            cell.detailTextLabel.text = @"14:00, jede Stunde";
-        }
-        else if (indexPath.row == 5){
-            UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-            cell.accessoryView = switchview;
+            cell.detailTextLabel.text = [[materialArray lastObject]valueForKey:@"erinnern"];
         }
     }
     return cell;
 }
 
 
+-(void)performFetches{
+    NSFetchRequest *fetchRequestMaterial = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Material" inManagedObjectContext:managedObjectContext];
+    [fetchRequestMaterial setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name == %@", self.navigationItem.title];
+    [fetchRequestMaterial setPredicate:predicate];
+    NSError *error;
+    materialArray = [managedObjectContext executeFetchRequest:fetchRequestMaterial error:&error];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -9,5 +9,5 @@
 #import "Werteeinstellungen.h"
 
 @implementation Werteeinstellungen
-@dynamic bzzielbereich,bzmessungen,syszielbereich,diazielbereich,pulszielbereich,pulsmessungen;
+@dynamic bzzielbereich,bzmessungen,syszielbereich,diazielbereich,pulszielbereich,pulsmessungen,bzerinnerung,pulserinnerung;
 @end

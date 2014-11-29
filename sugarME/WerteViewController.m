@@ -43,6 +43,8 @@
 @synthesize pickerTextField4 = _pickerTextField4;
 @synthesize pickerTextField5 = _pickerTextField5;
 @synthesize pickerTextField6 = _pickerTextField6;
+@synthesize bzErinnerungSwitch = _bzErinnerungSwitch;
+@synthesize pulsErinnerungSwitch = _pulsErinnerungSwitch;
 @synthesize managedObjectContext,werteeinstellungen;
 
 
@@ -55,6 +57,8 @@
     [werteObjekt setValue:_pickerTextField4.text forKey:@"diazielbereich"];
     [werteObjekt setValue:_pickerTextField5.text forKey:@"pulszielbereich"];
     [werteObjekt setValue:_pickerTextField6.text forKey:@"pulsmessungen"];
+    [werteObjekt setValue:[NSNumber numberWithBool:_bzErinnerungSwitch.on] forKey:@"bzerinnerung"];
+    [werteObjekt setValue:[NSNumber numberWithBool:_pulsErinnerungSwitch.on] forKey:@"pulserinnerung"];
 
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -153,8 +157,7 @@
             [cell.contentView addSubview:_pickerTextField2];
         }
         else if (indexPath.row==3){
-            UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-            cell.accessoryView = switchview;
+            cell.accessoryView = _bzErinnerungSwitch;
         }
     }
     if (indexPath.section==1){
@@ -219,8 +222,7 @@
             [cell.contentView addSubview:_pickerTextField6];
         }
         else if (indexPath.row==5){
-            UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-            cell.accessoryView = switchview;
+            cell.accessoryView = _pulsErinnerungSwitch;
         }
     
     }
@@ -410,6 +412,9 @@
     _pickerTextField4 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
     _pickerTextField5 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
     _pickerTextField6 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _bzErinnerungSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+    _pulsErinnerungSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+
     
     _pickerTextField1.text=[[self.werteeinstellungen lastObject]valueForKey:@"bzzielbereich"];
     _pickerTextField2.text=[[self.werteeinstellungen lastObject]valueForKey:@"bzmessungen"];
@@ -417,6 +422,20 @@
     _pickerTextField4.text=[[self.werteeinstellungen lastObject]valueForKey:@"diazielbereich"];
     _pickerTextField5.text=[[self.werteeinstellungen lastObject]valueForKey:@"pulszielbereich"];
     _pickerTextField6.text=[[self.werteeinstellungen lastObject]valueForKey:@"pulsmessungen"];
+    BOOL bzOn = [[[self.werteeinstellungen lastObject]valueForKey:@"bzerinnerung"] boolValue];
+    BOOL pulsOn= [[[self.werteeinstellungen lastObject]valueForKey:@"pulserinnerung"] boolValue];
+
+    if(bzOn){
+        [_bzErinnerungSwitch setOn:YES];
+    }else{
+        [_bzErinnerungSwitch setOn:NO];
+    }
+    if(pulsOn){
+        [_pulsErinnerungSwitch setOn:YES];
+    }else{
+        [_pulsErinnerungSwitch setOn:NO];
+    }
+
    
 }
 

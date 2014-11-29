@@ -20,13 +20,13 @@
 @implementation AddMaterialViewController
 
 @synthesize tableView,managedObjectContext;
-
+@synthesize erinnernSwitch=_erinnernSwitch;
 -(IBAction)SaveData:(id)sender{
-    UITextField *nameField,*dosisField,*mengeSchachtelField,*mengeAktuellField;
-    NSString *name,*dosis,*mengeSchachtel,*mengeAktuell;
+    UITextField *nameField,*dosisField,*mengeSchachtelField,*mengeAktuellField,*erinnernField;
+    NSString *name,*dosis,*mengeSchachtel,*mengeAktuell,*erinnern;
     for (int section = 0; section < 2; section++)
     {
-        for(int row = 0; row < 2; row++)
+        for(int row = 0; row < 4; row++)
         {
             UITableViewCell *nomeCell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
             if(section==0&&row==0){
@@ -45,6 +45,10 @@
                  mengeAktuellField=(UITextField*)[nomeCell.contentView viewWithTag:103];
                 mengeAktuell=mengeAktuellField.text;
             }
+            if(section==1&&row==3){
+                erinnernField=(UITextField*)[nomeCell.contentView viewWithTag:104];
+                erinnern=erinnernField.text;
+            }
         }
     }
     Material  *materialObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Material"
@@ -53,6 +57,8 @@
     [materialObjekt setValue:dosis forKey:@"dosis"];
      [materialObjekt setValue:mengeSchachtel forKey:@"mengeSchachtel"];
      [materialObjekt setValue:mengeAktuell forKey:@"mengeAktuell"];
+    [materialObjekt setValue:erinnern forKey:@"erinnern"];
+    [materialObjekt setValue:[NSNumber numberWithBool:_erinnernSwitch.on] forKey:@"nachfuellen"];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Failed to save - error: %@", [error localizedDescription]);
@@ -77,6 +83,8 @@
 
     
     self.title= @"Neues Material";
+    _erinnernSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+
     
     materialInformations = [[NSArray alloc] initWithObjects:
                             @"Name",
@@ -88,7 +96,6 @@
                                   @"Aktuelle Menge",
                                   @"Nachfüllungs Erinnerung",
                                   @"Erinnern",
-                                  @"Zeit",
                                   @"Automatische Bestellung",
                                   nil];
     
@@ -190,11 +197,10 @@
             }
             else if ([indexPath row] == 2){
                 cell.textLabel.text = [materialDetailInformations objectAtIndex:indexPath.row];
-                UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-                cell.accessoryView = switchview;
+                cell.accessoryView = _erinnernSwitch;
             }
             else if([indexPath row] ==3){
-                UITextField *table2TextField = [[UITextField alloc] initWithFrame:CGRectMake(80, 10, 280, 30)];
+                UITextField *table2TextField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 180, 30)];
                 cell.textLabel.text = [materialDetailInformations objectAtIndex:indexPath.row];
                 table2TextField.placeholder = @"z.B. 3 Tage vorher";
                 table2TextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -204,23 +210,6 @@
                 table2TextField.tag = 104;
                 [table2TextField setEnabled: YES];
                 [cell.contentView addSubview:table2TextField];
-            }
-            else if ([indexPath row] ==4){
-                UITextField *table2TextField = [[UITextField alloc] initWithFrame:CGRectMake(60, 10, 300, 30)];
-                cell.textLabel.text = [materialDetailInformations objectAtIndex:indexPath.row];
-                table2TextField.placeholder = @"z.B. 14:00 Uhr, jede Stunde";
-                table2TextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-                table2TextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-                table2TextField.returnKeyType = UIReturnKeyNext;
-                table2TextField.textAlignment = UITextAlignmentRight;
-                table2TextField.tag = 105;
-                [table2TextField setEnabled: YES];
-                [cell.contentView addSubview:table2TextField];
-            }
-            else if ([indexPath row] == 5){
-                cell.textLabel.text = [materialDetailInformations objectAtIndex:indexPath.row];
-                UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-                cell.accessoryView = switchview;
             }
             
         }
