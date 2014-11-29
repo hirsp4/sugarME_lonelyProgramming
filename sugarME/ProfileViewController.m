@@ -10,6 +10,7 @@
 #import "EinheitenViewController.h"
 #import "AppDelegate.h"
 #import "FifthViewController.h"
+#import "Profil.h"
 
 
 @interface ProfileViewController (){
@@ -31,6 +32,9 @@
 @synthesize pickerTextField3 = _pickerTextField3;
 @synthesize pickerTextField4 = _pickerTextField4;
 @synthesize pickerTextField5 = _pickerTextField5;
+@synthesize vornameTextField = _vornameTextField;
+@synthesize nachnameTextField = _nachnameTextField;
+@synthesize emailTextField = _emailTextField;
 @synthesize dateTextField = _dateTextField;
 @synthesize datePicker = _datePicker;
 @synthesize pickerView1=_pickerView1;
@@ -39,9 +43,35 @@
 @synthesize pickerView4 = _pickerView4;
 @synthesize pickerView5 = _pickerView5;
 @synthesize pickerDate;
+@synthesize managedObjectContext;
+@synthesize profil;
 
 -(IBAction)SaveData:(id)sender{
-    NSLog(@"Tapped Save Data");
+    Profil  *profilObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Profil"
+                                                        inManagedObjectContext:self.managedObjectContext];
+    [profilObjekt setValue:_vornameTextField.text forKey:@"vorname"];
+    [profilObjekt setValue:_nachnameTextField.text forKey:@"nachname"];
+    [profilObjekt setValue:_emailTextField.text forKey:@"email"];
+    [profilObjekt setValue:_pickerTextField1.text forKey:@"geschlecht"];
+    [profilObjekt setValue:_dateTextField.text forKey:@"geburtsdatum"];
+    [profilObjekt setValue:_pickerTextField2.text forKey:@"groesse"];
+    [profilObjekt setValue:_pickerTextField3.text forKey:@"gewicht"];
+    [profilObjekt setValue:_pickerTextField4.text forKey:@"typ"];
+    [profilObjekt setValue:_pickerTextField5.text forKey:@"diagnosejahr"];
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Failed to save - error: %@", [error localizedDescription]);
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Speichern erfolgreich"
+                                                        message:@"Die eingegebenen Daten wurden erfolgreich gespeichert"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        [self.managedObjectContext processPendingChanges];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -52,6 +82,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.managedObjectContext = [appDelegate managedObjectContext];
+    [self performFetches];
     
     profileTitles = [[NSArray alloc] initWithObjects:@"Vorname", @"Nachname", @"E-Mail", @"Geschlecht", @"Geburtsdatum", @"Grösse", @"Gewicht", @"Diabetes-Typ", @"Diagnose-Jahr", @"Einheiten", nil];
     
@@ -79,6 +112,9 @@
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Sichern" style:UIBarButtonItemStyleDone target:self action:@selector(SaveData:)];
     [self.navigationItem setRightBarButtonItem:saveButton];
+    
+    [self setupTextFields];
+
 
 
 }
@@ -106,47 +142,40 @@
     cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
     
     if (indexPath.row == 0) {
-        UITextField *table2TextField = [[UITextField alloc] initWithFrame:CGRectMake(30, 10, 280, 30)];
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
-        table2TextField.placeholder = @"Max";
-        table2TextField.keyboardType = UIKeyboardTypeDefault;
-        table2TextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        table2TextField.returnKeyType = UIReturnKeyNext;
-        table2TextField.textAlignment = UITextAlignmentRight;
-        table2TextField.tag = 104;
-        [table2TextField setEnabled: YES];
-        [cell.contentView addSubview:table2TextField];
+        _vornameTextField.placeholder = @"Max";
+        _vornameTextField.keyboardType = UIKeyboardTypeDefault;
+        _vornameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _vornameTextField.returnKeyType = UIReturnKeyNext;
+        _vornameTextField.textAlignment = UITextAlignmentRight;
+        [_vornameTextField setEnabled: YES];
+        [cell.contentView addSubview:_vornameTextField];
     }
     
     if (indexPath.row == 1) {
-        UITextField *table2TextField = [[UITextField alloc] initWithFrame:CGRectMake(30, 10, 280, 30)];
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
-        table2TextField.placeholder = @"Mustermann";
-        table2TextField.keyboardType = UIKeyboardTypeDefault;
-        table2TextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        table2TextField.returnKeyType = UIReturnKeyNext;
-        table2TextField.textAlignment = UITextAlignmentRight;
-        table2TextField.tag = 104;
-        [table2TextField setEnabled: YES];
-        [cell.contentView addSubview:table2TextField];
+        _nachnameTextField.placeholder = @"Mustermann";
+        _nachnameTextField.keyboardType = UIKeyboardTypeDefault;
+        _nachnameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _nachnameTextField.returnKeyType = UIReturnKeyNext;
+        _nachnameTextField.textAlignment = UITextAlignmentRight;
+        [_nachnameTextField setEnabled: YES];
+        [cell.contentView addSubview:_nachnameTextField];
     }
     
     if (indexPath.row == 2) {
-        UITextField *table3TextField = [[UITextField alloc] initWithFrame:CGRectMake(30, 10, 280, 30)];
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
-        table3TextField.placeholder = @"beispiel@mail.com";
-        table3TextField.keyboardType = UIKeyboardTypeEmailAddress;
-        table3TextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        table3TextField.returnKeyType = UIReturnKeyNext;
-        table3TextField.textAlignment = UITextAlignmentRight;
-        table3TextField.tag = 104;
-        [table3TextField setEnabled: YES];
-        [cell.contentView addSubview:table3TextField];
+        _emailTextField.placeholder = @"beispiel@mail.com";
+        _emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
+        _emailTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _emailTextField.returnKeyType = UIReturnKeyNext;
+        _emailTextField.textAlignment = UITextAlignmentRight;
+        [_emailTextField setEnabled: YES];
+        [cell.contentView addSubview:_emailTextField];
     }
     
     if (indexPath.row == 3)
     {
-        _pickerTextField1 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
         _pickerTextField1.textAlignment=UITextAlignmentRight;
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
         _pickerView1 = [[UIPickerView alloc] init];
@@ -164,7 +193,6 @@
     
     if (indexPath.row == 4)
     {
-        _dateTextField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 180, 30)];
         _dateTextField.textAlignment=UITextAlignmentRight;
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
         _datePicker = [[UIDatePicker alloc] init];
@@ -182,7 +210,6 @@
     
     if (indexPath.row == 5)
     {
-        _pickerTextField2 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
         _pickerTextField2.textAlignment=UITextAlignmentRight;
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
         _pickerView2 = [[UIPickerView alloc] init];
@@ -200,7 +227,6 @@
     
     if (indexPath.row == 6)
     {
-        _pickerTextField3 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
         _pickerTextField3.textAlignment=UITextAlignmentRight;
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
         _pickerView3 = [[UIPickerView alloc] init];
@@ -218,7 +244,6 @@
     
     if (indexPath.row == 7)
     {
-        _pickerTextField4 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
         _pickerTextField4.textAlignment=UITextAlignmentRight;
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
         _pickerView4 = [[UIPickerView alloc] init];
@@ -236,7 +261,6 @@
 
     if (indexPath.row == 8)
     {
-        _pickerTextField5 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
         _pickerTextField5.textAlignment=UITextAlignmentRight;
         cell.textLabel.text = [profileTitles objectAtIndex:indexPath.row];
         _pickerView5 = [[UIPickerView alloc] init];
@@ -395,5 +419,38 @@ return cell;
     }
     [self.tableView endEditing:NO];
 }
+-(void)setupTextFields{
+    _pickerTextField1 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _pickerTextField2 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _pickerTextField3 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _pickerTextField4 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _pickerTextField5 = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _emailTextField = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _nachnameTextField = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _vornameTextField = [[UITextField alloc] initWithFrame:CGRectMake(130,10, 180, 30)];
+    _dateTextField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 180, 30)];
+    
+    _vornameTextField.text=[[self.profil lastObject]valueForKey:@"vorname"];
+    _nachnameTextField.text=[[self.profil lastObject]valueForKey:@"nachname"];
+    _emailTextField.text=[[self.profil lastObject]valueForKey:@"email"];
+    _pickerTextField1.text=[[self.profil lastObject]valueForKey:@"geschlecht"];
+    _dateTextField.text=[[self.profil lastObject]valueForKey:@"geburtsdatum"];
+    _pickerTextField2.text=[[self.profil lastObject]valueForKey:@"groesse"];
+    _pickerTextField3.text=[[self.profil lastObject]valueForKey:@"gewicht"];
+    _pickerTextField4.text=[[self.profil lastObject]valueForKey:@"typ"];
+    _pickerTextField5.text=[[self.profil lastObject]valueForKey:@"diagnosejahr"];
+    
+}
+
+-(void)performFetches{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Profil" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.profil =[managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+}
+
 
 @end

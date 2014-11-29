@@ -50,7 +50,8 @@
     }
     CGContextDrawPath(ctx, kCGPathStroke);
     //graph füllfarbe
-    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:52.0f/255.0f green:107.0f/255.0f blue:196.0f/255.0f alpha:0.9] CGColor]);
+    if(blutzuckerValues.count!=0){
+        CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:52.0f/255.0f green:107.0f/255.0f blue:196.0f/255.0f alpha:0.9] CGColor]);
     CGContextBeginPath(ctx);
     CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight-10);
     CGContextAddLineToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject] valueForKey:@"value"]floatValue]/18.0f));
@@ -63,6 +64,8 @@
     CGContextAddLineToPoint(ctx, kOffsetX + (blutzuckerValues.count - 1) * kStepX, kGraphHeight-10);
     CGContextClosePath(ctx);
     CGContextDrawPath(ctx, kCGPathFill);
+    }
+    
     
     // graph points
     CGContextSetFillColorWithColor(ctx, [[UIColor blackColor] CGColor]);

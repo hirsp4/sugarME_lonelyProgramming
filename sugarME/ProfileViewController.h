@@ -18,8 +18,12 @@
 @property (strong,nonatomic) UITextField *pickerTextField4;
 @property (strong,nonatomic) UITextField *pickerTextField5;
 @property (strong,nonatomic) UITextField *dateTextField;
+@property (strong,nonatomic) UITextField *vornameTextField;
+@property (strong,nonatomic) UITextField *nachnameTextField;
+@property (strong,nonatomic) UITextField *emailTextField;
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
-
+@property (nonatomic, strong) NSArray *profil;
 @property (strong, nonatomic) UIPickerView *pickerView1;
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (strong, nonatomic) UIPickerView *pickerView2;

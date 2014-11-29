@@ -33,6 +33,7 @@
 		EF2858FC1A29CF1100070BAC /* WerteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2858F51A29CF1100070BAC /* WerteViewController.m */; };
 		EF2858FD1A29CF1100070BAC /* HbA1cViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2858F71A29CF1100070BAC /* HbA1cViewController.m */; };
 		EF2858FE1A29CF1100070BAC /* MaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2858F91A29CF1100070BAC /* MaterialViewController.m */; };
+		EF2859011A2A12C300070BAC /* Profil.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2859001A2A12C300070BAC /* Profil.m */; };
 		EF68EC911A02CB8600AD9663 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC901A02CB8600AD9663 /* main.m */; };
 		EF68EC941A02CB8600AD9663 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC931A02CB8600AD9663 /* AppDelegate.m */; };
 		EF68EC971A02CB8600AD9663 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC961A02CB8600AD9663 /* FirstViewController.m */; };
@@ -207,6 +208,8 @@
 		EF2858F71A29CF1100070BAC /* HbA1cViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HbA1cViewController.m; sourceTree = "<group>"; };
 		EF2858F81A29CF1100070BAC /* MaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialViewController.h; sourceTree = "<group>"; };
 		EF2858F91A29CF1100070BAC /* MaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialViewController.m; sourceTree = "<group>"; };
+		EF2858FF1A2A12C300070BAC /* Profil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profil.h; sourceTree = "<group>"; };
+		EF2859001A2A12C300070BAC /* Profil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profil.m; sourceTree = "<group>"; };
 		EF68EC8B1A02CB8600AD9663 /* sugarME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sugarME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF68EC8F1A02CB8600AD9663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF68EC901A02CB8600AD9663 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -739,6 +742,8 @@
 				EFFFA2161A14C4A0003D55D7 /* Material.m */,
 				EFD35D0A1A1607DF009A02AC /* HbA1c.h */,
 				EFD35D0B1A1607DF009A02AC /* HbA1c.m */,
+				EF2858FF1A2A12C300070BAC /* Profil.h */,
+				EF2859001A2A12C300070BAC /* Profil.m */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -945,6 +950,7 @@
 				EF1915D31A04147000605B73 /* AddValueController.m in Sources */,
 				EFF89A681A06415700398332 /* sugarmeDB.xcdatamodeld in Sources */,
 				EF7EB2541A254B9C001F1302 /* ReaderBookDelegate.m in Sources */,
+				EF2859011A2A12C300070BAC /* Profil.m in Sources */,
 				EFBF64F81A0A312A00D31A8B /* GraphView.m in Sources */,
 				EF68ECB91A02CF1500AD9663 /* ThirdViewController.m in Sources */,
 				EF7EB2701A254B9C001F1302 /* ReaderConstants.m in Sources */,
