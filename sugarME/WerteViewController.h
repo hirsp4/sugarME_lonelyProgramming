@@ -19,8 +19,15 @@
 @property (strong, nonatomic) UIPickerView *pickerView5;
 @property (strong, nonatomic) UIPickerView *pickerView6;
 
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSArray *werteeinstellungen;
 
-
+@property (strong,nonatomic) UITextField *pickerTextField1;
+@property (strong,nonatomic) UITextField *pickerTextField2;
+@property (strong,nonatomic) UITextField *pickerTextField3;
+@property (strong,nonatomic) UITextField *pickerTextField4;
+@property (strong,nonatomic) UITextField *pickerTextField5;
+@property (strong,nonatomic) UITextField *pickerTextField6;
 
 
 @end

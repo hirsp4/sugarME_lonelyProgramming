@@ -11,7 +11,12 @@
 @interface HbA1cViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (strong,nonatomic) UITextField *pickerTextField;
+@property (strong,nonatomic) UITextField *pickerTextField1;
+@property (strong,nonatomic) UITextField *pickerTextField2;
+
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSArray *hba1cSettings;
+
 @property (strong, nonatomic) UIPickerView *pickerView1;
 @property (strong, nonatomic) UIPickerView *pickerView2;
 
