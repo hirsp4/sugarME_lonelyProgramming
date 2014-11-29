@@ -27,6 +27,7 @@
 @interface ExportViewController : UIViewController <ReaderViewControllerDelegate>
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSMutableArray *blutzuckerValues, *pulsValues, *blutdruckValues;
+@property (nonatomic, strong) NSArray *profil;
 @property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
 
 - (IBAction)generatePDF:(id)sender;
@@ -37,5 +38,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *blutzuckerSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *pulsSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *graphSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *profileSwitch;
+
 
 @end

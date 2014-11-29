@@ -54,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD1-aE-9k0">
-                                <rect key="frame" x="178" y="402" width="101" height="30"/>
+                                <rect key="frame" x="178" y="460" width="101" height="30"/>
                                 <state key="normal" title="Generiere PDF">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -74,14 +74,14 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eU0-Jl-7UE">
                                 <rect key="frame" x="230" y="330" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutdruckwerte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYQ-oT-hS2">
-                                <rect key="frame" x="35" y="161" width="117" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutdruckwerten" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYQ-oT-hS2">
+                                <rect key="frame" x="25" y="161" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutzuckerwerte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP3-pM-mWp">
-                                <rect key="frame" x="35" y="229" width="124" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blutzuckerwerten" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP3-pM-mWp">
+                                <rect key="frame" x="25" y="229" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -89,14 +89,17 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gti-aR-jUC">
                                 <rect key="frame" x="230" y="262" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pulswerte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqm-kf-3RJ">
-                                <rect key="frame" x="35" y="335" width="76" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pulswerten" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqm-kf-3RJ">
+                                <rect key="frame" x="25" y="335" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lS-gf-sTO">
+                                <rect key="frame" x="230" y="398" width="51" height="31"/>
+                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PDF erstellen mit:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-bT-cQc">
-                                <rect key="frame" x="35" y="99" width="164" height="24"/>
+                                <rect key="frame" x="25" y="99" width="164" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="rLx-Op-Yqh"/>
                                 </constraints>
@@ -106,6 +109,12 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(...mit Grafik)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xd-oU-UNS">
                                 <rect key="frame" x="61" y="267" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Profildaten" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuh-Pl-A9D">
+                                <rect key="frame" x="25" y="403" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -120,12 +129,13 @@
                             <constraint firstItem="cYQ-oT-hS2" firstAttribute="centerY" secondItem="l34-yz-PMW" secondAttribute="centerY" id="ATV-ba-AOv"/>
                             <constraint firstItem="Cqm-kf-3RJ" firstAttribute="leading" secondItem="HP3-pM-mWp" secondAttribute="leading" id="Bg0-di-lqf"/>
                             <constraint firstItem="HP3-pM-mWp" firstAttribute="leading" secondItem="cYQ-oT-hS2" secondAttribute="leading" id="Cjw-Ca-Yre"/>
-                            <constraint firstItem="kD1-aE-9k0" firstAttribute="top" secondItem="vLL-t1-gci" secondAttribute="bottom" constant="338" id="Dgy-qF-sHN"/>
+                            <constraint firstItem="kD1-aE-9k0" firstAttribute="top" secondItem="vLL-t1-gci" secondAttribute="bottom" constant="396" id="Dgy-qF-sHN"/>
                             <constraint firstItem="kD1-aE-9k0" firstAttribute="leading" secondItem="jFs-XM-YGX" secondAttribute="leadingMargin" constant="162" id="Gaq-DH-hyP"/>
                             <constraint firstItem="eU0-Jl-7UE" firstAttribute="trailing" secondItem="kD1-aE-9k0" secondAttribute="trailing" id="KHV-Ec-bOe"/>
                             <constraint firstItem="l34-yz-PMW" firstAttribute="leading" secondItem="Pe3-Ww-rPT" secondAttribute="leading" id="KMh-w2-Pm9"/>
-                            <constraint firstItem="kD1-aE-9k0" firstAttribute="top" secondItem="eU0-Jl-7UE" secondAttribute="bottom" constant="41" id="Tqk-2k-77x"/>
+                            <constraint firstItem="kD1-aE-9k0" firstAttribute="top" secondItem="eU0-Jl-7UE" secondAttribute="bottom" constant="99" id="Tqk-2k-77x"/>
                             <constraint firstItem="Pe3-Ww-rPT" firstAttribute="leading" secondItem="eU0-Jl-7UE" secondAttribute="leading" id="Xjo-bh-TkY"/>
+                            <constraint firstItem="fuh-Pl-A9D" firstAttribute="centerY" secondItem="6lS-gf-sTO" secondAttribute="centerY" id="ZDV-XY-Tae"/>
                             <constraint firstItem="9xd-oU-UNS" firstAttribute="centerY" secondItem="gti-aR-jUC" secondAttribute="centerY" id="ZNg-jY-qCP"/>
                             <constraint firstItem="Pe3-Ww-rPT" firstAttribute="leading" secondItem="HP3-pM-mWp" secondAttribute="trailing" constant="71" id="aSc-8D-GBl"/>
                             <constraint firstItem="Pe3-Ww-rPT" firstAttribute="top" secondItem="l34-yz-PMW" secondAttribute="bottom" constant="37" id="hQ6-hq-S9Z"/>
@@ -143,6 +153,7 @@
                         <outlet property="blutdruckSwitch" destination="l34-yz-PMW" id="ktB-QE-OiV"/>
                         <outlet property="blutzuckerSwitch" destination="Pe3-Ww-rPT" id="eIg-cG-ktd"/>
                         <outlet property="graphSwitch" destination="gti-aR-jUC" id="lzl-ZA-56f"/>
+                        <outlet property="profileSwitch" destination="6lS-gf-sTO" id="GNd-JM-GID"/>
                         <outlet property="pulsSwitch" destination="eU0-Jl-7UE" id="g67-jO-dDa"/>
                     </connections>
                 </viewController>

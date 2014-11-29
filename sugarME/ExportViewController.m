@@ -19,7 +19,7 @@
 @end
 
 @implementation ExportViewController
-@synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues,globalMailComposer, blutdruckSwitch, blutzuckerSwitch, pulsSwitch, graphSwitch;
+@synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues,globalMailComposer, blutdruckSwitch, blutzuckerSwitch, pulsSwitch, graphSwitch,profil,profileSwitch;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,6 +54,12 @@
     [self addLineWithFrame:CGRectMake(kPadding, 1000, _pageSize.width - kPadding*2, 4)
                                     withColor:[UIColor blackColor]];
     // draw content
+    if([profileSwitch isOn]){
+        if(profil.count!=0){
+       [self drawProfileValues];
+        }
+    }
+    
     if([blutdruckSwitch isOn]){
        [self drawBlutdruckValues];
     }
@@ -228,6 +234,13 @@
     while(self.blutdruckValues.count>10){
         [self.blutdruckValues removeObjectAtIndex:0];
     }
+    
+    //Profil Daten lesen.
+    entity = [NSEntityDescription
+                                   entityForName:@"Profil" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    self.profil =[managedObjectContext executeFetchRequest:fetchRequest error:&error];
+
 }
 
 -(NSArray *)sortArray:(NSArray*)arr{
@@ -306,7 +319,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM"];
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context,270,400);
+    CGContextTranslateCTM(context,270,370);
     [self drawLineGraphWithContext:context];
     CGContextStrokePath(context);
     CGContextSetLineWidth(context, 0.6);
@@ -345,6 +358,31 @@
     CGContextAddLineToPoint(context, kOffsetX + 0 * kStepX, kGraphBottom-kOffsetX);
     
     CGContextStrokePath(context);
+}
+-(void)drawProfileValues{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
+    // Profildaten
+    [self addTitleText:@"Angaben zur Person"
+             withFrame:CGRectMake(kPadding+560, kPadding+775, 200, 100) fontSize:16.0f];
+    [self addValueText:[@"Vorname:            " stringByAppendingString:[[profil lastObject]valueForKey:@"vorname"]]
+                 withFrame:CGRectMake(kPadding+560, kPadding+790+1*15, 400, 100) fontSize:14.0f];
+    [self addValueText:[@"Nachname:         " stringByAppendingString:[[profil lastObject]valueForKey:@"nachname"]]
+             withFrame:CGRectMake(kPadding+560, kPadding+790+2*15, 400, 100) fontSize:14.0f];
+    [self addValueText:[@"Geschlecht:        " stringByAppendingString:[[profil lastObject]valueForKey:@"geschlecht"]]
+             withFrame:CGRectMake(kPadding+560, kPadding+790+3*15, 400, 100) fontSize:14.0f];
+    [self addValueText:[@"Geburtsdatum:   " stringByAppendingString:[[profil lastObject]valueForKey:@"geburtsdatum"]]
+             withFrame:CGRectMake(kPadding+560, kPadding+790+4*15, 400, 100) fontSize:14.0f];
+    [self addValueText:[@"Grösse:               " stringByAppendingString:[[profil lastObject]valueForKey:@"groesse"]]
+             withFrame:CGRectMake(kPadding+560, kPadding+790+5*15, 400, 100) fontSize:14.0f];
+    [self addValueText:[@"Gewicht:             " stringByAppendingString:[[profil lastObject]valueForKey:@"gewicht"]]
+             withFrame:CGRectMake(kPadding+560, kPadding+790+6*15, 400, 100) fontSize:14.0f];
+    [self addValueText:[@"Diabetestyp:       " stringByAppendingString:[[profil lastObject]valueForKey:@"typ"]]
+             withFrame:CGRectMake(kPadding+560, kPadding+790+7*15, 400, 100) fontSize:14.0f];
+    [self addValueText:[@"Diagnosejahr:      " stringByAppendingString:[[profil lastObject]valueForKey:@"diagnosejahr"]]
+             withFrame:CGRectMake(kPadding+560, kPadding+790+8*15, 400, 100) fontSize:14.0f];
+    [self addValueText:[@"E-Mail:                " stringByAppendingString:[[profil lastObject]valueForKey:@"email"]]
+             withFrame:CGRectMake(kPadding+560, kPadding+790+9*15, 400, 100) fontSize:14.0f];
 }
 
 -(void)drawBlutzuckerValues{
