@@ -23,6 +23,7 @@
 		EF0BFB891A27DE4B00F0F8AE /* TIFSoapError.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB7C1A27DE4B00F0F8AE /* TIFSoapError.m */; };
 		EF0BFB8A1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB7E1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.m */; };
 		EF0BFB8B1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BFB801A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m */; };
+		EF1618E01A2CDB8B004C4CA6 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1618DF1A2CDB8B004C4CA6 /* InfoViewController.m */; };
 		EF1915BD1A04004400605B73 /* ValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1915BC1A04004400605B73 /* ValueCell.xib */; };
 		EF1915C31A04008A00605B73 /* ValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1915C21A04008A00605B73 /* ValueCell.m */; };
 		EF1915C51A04052D00605B73 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1915C41A04052D00605B73 /* EmptyCell.xib */; };
@@ -192,6 +193,8 @@
 		EF0BFB7E1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFws_Pharma_V101Soap.m; sourceTree = "<group>"; };
 		EF0BFB7F1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFws_Pharma_V101Soap12.h; sourceTree = "<group>"; };
 		EF0BFB801A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFws_Pharma_V101Soap12.m; sourceTree = "<group>"; };
+		EF1618DE1A2CDB8B004C4CA6 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		EF1618DF1A2CDB8B004C4CA6 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		EF1915BC1A04004400605B73 /* ValueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValueCell.xib; sourceTree = "<group>"; };
 		EF1915C11A04008A00605B73 /* ValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCell.h; sourceTree = "<group>"; };
 		EF1915C21A04008A00605B73 /* ValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueCell.m; sourceTree = "<group>"; };
@@ -731,6 +734,8 @@
 				EF92FFE31A02F764000AAE45 /* UserCell.m */,
 				EF7163B41A04365700CDF001 /* ExportViewController.h */,
 				EF7163B51A04365700CDF001 /* ExportViewController.m */,
+				EF1618DE1A2CDB8B004C4CA6 /* InfoViewController.h */,
+				EF1618DF1A2CDB8B004C4CA6 /* InfoViewController.m */,
 			);
 			name = Uebersicht;
 			sourceTree = "<group>";
@@ -944,6 +949,7 @@
 				EF7EB2751A254B9C001F1302 /* ReaderDocumentOutline.m in Sources */,
 				EF0BFB8B1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m in Sources */,
 				EF2858FA1A29CF1100070BAC /* ProfileViewController.m in Sources */,
+				EF1618E01A2CDB8B004C4CA6 /* InfoViewController.m in Sources */,
 				EF7EB2771A254B9C001F1302 /* ReaderMainToolbar.m in Sources */,
 				EF0BFB871A27DE4B00F0F8AE /* TIFPHARMA.m in Sources */,
 				EF0BFB691A27DE2700F0F8AE /* DDXMLNode.m in Sources */,
