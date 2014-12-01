@@ -21,8 +21,12 @@
 @implementation ExportViewController
 @synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues,globalMailComposer, blutdruckSwitch, blutzuckerSwitch, pulsSwitch, graphSwitch,profil,profileSwitch;
 
+/**
+ *  actions after loading the view
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // get the managedobjectcontext of the AppDelegate (to fetch data)
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     self.globalMailComposer =[appDelegate globalMailComposer];
@@ -34,12 +38,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/**
+ *  setup the pdf document
+ *
+ *  @param sender
+ */
 - (IBAction)generatePDF:(id)sender {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
     // generate PDF
-    [self setupPDFDocumentNamed:@"NewPDF" Width:850 Height:1100];
+    [self setupPDFDocumentNamed:@"Verlaufsdokumentation" Width:850 Height:1100];
     [self beginPDFPage];
     //set Header
     NSDate *today =[NSDate date];
@@ -91,7 +99,7 @@
     //open PDF
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *pdfPath = [documentsDirectory stringByAppendingPathComponent:@"NewPDF.pdf"];
+    NSString *pdfPath = [documentsDirectory stringByAppendingPathComponent:@"Verlaufsdokumentation.pdf"];
     
     if([[NSFileManager defaultManager] fileExistsAtPath:pdfPath]) {
         
@@ -110,7 +118,11 @@
     }
 
 }
-
+/**
+ *  graph can only be set ON if blood sugar values are set on
+ *
+ *  @param sender
+ */
 - (IBAction)setGraphOnOff:(id)sender {
     if(![sender isOn]){
         [graphSwitch setOn:NO];
@@ -119,7 +131,13 @@
     }
 }
 
-
+/**
+ *  setup an empty pdf document in the documents directory of the app
+ *
+ *  @param name   name
+ *  @param width  width
+ *  @param height height
+ */
 - (void)setupPDFDocumentNamed:(NSString*)name Width:(float)width Height:(float)height {
     _pageSize = CGSizeMake(width, height);
     NSString *newPDFName = [NSString stringWithFormat:@"%@.pdf", name];
@@ -131,9 +149,21 @@
     
     UIGraphicsBeginPDFContextToFile(pdfPath, CGRectZero, nil);
 }
+/**
+ *  begin PDF document
+ */
 - (void)beginPDFPage {
     UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0,_pageSize.width,_pageSize.height), nil);
 }
+/**
+ *  pdf document title text (Arial Bold)
+ *
+ *  @param text
+ *  @param frame
+ *  @param fontSize
+ *
+ *  @return CGRect
+ */
 - (CGRect)addTitleText:(NSString*)text withFrame:(CGRect)frame fontSize:(float)fontSize {
     UIFont *font = [UIFont fontWithName:@"Arial-BoldMT" size:fontSize];
     CGSize stringSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(_pageSize.width - 2*20-2*20, _pageSize.height - 2*20 - 2*20) lineBreakMode:UILineBreakModeWordWrap];
@@ -154,7 +184,15 @@
     frame = CGRectMake(frame.origin.x, frame.origin.y, textWidth, stringSize.height);
     return frame;
 }
-
+/**
+ *  pdf document value text
+ *
+ *  @param text
+ *  @param frame
+ *  @param fontSize
+ *
+ *  @return CGRect
+ */
 - (CGRect)addValueText:(NSString*)text withFrame:(CGRect)frame fontSize:(float)fontSize {
     UIFont *font = [UIFont systemFontOfSize:fontSize];
     CGSize stringSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(_pageSize.width - 2*20-2*20, _pageSize.height - 2*20 - 2*20) lineBreakMode:UILineBreakModeWordWrap];
@@ -177,7 +215,14 @@
 }
 
 
-
+/**
+ *  add a line to pdf document
+ *
+ *  @param frame
+ *  @param color
+ *
+ *  @return CGRect
+ */
 - (CGRect)addLineWithFrame:(CGRect)frame withColor:(UIColor*)color {
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(currentContext, color.CGColor);
@@ -194,18 +239,23 @@
     return frame;
 }
 
-- (CGRect)addImage:(UIImage*)image atPoint:(CGPoint)point {
-    CGRect imageFrame = CGRectMake(point.x, point.y, image.size.width,image.size.height);
-    [image drawInRect:imageFrame];
-    return imageFrame;
-}
+/**
+ *  finish the pdf document
+ */
 - (void)finishPDF {
     UIGraphicsEndPDFContext();
 }
+/**
+ *  dismiss the viewcontroller
+ *
+ *  @param viewController
+ */
 - (void)dismissReaderViewController:(ReaderViewController *)viewController {
     [self dismissModalViewControllerAnimated:YES];
 }
-
+/**
+ *  fetch all needed data for the building of the pdf document from the managed object model
+ */
 -(void)performFetches{
     // Blutzucker Daten lesen.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -242,11 +292,22 @@
     self.profil =[managedObjectContext executeFetchRequest:fetchRequest error:&error];
 
 }
-
+/**
+ *  sort the input array (date ascending)
+ *
+ *  @param arr
+ *
+ *  @return NSArray
+ */
 -(NSArray *)sortArray:(NSArray*)arr{
     NSSortDescriptor* sortByDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
     return [arr sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByDate]];;
 }
+/**
+ *  draw the blood sugar line graph
+ *
+ *  @param ctx
+ */
 - (void)drawLineGraphWithContext:(CGContextRef)ctx
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -313,7 +374,9 @@
     
     
 }
-
+/**
+ *  draw the coordinate system and all bordervalues
+ */
 -(void)drawGraph{
     // graph
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -333,6 +396,7 @@
         CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - i * kStepY);
         CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - i * kStepY);
     }
+    // draw border values
     CGContextStrokePath(context);
     CGContextSetLineDash(context, 0, NULL, 0);
     CGContextSetLineWidth(context,1.4);
@@ -359,6 +423,9 @@
     
     CGContextStrokePath(context);
 }
+/**
+ *  draw the profile data specified in the app (personalize the pdf document)
+ */
 -(void)drawProfileValues{
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
@@ -384,7 +451,9 @@
     [self addValueText:[@"E-Mail:                " stringByAppendingString:[[profil lastObject]valueForKey:@"email"]]
              withFrame:CGRectMake(kPadding+560, kPadding+790+9*15, 400, 100) fontSize:14.0f];
 }
-
+/**
+ *  draw the last 10 added blood sugar values
+ */
 -(void)drawBlutzuckerValues{
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
@@ -401,6 +470,9 @@
 
     
 }
+/**
+ *   draw the last 10 added blood pressure values
+ */
 -(void)drawBlutdruckValues{
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
@@ -419,6 +491,11 @@
 
     
 }
+/**
+ *   draw the last 10 added pulse values
+ *
+ *  @param int1
+ */
 -(void)drawPulsValues:(CGFloat)int1{
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm:ss"];
