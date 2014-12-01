@@ -170,6 +170,9 @@
         cell.lowValueLabel.text=[[blutzuckerValues firstObject]valueForKey:@"value"];
         cell.highValueLabel.textColor=[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0];
         cell.lowValueLabel.textColor=[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+        cell.meanLabel.textColor=[UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+        cell.meanLabel.text=[self getBzMean];
+        cell.meanLabel.textAlignment=UITextAlignmentCenter;
         cell.lowDateLabel.text=[dateFormat stringFromDate:[[blutzuckerValues firstObject]valueForKey:@"date"]];
         cell.highDateLabel.text=[dateFormat stringFromDate:[[blutzuckerValues lastObject]valueForKey:@"date"]];
     }
@@ -194,6 +197,7 @@
         cell.lowValueLabel.textColor=[UIColor colorWithRed:255.0f/255.0f green:217.0f/255.0f blue:102.0f/255.0f alpha:1.0];
         cell.lowDateLabel.text=[dateFormat stringFromDate:[[blutdruckValues firstObject]valueForKey:@"date"]];
         cell.highDateLabel.text=[dateFormat stringFromDate:[[blutdruckValues lastObject]valueForKey:@"date"]];
+        cell.meanLabel.text = @"";
     }
     if(indexPath.row==3){
         /**
@@ -216,6 +220,7 @@
         cell.lowValueLabel.textColor=[UIColor colorWithRed:153.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:1.0];
         cell.lowDateLabel.text=[dateFormat stringFromDate:[[pulsValues firstObject]valueForKey:@"date"]];
         cell.highDateLabel.text=[dateFormat stringFromDate:[[pulsValues lastObject]valueForKey:@"date"]];
+        cell.meanLabel.text = @"";
     }
     return cell;
     
@@ -418,6 +423,24 @@
     return [today dateByAddingTimeInterval:-6*24*60*60];
 }
 /**
+ *  calculates the blood sugar mean and returns it as a string
+ *
+ *  @return NSString mean
+ */
+- (NSString *)getBzMean{
+    double sum=0;
+    for (int i=0; i<self.blutzuckerValues.count; i++) {
+        sum+=[[[self.blutzuckerValues objectAtIndex:i]valueForKey:@"value"]doubleValue];
+    }
+    if(sum!=0){
+        double mean = sum / blutzuckerValues.count/1.0f;
+        NSString *meanString = [@"Ø " stringByAppendingString:[NSString stringWithFormat:@"%.1f",mean]];
+        return meanString;
+    }else{
+        return @"";
+    }
+}
+/**
  *  fetch data from object model
  */
 -(void)performFetches{
@@ -425,6 +448,9 @@
     NSFetchRequest *fetchRequestBlutzucker = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"Blutzucker" inManagedObjectContext:managedObjectContext];
+    // predicate to get week data
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(date >= %@) AND (date <= %@)", [self getTodayMinusOneWeek], [self getToday]];
+    [fetchRequestBlutzucker setPredicate:predicate];
     [fetchRequestBlutzucker setEntity:entity];
         NSError *error;
     NSArray *sortedArray1 = [[managedObjectContext executeFetchRequest:fetchRequestBlutzucker error:&error] sortedArrayUsingComparator:(NSComparator)^(id obj1, id obj2) {
@@ -438,6 +464,7 @@
     NSFetchRequest *fetchRequestPuls = [[NSFetchRequest alloc] init];
     entity = [NSEntityDescription
               entityForName:@"Puls" inManagedObjectContext:managedObjectContext];
+    [fetchRequestPuls setPredicate:predicate];
     [fetchRequestPuls setEntity:entity];
     NSArray *sortedArray = [[managedObjectContext executeFetchRequest:fetchRequestPuls error:&error] sortedArrayUsingComparator:(NSComparator)^(id obj1, id obj2) {
         NSNumber *num1 = [NSNumber numberWithFloat:[[obj1 valueForKey:@"value"]floatValue]];
@@ -450,6 +477,7 @@
     NSFetchRequest *fetchRequestBlutdruck = [[NSFetchRequest alloc] init];
     entity = [NSEntityDescription
               entityForName:@"Blutdruck" inManagedObjectContext:managedObjectContext];
+    [fetchRequestBlutdruck setPredicate:predicate];
     [fetchRequestBlutdruck setEntity:entity];
     NSArray *sortedArray2 = [[managedObjectContext executeFetchRequest:fetchRequestBlutdruck error:&error] sortedArrayUsingComparator:(NSComparator)^(id obj1, id obj2) {
         NSNumber *num1 = [NSNumber numberWithFloat:[[obj1 valueForKey:@"sys"]floatValue]];

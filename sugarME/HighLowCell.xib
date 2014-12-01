@@ -25,13 +25,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7.8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afB-jA-jma">
-                        <rect key="frame" x="8" y="36" width="155" height="62"/>
+                        <rect key="frame" x="0.0" y="37" width="163" height="62"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJq-xp-xOi">
-                        <rect key="frame" x="165" y="30" width="1" height="69"/>
+                        <rect key="frame" x="165" y="25" width="1" height="27"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cu-BV-dt3">
+                        <rect key="frame" x="165" y="80" width="1" height="27"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -61,6 +68,12 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6E-oE-f2b">
+                        <rect key="frame" x="135" y="56" width="62" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -68,9 +81,10 @@
                 <outlet property="highValueLabel" destination="za6-Bu-4cR" id="H5K-LG-55E"/>
                 <outlet property="lowDateLabel" destination="Xrf-T9-WTK" id="tDQ-2f-1oQ"/>
                 <outlet property="lowValueLabel" destination="afB-jA-jma" id="nAy-0O-px2"/>
+                <outlet property="meanLabel" destination="o6E-oE-f2b" id="494-cC-qBM"/>
                 <outlet property="titleLabel" destination="u1b-In-TtF" id="v1u-bz-WsN"/>
             </connections>
-            <point key="canvasLocation" x="348" y="360"/>
+            <point key="canvasLocation" x="349" y="357"/>
         </tableViewCell>
     </objects>
 </document>

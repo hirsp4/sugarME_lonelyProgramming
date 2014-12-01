@@ -11,6 +11,8 @@
 @interface HighLowCell : UITableViewCell
     @property (nonatomic, weak) IBOutlet UILabel *highValueLabel;
     @property (nonatomic, weak) IBOutlet UILabel *lowValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *meanLabel;
+
     @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
     @property (nonatomic, weak) IBOutlet UILabel *highDateLabel;
     @property (nonatomic, weak) IBOutlet UILabel *lowDateLabel;
