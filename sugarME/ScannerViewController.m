@@ -204,10 +204,13 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
 }
 - (void) showBarcodeAlert:(Barcode *)barcode{
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // Code to do in background processing
+        // initialize web service
         TIFws_Pharma_V101Soap* service = [[TIFws_Pharma_V101Soap alloc]init];
+        // read the scanned gtin
         NSString *gtin = [[self.foundBarcodes firstObject]getBarcodeData];
+        // search in webservice by gtin
         TIFPHARMA *pharma = [service GetByGTIN:gtin lang:@"DE" __error:nil];
+        // setup the popup window
         NSString * alertMessage = @"Sie haben einen Barcode gefunden mit dem Typ: ";
         alertMessage = [alertMessage stringByAppendingString:[barcode getBarcodeType]];
         alertMessage = [alertMessage stringByAppendingString:@" mit GTIN: "];
@@ -231,6 +234,7 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex == 0){
+        // save button, build material object and store it in the database
         TIFws_Pharma_V101Soap* service = [[TIFws_Pharma_V101Soap alloc]init];
         NSString *gtin = [[self.foundBarcodes firstObject]getBarcodeData];
         TIFPHARMA *pharma = [service GetByGTIN:gtin lang:@"DE" __error:nil];
