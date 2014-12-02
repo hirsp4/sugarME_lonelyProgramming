@@ -21,12 +21,22 @@
 @synthesize tableWerte=_tableWerte;
 @synthesize graphView = _graphView;
 
+/**
+ *  setup after the loading of the view
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // get the managed object context to fetch data
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
+    // fetch the desired data
     [self performFetches];
 }
+/**
+ *  refresh table and graph views after an adding of a value
+ *
+ *  @param animated
+ */
 - (void)viewDidAppear:(BOOL)animated {
     [self refreshTableAndGraphView];
 }
@@ -35,14 +45,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/**
+ *  returns the number of rows in a section
+ *
+ *  @param tableView
+ *  @param section
+ *
+ *  @return NSInteger
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return allValues.count+1;
 }
+/**
+ *  return a cell for a specific row at a given index path
+ *
+ *  @param tableView
+ *  @param indexPath
+ *
+ *  @return UITableViewCell
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // set the date format
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM - HH:mm"];
+    // set an empty cell as start cell of the tableview (black bar)
     if(indexPath.row==0){
         static NSString *emptyCellIdentifier = @"EmptyCell";
         EmptyCell *cell = (EmptyCell *)[tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
@@ -52,6 +80,10 @@
         }
         return cell;
     }else{
+        /**
+         *  check the type of the given value (blood sugar, blood pressure, pulse) and return
+         *  a corresponding cell. Used to generate the different color labels at the beginning of the cell.
+         */
     static NSString *valueCellIdentifier = @"ValueCell";
     ValueCell *cell = (ValueCell *)[tableView dequeueReusableCellWithIdentifier:valueCellIdentifier];
     if (cell == nil) {
@@ -91,6 +123,14 @@
             return cell;
     }
 }
+/**
+ *  returns the height of a row at the given index path
+ *
+ *  @param tableView
+ *  @param indexPath
+ *
+ *  @return CGFloat
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row==0){
@@ -98,38 +138,74 @@
     }
     else return 28;
 }
+/**
+ *  allow editing the table view
+ *
+ *  @param tableView
+ *  @param indexPath
+ *
+ *  @return BOOL
+ */
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
+/**
+ *  specify the editing style
+ *
+ *  @param tableView
+ *  @param editingStyle
+ *  @param indexPath
+ */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self refreshTableAndGraphView];
     }
 }
+/**
+ *  merges and sorts 3 input arrays in one output array (sort date descending)
+ *
+ *  @param arr1
+ *  @param arr2
+ *  @param arr3
+ *
+ *  @return NSArray
+ */
 -(NSArray *)mergeAndSortArray:(NSArray*)arr1 withArray:(NSArray*)arr2 andArray:(NSArray*)arr3{
     NSArray *tempArray = [[arr1 arrayByAddingObjectsFromArray:arr2]arrayByAddingObjectsFromArray:arr3];
     NSSortDescriptor* sortByDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
     return [tempArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByDate]];
 }
-
+/**
+ *  return an editing style object (here: delete)
+ *
+ *  @param tableView
+ *  @param indexPath
+ *
+ *  @return UITableViewCellEditingStyle
+ */
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleDelete;
 }
 
-
+/**
+ *  fetch the values from the core data database (sugarmeDB).
+ */
 -(void) performFetches{
+    // fetch blood sugar
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"Blutzucker" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError *error;
     self.blutzuckerValues = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    // fetch pulse
     NSFetchRequest *fetchRequest2 = [[NSFetchRequest alloc] init];
     entity = [NSEntityDescription
               entityForName:@"Puls" inManagedObjectContext:managedObjectContext];
     [fetchRequest2 setEntity:entity];
     self.pulsValues = [managedObjectContext executeFetchRequest:fetchRequest2 error:&error];
+    // fetch blood pressure
     NSFetchRequest *fetchRequest3 = [[NSFetchRequest alloc] init];
     entity = [NSEntityDescription
               entityForName:@"Blutdruck" inManagedObjectContext:managedObjectContext];
@@ -137,7 +213,9 @@
     self.blutdruckValues = [managedObjectContext executeFetchRequest:fetchRequest3 error:&error];
     allValues = [self mergeAndSortArray:blutdruckValues withArray:pulsValues andArray:blutzuckerValues];
 }
-
+/**
+ *  refresh tables and graph view
+ */
 - (void)refreshTableAndGraphView{
     [self performFetches];
     [_tableWerte reloadData];

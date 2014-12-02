@@ -13,6 +13,13 @@
 @implementation GraphView
 @synthesize blutzuckerValues, managedObjectContext;
 
+/**
+ *  first draft: bar graph with the values. 
+ 
+ *                             !!!!!!!!!!!!DEPRECATED!!!!!!!!!!!
+ *
+ *  @param ctx
+ */
 - (void)drawBarGraphWithContext:(CGContextRef)ctx
 {
     float maxBarHeight = kGraphHeight - kBarTop - kOffsetY;
@@ -32,8 +39,14 @@
     }
     
 }
+/**
+ *  draw a linegraph in the specified context
+ *
+ *  @param ctx
+ */
 - (void)drawLineGraphWithContext:(CGContextRef)ctx
 {
+    // set the date format
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM"];
     // graph line
@@ -41,17 +54,22 @@
     CGContextSetStrokeColorWithColor(ctx, [[UIColor blackColor] CGColor]);
     int maxGraphHeight = kGraphHeight - kOffsetY;
     CGContextBeginPath(ctx);
+    // move to the first value that has to be drawn
     CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject]valueForKey:@"value"]floatValue]/18.0f)-9);
     int i=0;
+    // iterate through all blood sugar object and add lines from the old points to the new points
     for (NSManagedObject *obj in blutzuckerValues)
     {
         CGContextAddLineToPoint(ctx, kOffsetX + i * kStepX, kGraphHeight - maxGraphHeight * ([[obj valueForKey:@"value"]floatValue]/18.0f)-9);
         i++;
     }
+    // draw the path
     CGContextDrawPath(ctx, kCGPathStroke);
     //graph füllfarbe
+    // check if the array is empty, if yes: no fill color
+    // if no: build a draw path around all values and the coordinate system to have a closed area for the fill color
     if(blutzuckerValues.count!=0){
-        CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:52.0f/255.0f green:107.0f/255.0f blue:196.0f/255.0f alpha:0.9] CGColor]);
+    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:52.0f/255.0f green:107.0f/255.0f blue:196.0f/255.0f alpha:0.9] CGColor]);
     CGContextBeginPath(ctx);
     CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight-10);
     CGContextAddLineToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * ([[[blutzuckerValues firstObject] valueForKey:@"value"]floatValue]/18.0f));
@@ -68,6 +86,7 @@
     
     
     // graph points
+    // implement circles on the values
     CGContextSetFillColorWithColor(ctx, [[UIColor blackColor] CGColor]);
     i=0;
     for (NSManagedObject *obj in blutzuckerValues)
@@ -82,6 +101,15 @@
     
 
     // graph value labels
+    // set the labels (date and value in the graph)
+    /**
+     *
+     *
+     *
+     *              !!!!!!! LET THE PIXEL WAR BEGIN !!!!!!!
+     *
+     *
+     */
     CGContextSetTextMatrix(ctx, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
     CGContextSetTextDrawingMode(ctx, kCGTextFill);
     CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor]);
@@ -101,17 +129,27 @@
     
     
 }
+/**
+ *  first method that is called of the view
+ *
+ *  @param rect
+ */
 - (void)drawRect:(CGRect)rect
 {
+    // get the managed object model for the fetches
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     [self performFetches];
-    
+    // set date format
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM"];
+    // set the current context
     CGContextRef context = UIGraphicsGetCurrentContext();
+    // draw the linegraph
     [self drawLineGraphWithContext:context];
     CGContextStrokePath(context);
+    
+    // set the horicontal dash lines (help lines in the graph)
     CGContextSetLineWidth(context, 0.6);
     CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
     CGFloat dash[] = {2.0, 2.0};
@@ -124,6 +162,8 @@
         CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - i * kStepY);
     }
     CGContextStrokePath(context);
+    
+    // set the border lines (OK Values)
     CGContextSetLineDash(context, 0, NULL, 0);
     CGContextSetLineWidth(context,1.4);
     CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
@@ -132,6 +172,7 @@
     CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
     CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - normalHighValue * kStepY);
     CGContextStrokePath(context);
+    // set the border lines (NOT OK Values)
     CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
     CGContextSetLineDash(context, 0.0, NULL, 0);
     CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousHighValue * kStepY);
@@ -139,6 +180,7 @@
     CGContextMoveToPoint(context, kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
     CGContextAddLineToPoint(context, kDefaultGraphWidth+kOffsetX, kGraphBottom - kOffsetY - dangerousLowValue * kStepY);
     CGContextStrokePath(context);
+    // set the border lines (Coordinate system)
     CGContextSetLineWidth(context,2.0);
     CGContextSetLineDash(context, 0, NULL, 0);
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
@@ -166,6 +208,12 @@
 //    }    
 }
 
+/**
+ *  DEPRECATED
+ *
+ *  @param rect
+ *  @param ctx
+ */
 - (void)drawBar:(CGRect)rect context:(CGContextRef)ctx
 {
     CGContextBeginPath(ctx);
@@ -178,7 +226,9 @@
     CGContextClosePath(ctx);
     CGContextFillPath(ctx);
 }
-
+/**
+ *  perform the fetches: get blood sugar values from sugarmeDB
+ */
 -(void) performFetches{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
