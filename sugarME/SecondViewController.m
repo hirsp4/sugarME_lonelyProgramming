@@ -157,9 +157,15 @@
  *  @param indexPath
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self refreshTableAndGraphView];
+         NSError *error = nil;
+        [self.managedObjectContext deleteObject:[allValues objectAtIndex:(indexPath.row-1)]];
+        [self.managedObjectContext save:&error];
+        [self performFetches];
+        [_graphView setNeedsDisplay];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        NSLog(@"Unhandled editing style! %d", editingStyle);
     }
 }
 /**

@@ -77,6 +77,47 @@
         return cell;}
 
 }
+/**
+ *  return an editing style object (here: delete)
+ *
+ *  @param tableView
+ *  @param indexPath
+ *
+ *  @return UITableViewCellEditingStyle
+ */
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+/**
+ *  allow editing the table view
+ *
+ *  @param tableView
+ *  @param indexPath
+ *
+ *  @return BOOL
+ */
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+/**
+ *  specify the editing style
+ *
+ *  @param tableView
+ *  @param editingStyle
+ *  @param indexPath
+ */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSError *error = nil;
+        [self.managedObjectContext deleteObject:[hba1cValues objectAtIndex:(indexPath.row-1)]];
+        [self.managedObjectContext save:&error];
+        [self performFetches];
+        [_ampelView setNeedsDisplay];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        NSLog(@"Unhandled editing style! %d", editingStyle);
+    }
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row==0){
