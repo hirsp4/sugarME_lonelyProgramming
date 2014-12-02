@@ -19,7 +19,7 @@
 @end
 
 @implementation ExportViewController
-@synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues,globalMailComposer, blutdruckSwitch, blutzuckerSwitch, pulsSwitch, graphSwitch,profil,profileSwitch;
+@synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues,globalMailComposer, blutdruckSwitch, blutzuckerSwitch, pulsSwitch, graphSwitch,profil,profileSwitch, werteEinstellungen;
 
 /**
  *  actions after loading the view
@@ -290,6 +290,13 @@
                                    entityForName:@"Profil" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     self.profil =[managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    //Einstellungen Daten lesen.
+    entity = [NSEntityDescription
+              entityForName:@"Werteeinstellungen" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    self.werteEinstellungen =[managedObjectContext executeFetchRequest:fetchRequest error:&error];
+
 
 }
 /**
@@ -381,6 +388,30 @@
     // graph
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM"];
+    //graph legende zeichnen
+    float maxValue=5.6f;
+    float minValue=3.5f;
+    if([[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]length]>0){
+        minValue= [[[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]substringToIndex:3]floatValue];
+        maxValue = [[[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]substringWithRange:NSMakeRange(4, 3)]floatValue];
+    }
+    if(maxValue<minValue){
+        float temp = minValue;
+        minValue = maxValue;
+        maxValue=temp;
+    }
+    
+    [self addValueText:@"Begrenzungen in mmol/l: "
+             withFrame:CGRectMake(kPadding, kPadding+375, 100, 100) fontSize:14.0f];
+    [self addValueText:[@"Rote Obergrenze: " stringByAppendingString:@"15.0"]
+             withFrame:CGRectMake(kPadding, kPadding+400, 100, 100) fontSize:14.0f];
+    [self addValueText:[@"Grüne Obergrenze: " stringByAppendingString:[NSString stringWithFormat:@"%.1f", maxValue]]
+             withFrame:CGRectMake(kPadding, kPadding+415, 100, 100) fontSize:14.0f];
+    [self addValueText:[@"Grüne Untergrenze: " stringByAppendingString:[NSString stringWithFormat:@"%.1f", minValue]]
+             withFrame:CGRectMake(kPadding, kPadding+430, 100, 100) fontSize:14.0f];
+    [self addValueText:[@"Rote Untergrenze: " stringByAppendingString:@"2.0"]
+             withFrame:CGRectMake(kPadding, kPadding+445, 100, 100) fontSize:14.0f];
+    // graph zeichnen
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context,270,370);
     [self drawLineGraphWithContext:context];

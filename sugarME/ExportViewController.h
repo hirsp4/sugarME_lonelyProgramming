@@ -27,7 +27,7 @@
 @interface ExportViewController : UIViewController <ReaderViewControllerDelegate>
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSMutableArray *blutzuckerValues, *pulsValues, *blutdruckValues;
-@property (nonatomic, strong) NSArray *profil;
+@property (nonatomic, strong) NSArray *profil,*werteEinstellungen;
 @property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
 
 - (IBAction)generatePDF:(id)sender;
