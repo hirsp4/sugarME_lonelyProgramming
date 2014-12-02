@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 
 @implementation GraphView
-@synthesize blutzuckerValues, managedObjectContext;
+@synthesize blutzuckerValues, managedObjectContext, werteEinstellungen;
 
 /**
  *  first draft: bar graph with the values. 
@@ -143,6 +143,18 @@
     // set date format
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM"];
+    // set specified max min value borders
+    float normalLowValue = 3.5f;
+    float normalHighValue = 5.6f;
+    if([[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]length]>0){
+        normalLowValue= [[[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]substringToIndex:3]floatValue];
+        normalHighValue = [[[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]substringWithRange:NSMakeRange(4, 3)]floatValue];
+    }
+    if(normalHighValue<normalLowValue){
+        float temp = normalLowValue;
+        normalLowValue = normalHighValue;
+        normalHighValue=temp;
+    }
     // set the current context
     CGContextRef context = UIGraphicsGetCurrentContext();
     // draw the linegraph
@@ -243,6 +255,14 @@
     while (self.blutzuckerValues.count>10) {
         [self.blutzuckerValues removeObjectAtIndex:0];
     }
+    
+    // get settings
+    NSFetchRequest *settingsFetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *settingsEntity = [NSEntityDescription
+                                   entityForName:@"Werteeinstellungen" inManagedObjectContext:managedObjectContext];
+    [settingsFetchRequest setEntity:settingsEntity];
+    self.werteEinstellungen = [managedObjectContext executeFetchRequest:settingsFetchRequest error:&error];
+    
 }
 
 

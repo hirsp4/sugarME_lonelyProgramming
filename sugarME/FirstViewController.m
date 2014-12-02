@@ -25,7 +25,7 @@
     float minValue;
 }
 @synthesize tableWerte=_tableWerte;
-@synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues;
+@synthesize blutzuckerValues, managedObjectContext, pulsValues, blutdruckValues, werteEinstellungen;
 /**
  *  triggered when view is called by user.
  */
@@ -320,9 +320,21 @@
     /**
      *  specify dateFormat
      */
-    NSDate *today = [NSDate date];
+     NSDate *today = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM"];
+    /**
+     *  set max min values, if specified in settings
+     */
+    if([[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]length]>0){
+        minValue= [[[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]substringToIndex:3]floatValue];
+        maxValue = [[[[self.werteEinstellungen lastObject]valueForKey:@"bzzielbereich"]substringWithRange:NSMakeRange(4, 3)]floatValue];
+    }
+    if(maxValue<minValue){
+        float temp = minValue;
+        minValue = maxValue;
+        maxValue=temp;
+    }
     /**
      *  sort descriptor: ascending date
      */
@@ -485,6 +497,13 @@
         return (NSComparisonResult)[num1 compare:num2];
     }];
     self.blutdruckValues = [sortedArray2 mutableCopy];
+    
+    // read settings
+    NSFetchRequest *fetchRequestSettings = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription
+              entityForName:@"Werteeinstellungen" inManagedObjectContext:managedObjectContext];
+    [fetchRequestSettings setEntity:entity];
+    self.werteEinstellungen = [managedObjectContext executeFetchRequest:fetchRequestSettings error:&error];
 }
 
 @end

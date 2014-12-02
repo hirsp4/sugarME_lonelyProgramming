@@ -21,10 +21,12 @@
 #define kCircleRadius 1.3
 #define dangerousHighValue 15
 #define dangerousLowValue 2
-#define normalHighValue 5.7
-#define normalLowValue 3.5
+
 
 @interface GraphView : UIView
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSMutableArray *blutzuckerValues;
+@property (nonatomic, strong) NSArray *werteEinstellungen;
+
+
 @end

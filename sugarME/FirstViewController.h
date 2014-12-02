@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableWerte;
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSArray *blutzuckerValues, *pulsValues, *blutdruckValues;
+@property (nonatomic, strong) NSArray *blutzuckerValues, *pulsValues, *blutdruckValues, *werteEinstellungen;
 
 @end
 
