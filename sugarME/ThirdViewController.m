@@ -17,18 +17,19 @@
 @synthesize tableWerte=_tableWerte;
 @synthesize ampelView=_ampelView;
 @synthesize hba1cValues,managedObjectContext;
-
+/**
+ *  additional setup after loading the view
+ */
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    self.title=@"HbA1c";
+    // set title of the navigation bar
+    self.title=@"Werte";
+    // get the managed object context
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     [self performFetches];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStyleDone target:self action:@selector(AddHbA1c:)];
     [self.navigationItem setRightBarButtonItem:addButton];
-
-
 }
 -(IBAction)AddHbA1c:(id)sender{
     [self performSegueWithIdentifier:@"showAddHba1c_segue" sender:self];

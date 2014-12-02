@@ -26,6 +26,7 @@
  */
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"HbA1c";
     // get the managed object context to fetch data
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
