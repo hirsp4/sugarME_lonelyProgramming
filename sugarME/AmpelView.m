@@ -12,15 +12,23 @@
 
 @implementation AmpelView
 @synthesize hba1cValues, managedObjectContext;
-
+/**
+ *  first called method. draws the latest measured hba1c value to an uiview container.
+ *
+ *  @param rect
+ */
 - (void)drawRect:(CGRect)rect {
+    // get the managed object context to fetch data
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
+    // set date format
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm"];
+    //fetch the data
     [self performFetches];
 
     
+    // build ampel
     CGRect rectangle = CGRectMake(30, 80, 70, 170);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0,1.0);
@@ -41,7 +49,8 @@
     CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 0.5);
     CGContextFillRect(context, rectangle3);
     CGContextStrokeRect(context, rectangle3);
-        
+    
+    // build circles
     int radius = 20;
     CAShapeLayer *circle = [CAShapeLayer layer];
     circle.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius)
@@ -69,18 +78,8 @@
     
     circle3.strokeColor = [UIColor blackColor].CGColor;
     circle3.lineWidth = 1;
-    
-    radius = 80;
-    CAShapeLayer *circle4 = [CAShapeLayer layer];
-    circle4.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius)
-                                             cornerRadius:radius].CGPath;
-    circle4.position = CGPointMake(125,
-                                  95);
-    
-    circle4.strokeColor = [UIColor blackColor].CGColor;
-    circle4.lineWidth = 1;
-    circle4.fillColor=[[UIColor colorWithRed:125.0f/255.0f green:190.0f/255.0f blue:249.0f/255.0f alpha:0.2] CGColor];
 
+    // set colors for the circles depending on the latest measured value
     if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>10.0f){
         circle.fillColor = [UIColor redColor].CGColor;
         circle2.fillColor = [UIColor lightGrayColor].CGColor;
@@ -104,6 +103,7 @@
     [self.layer addSublayer:circle3];
 
     
+    // set the value description text on the right side of the ampel
     CGContextSetTextMatrix(context, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
     CGContextSetTextDrawingMode(context, kCGTextFill);
     CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor]);
@@ -131,6 +131,9 @@
 
     
 }
+/**
+ *  fetch the hba1c data from the sugarmeDB
+ */
 -(void) performFetches{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription

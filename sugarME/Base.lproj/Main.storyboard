@@ -496,10 +496,10 @@ liegt bei der Berner Fachhochschule
             </objects>
             <point key="canvasLocation" x="2864" y="-1312"/>
         </scene>
-        <!--Second View Controller-->
+        <!--addValue2-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController title="addValue2" id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -527,6 +527,7 @@ liegt bei der Berner Fachhochschule
                     <connections>
                         <outlet property="graphView" destination="vSD-kt-CRi" id="aVk-ob-oqF"/>
                         <outlet property="tableWerte" destination="hfA-x4-yVS" id="bGa-AM-39U"/>
+                        <segue destination="ldZ-Yr-Wl6" kind="custom" identifier="addValueSegue2" id="LDd-Ec-oHA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -1141,4 +1142,7 @@ liegt bei der Berner Fachhochschule
         <image name="tools.png" width="30" height="30"/>
         <image name="werte.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LDd-Ec-oHA"/>
+    </inferredMetricsTieBreakers>
 </document>

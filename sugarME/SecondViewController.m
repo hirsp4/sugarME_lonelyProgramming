@@ -26,12 +26,24 @@
  */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"HbA1c";
+    self.title=@"Werte";
     // get the managed object context to fetch data
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
+    // setup the add button
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStyleDone target:self action:@selector(AddData:)];
+    [self.navigationItem setRightBarButtonItem:addButton];
+
     // fetch the desired data
     [self performFetches];
+}
+/**
+ *  set action for the add value button - start AddValueController
+ *
+ *  @param sender
+ */
+- (IBAction) AddData:(id)sender {
+    [self performSegueWithIdentifier:@"addValueSegue2" sender:self];
 }
 /**
  *  refresh table and graph views after an adding of a value
