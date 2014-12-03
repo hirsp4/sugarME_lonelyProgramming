@@ -10,5 +10,5 @@
 
 @interface AmpelView : UIView
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSArray *hba1cValues;
+@property (nonatomic, strong) NSArray *hba1cValues,*hba1cEinstellungen;
 @end

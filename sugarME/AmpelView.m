@@ -11,7 +11,7 @@
 #import "HbA1c.h"
 
 @implementation AmpelView
-@synthesize hba1cValues, managedObjectContext;
+@synthesize hba1cValues, managedObjectContext, hba1cEinstellungen;
 /**
  *  first called method. draws the latest measured hba1c value to an uiview container.
  *
@@ -26,6 +26,18 @@
     [dateFormat setDateFormat:@"dd.MM.yyyy - HH:mm"];
     //fetch the data
     [self performFetches];
+    
+    float normalLowValue = 3.0f;
+    float normalHighValue = 8.0f;
+    if([[[self.hba1cEinstellungen lastObject]valueForKey:@"zielbereich"]length]>0){
+        normalLowValue= [[[[self.hba1cEinstellungen lastObject]valueForKey:@"zielbereich"]substringToIndex:3]floatValue];
+        normalHighValue = [[[[self.hba1cEinstellungen lastObject]valueForKey:@"zielbereich"]substringWithRange:NSMakeRange(5, 3)]floatValue];
+    }
+    if(normalHighValue<normalLowValue){
+        float temp = normalLowValue;
+        normalLowValue = normalHighValue;
+        normalHighValue=temp;
+    }
 
     
     // build ampel
@@ -80,18 +92,18 @@
     circle3.lineWidth = 1;
 
     // set colors for the circles depending on the latest measured value
-    if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>10.0f){
+    if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>(normalHighValue+2.0f) || [[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]<(normalLowValue-2.0f)){
         circle.fillColor = [UIColor redColor].CGColor;
         circle2.fillColor = [UIColor lightGrayColor].CGColor;
         circle3.fillColor = [UIColor lightGrayColor].CGColor;
-    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]<8.0f){
-        circle.fillColor = [UIColor lightGrayColor].CGColor;
-        circle2.fillColor = [UIColor lightGrayColor].CGColor;
-        circle3.fillColor = [UIColor greenColor].CGColor;
-    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>=8.0f && [[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]<=10.0f){
+    }else if(([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>=normalHighValue && [[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]<=(normalHighValue+2.0f)) || ([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]<=normalLowValue && [[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>=(normalLowValue-2.0f))){
         circle.fillColor = [UIColor lightGrayColor].CGColor;
         circle2.fillColor = [UIColor yellowColor].CGColor;
         circle3.fillColor = [UIColor lightGrayColor].CGColor;
+    }else if([[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]>=normalLowValue && [[[self.hba1cValues firstObject]valueForKey:@"value"]floatValue]<=normalHighValue){
+        circle.fillColor = [UIColor lightGrayColor].CGColor;
+        circle2.fillColor = [UIColor lightGrayColor].CGColor;
+        circle3.fillColor = [UIColor greenColor].CGColor;
     }
     if(self.hba1cValues.count==0){
         circle.fillColor = [UIColor lightGrayColor].CGColor;
@@ -120,13 +132,23 @@
     NSString *theText2 = [[NSString stringWithFormat:@"%@", [[self.hba1cValues firstObject]valueForKey:@"value"]]stringByAppendingString:@"%"];
     CGContextShowTextAtPoint(context, 178,180, [theText2 cStringUsingEncoding:NSUTF8StringEncoding], [theText2 length]);
     
-    CGContextSelectFont(context, "Helvetica", 10, kCGEncodingMacRoman);
-    NSString *skala = [NSString stringWithFormat:@"%@", @"rot:  >10%"];
-    CGContextShowTextAtPoint(context, 220,280, [skala cStringUsingEncoding:NSUTF8StringEncoding], [skala length]);
-    NSString *skala1 = [NSString stringWithFormat:@"%@", @"gelb: >8% und <10%"];
-    CGContextShowTextAtPoint(context, 220,295, [skala1 cStringUsingEncoding:NSUTF8StringEncoding], [skala1 length]);
-    NSString *skala2 = [NSString stringWithFormat:@"%@", @"gruen: <8%"];
-    CGContextShowTextAtPoint(context, 220,310, [skala2 cStringUsingEncoding:NSUTF8StringEncoding], [skala2 length]);
+    CGContextSelectFont(context, "Helvetica", 11, kCGEncodingMacRoman);
+    NSString *skala = [NSString stringWithFormat:@"%@", @"Rot:  >"];
+    skala = [skala stringByAppendingString:[NSString stringWithFormat:@"%.1f", (normalHighValue+2.0f)]];
+    skala = [skala stringByAppendingString:[NSString stringWithFormat:@"%@", @"% oder <"]];
+    skala = [skala stringByAppendingString:[NSString stringWithFormat:@"%.1f", (normalLowValue-2.0f)]];
+    skala = [skala stringByAppendingString:[NSString stringWithFormat:@"%@", @"%"]];
+    CGContextShowTextAtPoint(context, 170,280, [skala cStringUsingEncoding:NSUTF8StringEncoding], [skala length]);
+        
+    NSString *skala1 = [NSString stringWithFormat:@"%@", @"Gelb: +/- 2% Toleranz"];
+    CGContextShowTextAtPoint(context, 170,295, [skala1 cStringUsingEncoding:NSUTF8StringEncoding], [skala1 length]);
+        
+    NSString *skala2 = [NSString stringWithFormat:@"%@", @"Gruen: >="];
+    skala2 = [skala2 stringByAppendingString:[NSString stringWithFormat:@"%.1f", normalLowValue]];
+    skala2 = [skala2 stringByAppendingString:[NSString stringWithFormat:@"%@", @"% und <="]];
+    skala2 = [skala2 stringByAppendingString:[NSString stringWithFormat:@"%.1f", normalHighValue]];
+    skala2 = [skala2 stringByAppendingString:[NSString stringWithFormat:@"%@", @"%"]];
+    CGContextShowTextAtPoint(context, 170,310, [skala2 cStringUsingEncoding:NSUTF8StringEncoding], [skala2 length]);
     }
 
     
@@ -142,6 +164,13 @@
     NSError *error;
     NSSortDescriptor* sortByDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
     self.hba1cValues =[[managedObjectContext executeFetchRequest:fetchRequest error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByDate]];
+    
+    NSFetchRequest *fetchRequest2 = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity2 = [NSEntityDescription
+                                   entityForName:@"HbA1cEinstellungen" inManagedObjectContext:managedObjectContext];
+    [fetchRequest2 setEntity:entity2];
+    self.hba1cEinstellungen =[managedObjectContext executeFetchRequest:fetchRequest2 error:&error];
+
 }
 
 @end

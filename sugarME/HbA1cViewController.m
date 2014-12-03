@@ -69,7 +69,7 @@
     [self.navigationItem setRightBarButtonItem:saveButton];
     
     hba1cData = [[NSMutableArray alloc] init];
-    for (int i = 3; i<=10; i++) {
+    for (int i = 3; i<=9; i++) {
         for(int j=0; j<=9;j++){
             NSString *myString = [[NSString stringWithFormat:@"%d",i]stringByAppendingString:@"."];
             NSString *myString2 = [myString stringByAppendingString:[NSString stringWithFormat:@"%d",j]];
@@ -193,7 +193,7 @@
 -(void) inputAccessoryViewDidFinish:(UIBarButtonItem *)button {
     [self.tableView endEditing:YES];
     if(button.tag==30000){
-        _pickerTextField1.text=[[[[hba1cData objectAtIndex:[_pickerView1 selectedRowInComponent:0]]stringByAppendingString:@" % - "]stringByAppendingString:[hba1cData objectAtIndex:[_pickerView1 selectedRowInComponent:2]]]stringByAppendingString:@" %"];
+        _pickerTextField1.text=[[[[hba1cData objectAtIndex:[_pickerView1 selectedRowInComponent:0]]stringByAppendingString:@"%-"]stringByAppendingString:[hba1cData objectAtIndex:[_pickerView1 selectedRowInComponent:2]]]stringByAppendingString:@"%"];
     }
     if(button.tag==30001){
         _pickerTextField2.text=[anzahlMessungen objectAtIndex:[_pickerView2 selectedRowInComponent:0]];

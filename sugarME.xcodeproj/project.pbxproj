@@ -126,7 +126,7 @@
 		EFBF64F81A0A312A00D31A8B /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF64F71A0A312A00D31A8B /* GraphView.m */; };
 		EFD35D0C1A1607DF009A02AC /* HbA1c.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0B1A1607DF009A02AC /* HbA1c.m */; };
 		EFD35D0F1A160A52009A02AC /* AddHbA1cViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0E1A160A52009A02AC /* AddHbA1cViewController.m */; };
-		EFD35D121A160FED009A02AC /* AmpelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D111A160FED009A02AC /* AmpelView.m */; };
+		EFD35D121A160FED009A02AC /* AmpelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D111A160FED009A02AC /* AmpelView.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EFE720461A18DD2B00F7E637 /* AddMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE720451A18DD2B00F7E637 /* AddMaterialViewController.m */; };
 		EFEADD2C1A037B1F001332C7 /* MeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEADD2B1A037B1F001332C7 /* MeasureCell.xib */; };
 		EFEB47EF1A27514900284B64 /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEB47EE1A27514900284B64 /* Barcode.m */; };
