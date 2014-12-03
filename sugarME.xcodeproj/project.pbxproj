@@ -37,6 +37,7 @@
 		EF2859011A2A12C300070BAC /* Profil.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2859001A2A12C300070BAC /* Profil.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF2859041A2A2A4600070BAC /* Werteeinstellungen.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2859031A2A2A4600070BAC /* Werteeinstellungen.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF2859071A2A2E2C00070BAC /* HbA1cEinstellungen.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2859061A2A2E2C00070BAC /* HbA1cEinstellungen.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		EF438CC21A2F6DE700AA2292 /* hba1caddimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF438CC11A2F6DE700AA2292 /* hba1caddimage.jpg */; };
 		EF68EC911A02CB8600AD9663 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC901A02CB8600AD9663 /* main.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF68EC941A02CB8600AD9663 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC931A02CB8600AD9663 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF68EC971A02CB8600AD9663 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68EC961A02CB8600AD9663 /* FirstViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -219,6 +220,7 @@
 		EF2859031A2A2A4600070BAC /* Werteeinstellungen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Werteeinstellungen.m; sourceTree = "<group>"; };
 		EF2859051A2A2E2C00070BAC /* HbA1cEinstellungen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HbA1cEinstellungen.h; sourceTree = "<group>"; };
 		EF2859061A2A2E2C00070BAC /* HbA1cEinstellungen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HbA1cEinstellungen.m; sourceTree = "<group>"; };
+		EF438CC11A2F6DE700AA2292 /* hba1caddimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hba1caddimage.jpg; sourceTree = "<group>"; };
 		EF68EC8B1A02CB8600AD9663 /* sugarME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sugarME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF68EC8F1A02CB8600AD9663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF68EC901A02CB8600AD9663 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -588,6 +590,7 @@
 				EF92FFE01A02F6A0000AAE45 /* user-icon.png */,
 				EFFFA2011A14B315003D55D7 /* bfh-logo.png */,
 				EF867F1A1A24C70C00D3D1EA /* blutdruckmesser-2.jpg */,
+				EF438CC11A2F6DE700AA2292 /* hba1caddimage.jpg */,
 				EF68ECD01A02D78A00AD9663 /* tools@2x.png */,
 				EF68ECD11A02D78A00AD9663 /* tools.png */,
 				EF867F181A24C58500D3D1EA /* pulsimage2.jpg */,
@@ -874,6 +877,7 @@
 				EF68ECA21A02CB8600AD9663 /* LaunchScreen.xib in Resources */,
 				EF7EB2641A254B9C001F1302 /* Reader-Email@2x.png in Resources */,
 				EF92FFE11A02F6A0000AAE45 /* user-icon.png in Resources */,
+				EF438CC21A2F6DE700AA2292 /* hba1caddimage.jpg in Resources */,
 				EF7EB25B1A254B9C001F1302 /* AppIcon-144.png in Resources */,
 				EF7EB26D1A254B9C001F1302 /* Reader-Thumbs.png in Resources */,
 				EFFFA20E1A14BAEB003D55D7 /* barcode.png in Resources */,

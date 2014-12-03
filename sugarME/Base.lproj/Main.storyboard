@@ -602,7 +602,7 @@ liegt bei der Berner Fachhochschule
                                     <action selector="saveHbA1c:" destination="Lvb-vd-fbe" eventType="touchUpInside" id="oJ4-g0-zO4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hba1cimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="DNC-bG-BQt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hba1caddimage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DNC-bG-BQt">
                                 <rect key="frame" x="0.0" y="315" width="320" height="169"/>
                             </imageView>
                         </subviews>
@@ -1135,7 +1135,7 @@ liegt bei der Berner Fachhochschule
         <image name="blutdruckmesser-2.jpg" width="907" height="340"/>
         <image name="blutzucker.png" width="320" height="120"/>
         <image name="hba1c.png" width="30" height="30"/>
-        <image name="hba1cimage.png" width="320" height="163"/>
+        <image name="hba1caddimage.jpg" width="320" height="169"/>
         <image name="home.png" width="30" height="30"/>
         <image name="pulsimage.png" width="320" height="120"/>
         <image name="settings.png" width="30" height="30"/>
