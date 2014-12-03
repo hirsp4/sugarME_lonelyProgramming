@@ -136,13 +136,17 @@
     self.globalMailComposer = nil;
     self.globalMailComposer = [[MFMailComposeViewController alloc] init];
 }
-
+/**
+ *  checks if the user has measured his desired daily values (blood pressure, blood sugar and pulse) or yearly value (hba1c)
+ */
 -(void)checkForReminder
 {
     [self performFetches];
     BOOL assertion = false;
+    // build the popup message
     NSString *alertMessage = @"\nSie sollten noch folgende Messungen durchführen: \n\n";
     alertMessage=[alertMessage stringByAppendingString:@"Heute:\n"];
+    // check if blood sugar reminder is set to "on" in the settings
     if([[[self.werteEinstellungen lastObject]valueForKey:@"bzerinnerung"]boolValue]){
        int bzMessungenSOLL = [[[self.werteEinstellungen lastObject]valueForKey:@"bzmessungen"]integerValue];
         if(bzMessungenSOLL==0){
@@ -156,6 +160,7 @@
             alertMessage=[alertMessage stringByAppendingString:@" mal Blutzucker\n"];
         }
     }
+    // check if pulse/blood pressure reminder is set to "on" in the settings
     if([[[self.werteEinstellungen lastObject]valueForKey:@"pulserinnerung"]boolValue]){
         int pulsMessungenSOLL = [[[self.werteEinstellungen lastObject]valueForKey:@"pulsmessungen"]integerValue];
         if(pulsMessungenSOLL==0){
@@ -176,6 +181,7 @@
         }
 
     }
+    // check if hba1c reminder is set to "on" in the settings
     if([[[self.hba1cEinstellungen lastObject]valueForKey:@"erinnerung"]boolValue]){
         int hba1cMessungenSOLL = [[[self.hba1cEinstellungen lastObject]valueForKey:@"messungen"]integerValue];
         if(hba1cMessungenSOLL==0){
@@ -189,6 +195,7 @@
             alertMessage=[alertMessage stringByAppendingString:@" mal HbA1c\n"];
         }
     }
+    // build a popup if a reminder has to be set
     if(assertion)
     {
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Erinnerung!"
@@ -202,6 +209,11 @@
 
 }
 
+/**
+ *  returns the current date at time 00:00:00
+ *
+ *  @return NSDate
+ */
 -(NSDate *)getTodayZero
 {
     // Use the user's current calendar and time zone
@@ -222,6 +234,11 @@
     return beginningOfDay;
 }
 
+/**
+ *  returns the current date at time midnight
+ *
+ *  @return NSDate
+ */
 -(NSDate *)getTodayMidnight
 {
     // Use the user's current calendar and time zone
@@ -242,7 +259,11 @@
     return endOfDay;
     
 }
-
+/**
+ *  returns the start of the current year: 01.01.CURRENTYEAR 00:00:00
+ *
+ *  @return NSDate
+ */
 -(NSDate *)getStartOfYear
 {
     // Use the user's current calendar and time zone
@@ -267,7 +288,9 @@
 }
 
 
-
+/**
+ *  fetch data from the sugarmeDB
+ */
 -(void)performFetches
 {
     // einstellungen lesen

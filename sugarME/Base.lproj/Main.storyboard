@@ -448,7 +448,7 @@ liegt bei der Berner Fachhochschule
                                     </mask>
                                 </variation>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ad8-Oi-7Jd">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ad8-Oi-7Jd">
                                 <rect key="frame" x="16" y="78" width="288" height="29"/>
                                 <segments>
                                     <segment title="Blutzucker"/>
