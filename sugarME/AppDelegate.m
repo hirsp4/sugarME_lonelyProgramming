@@ -21,11 +21,11 @@
 @synthesize globalMailComposer = _globalMailComposer;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize werteEinstellungen, bzWerte, bdWerte, pulsWerte,hba1cWerte, hba1cEinstellungen;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     sleep(1);
-    [self cycleTheGlobalMailComposer];
     return YES;
 }
 
@@ -45,6 +45,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self checkForReminder];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -134,6 +136,190 @@
     self.globalMailComposer = nil;
     self.globalMailComposer = [[MFMailComposeViewController alloc] init];
 }
+
+-(void)checkForReminder
+{
+    [self performFetches];
+    BOOL assertion = false;
+    NSString *alertMessage = @"\nSie sollten noch folgende Messungen durchführen: \n\n";
+    alertMessage=[alertMessage stringByAppendingString:@"Heute:\n"];
+    if([[[self.werteEinstellungen lastObject]valueForKey:@"bzerinnerung"]boolValue]){
+       int bzMessungenSOLL = [[[self.werteEinstellungen lastObject]valueForKey:@"bzmessungen"]integerValue];
+        if(bzMessungenSOLL==0){
+            return;
+        }
+        int bzMessungenIST = self.bzWerte.count;
+
+        if(bzMessungenIST<bzMessungenSOLL){
+            assertion=true;
+            alertMessage=[alertMessage stringByAppendingString:[NSString stringWithFormat:@"%d",(bzMessungenSOLL-bzMessungenIST)]];
+            alertMessage=[alertMessage stringByAppendingString:@" mal Blutzucker\n"];
+        }
+    }
+    if([[[self.werteEinstellungen lastObject]valueForKey:@"pulserinnerung"]boolValue]){
+        int pulsMessungenSOLL = [[[self.werteEinstellungen lastObject]valueForKey:@"pulsmessungen"]integerValue];
+        if(pulsMessungenSOLL==0){
+            return;
+        }
+        int bdMessungenIST = self.bdWerte.count;
+        int pulsMessungenIST = self.pulsWerte.count;
+        if(bdMessungenIST<pulsMessungenSOLL){
+            assertion=true;
+            alertMessage=[alertMessage stringByAppendingString:[NSString stringWithFormat:@"%d",(pulsMessungenSOLL-bdMessungenIST)]];
+            alertMessage=[alertMessage stringByAppendingString:@" mal Blutdruck\n"];
+        }
+
+        if(pulsMessungenIST<pulsMessungenSOLL){
+            assertion=true;
+            alertMessage=[alertMessage stringByAppendingString:[NSString stringWithFormat:@"%d",(pulsMessungenSOLL-pulsMessungenIST)]];
+            alertMessage=[alertMessage stringByAppendingString:@" mal Puls\n"];
+        }
+
+    }
+    if([[[self.hba1cEinstellungen lastObject]valueForKey:@"erinnerung"]boolValue]){
+        int hba1cMessungenSOLL = [[[self.hba1cEinstellungen lastObject]valueForKey:@"messungen"]integerValue];
+        if(hba1cMessungenSOLL==0){
+            return;
+        }
+        int hba1cMessungenIST = self.hba1cWerte.count;
+        if(hba1cMessungenIST<hba1cMessungenSOLL){
+            assertion=true;
+            alertMessage=[alertMessage stringByAppendingString:@"\nIn diesem Jahr:\n"];
+            alertMessage=[alertMessage stringByAppendingString:[NSString stringWithFormat:@"%d",(hba1cMessungenSOLL-hba1cMessungenIST)]];
+            alertMessage=[alertMessage stringByAppendingString:@" mal HbA1c\n"];
+        }
+    }
+    if(assertion)
+    {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Erinnerung!"
+                                                      message:alertMessage
+                                                     delegate:self
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+        [message show];
+    }
+    
+
+}
+
+-(NSDate *)getTodayZero
+{
+    // Use the user's current calendar and time zone
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+    [calendar setTimeZone:timeZone];
+    
+    // Selectively convert the date components (year, month, day) of the input date
+    NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
+    
+    // Set the time components manually
+    [dateComps setHour:0];
+    [dateComps setMinute:0];
+    [dateComps setSecond:0];
+    
+    // Convert back
+    NSDate *beginningOfDay = [calendar dateFromComponents:dateComps];
+    return beginningOfDay;
+}
+
+-(NSDate *)getTodayMidnight
+{
+    // Use the user's current calendar and time zone
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+    [calendar setTimeZone:timeZone];
+    
+    // Selectively convert the date components (year, month, day) of the input date
+    NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
+    
+    // Set the time components manually
+    [dateComps setHour:23];
+    [dateComps setMinute:59];
+    [dateComps setSecond:59];
+    
+    // Convert back
+    NSDate *endOfDay = [calendar dateFromComponents:dateComps];
+    return endOfDay;
+    
+}
+
+-(NSDate *)getStartOfYear
+{
+    // Use the user's current calendar and time zone
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+    [calendar setTimeZone:timeZone];
+    
+    // Selectively convert the date components (year, month, day) of the input date
+    NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit fromDate:[NSDate date]];
+    
+    // Set the time components manually
+    [dateComps setMonth:1];
+    [dateComps setDay:1];
+    [dateComps setHour:0];
+    [dateComps setMinute:0];
+    [dateComps setSecond:0];
+    
+    // Convert back
+    NSDate *yearStart = [calendar dateFromComponents:dateComps];
+    return yearStart;
+    
+}
+
+
+
+-(void)performFetches
+{
+    // einstellungen lesen
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Werteeinstellungen" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.werteEinstellungen = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    // einstellungen lesen
+    NSFetchRequest *fetchRequest1 = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity1 = [NSEntityDescription
+                                   entityForName:@"HbA1cEinstellungen" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest1 setEntity:entity1];
+    self.hba1cEinstellungen = [_managedObjectContext executeFetchRequest:fetchRequest1 error:&error];
+    // set predicate for today
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(date >= %@) AND (date <= %@)", [self getTodayZero], [self getTodayMidnight]];
+    // blutzucker daten lesen
+    NSFetchRequest *fetchRequest2 = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity2 = [NSEntityDescription
+                                   entityForName:@"Blutzucker" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest2 setEntity:entity2];
+    [fetchRequest2 setPredicate:predicate];
+    self.bzWerte = [_managedObjectContext executeFetchRequest:fetchRequest2 error:&error];
+    
+    // blutdruck daten lesen
+    NSFetchRequest *fetchRequest3 = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity3 = [NSEntityDescription
+                                   entityForName:@"Blutdruck" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest3 setEntity:entity3];
+    [fetchRequest3 setPredicate:predicate];
+    self.bdWerte = [_managedObjectContext executeFetchRequest:fetchRequest3 error:&error];
+    
+    // puls daten lesen
+    NSFetchRequest *fetchRequest4 = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity4 = [NSEntityDescription
+                                   entityForName:@"Puls" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest4 setEntity:entity4];
+    [fetchRequest4 setPredicate:predicate];
+    self.pulsWerte = [_managedObjectContext executeFetchRequest:fetchRequest4 error:&error];
+    
+    // hba1c daten lesen
+    NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"date >= %@", [self getStartOfYear]];
+    NSFetchRequest *fetchRequest5 = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity5 = [NSEntityDescription
+                                    entityForName:@"HbA1c" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest5 setEntity:entity5];
+    [fetchRequest5 setPredicate:predicate2];
+    self.hba1cWerte = [_managedObjectContext executeFetchRequest:fetchRequest5 error:&error];
+    
+}
+
 
 
 @end

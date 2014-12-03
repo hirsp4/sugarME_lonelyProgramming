@@ -18,6 +18,12 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
+@property (nonatomic, strong) NSArray *werteEinstellungen;
+@property (nonatomic, strong) NSArray *hba1cEinstellungen;
+@property (nonatomic, strong) NSArray *bzWerte;
+@property (nonatomic, strong) NSArray *pulsWerte;
+@property (nonatomic, strong) NSArray *bdWerte;
+@property (nonatomic, strong) NSArray *hba1cWerte;
 
 
 - (void)saveContext;
