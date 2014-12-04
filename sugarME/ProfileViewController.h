@@ -2,8 +2,8 @@
 //  ProfileViewController.h
 //  SettingsViewController
 //
-//  Created by Maja Kelterborn on 20.11.14.
-//  Copyright (c) 2014 Maja Kelterborn. All rights reserved.
+//  Created by Serafin Albin on 20.11.14.
+//  Copyright (c) 2014 Serafin Albin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
