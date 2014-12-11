@@ -89,10 +89,10 @@
 /**
  *  sets the number of rows in the specific section.
  *
- *  @param tableView <#tableView description#>
- *  @param section   <#section description#>
+ *  @param tableView
+ *  @param section
  *
- *  @return <#return value description#>
+ *  @return
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
