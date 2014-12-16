@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "WerteViewController.h"
 #import "HbA1cViewController.h"
-#import "MaterialViewController.h"
 
 
 @interface FifthViewController (){
@@ -30,7 +29,7 @@
     
     self.title=@"Einstellungen";
     
-    _settingsTitles = [[NSArray alloc] initWithObjects:@"Profil", @"Werte", @"HbA1c", @"Material", nil];
+    _settingsTitles = [[NSArray alloc] initWithObjects:@"Profil", @"Werte", @"HbA1c", nil];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -71,10 +70,6 @@
         _selectedRowText = [_settingsTitles objectAtIndex:indexPath.row];
         [self performSegueWithIdentifier:@"showHbA1cView_segue" sender:self];
     }
-    else if (indexPath.row == 3){
-        _selectedRowText = [_settingsTitles objectAtIndex:indexPath.row];
-        [self performSegueWithIdentifier:@"showMaterialView_segue" sender:self];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,12 +97,6 @@
     else if ([[segue identifier] isEqualToString:@"showHbA1cView_segue"]) {
         
         HbA1cViewController *vc = [segue destinationViewController];
-        
-        vc.navigationItem.title=_selectedRowText;
-    }
-    else if ([[segue identifier] isEqualToString:@"showMaterialView_segue"]) {
-        
-        MaterialViewController *vc = [segue destinationViewController];
         
         vc.navigationItem.title=_selectedRowText;
     }

@@ -33,7 +33,6 @@
 		EF2858FB1A29CF1100070BAC /* EinheitenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2858F31A29CF1100070BAC /* EinheitenViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF2858FC1A29CF1100070BAC /* WerteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2858F51A29CF1100070BAC /* WerteViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF2858FD1A29CF1100070BAC /* HbA1cViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2858F71A29CF1100070BAC /* HbA1cViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		EF2858FE1A29CF1100070BAC /* MaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2858F91A29CF1100070BAC /* MaterialViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF2859011A2A12C300070BAC /* Profil.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2859001A2A12C300070BAC /* Profil.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF2859041A2A2A4600070BAC /* Werteeinstellungen.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2859031A2A2A4600070BAC /* Werteeinstellungen.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EF2859071A2A2E2C00070BAC /* HbA1cEinstellungen.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2859061A2A2E2C00070BAC /* HbA1cEinstellungen.m */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -212,8 +211,6 @@
 		EF2858F51A29CF1100070BAC /* WerteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WerteViewController.m; sourceTree = "<group>"; };
 		EF2858F61A29CF1100070BAC /* HbA1cViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HbA1cViewController.h; sourceTree = "<group>"; };
 		EF2858F71A29CF1100070BAC /* HbA1cViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HbA1cViewController.m; sourceTree = "<group>"; };
-		EF2858F81A29CF1100070BAC /* MaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialViewController.h; sourceTree = "<group>"; };
-		EF2858F91A29CF1100070BAC /* MaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialViewController.m; sourceTree = "<group>"; };
 		EF2858FF1A2A12C300070BAC /* Profil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profil.h; sourceTree = "<group>"; };
 		EF2859001A2A12C300070BAC /* Profil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profil.m; sourceTree = "<group>"; };
 		EF2859021A2A2A4600070BAC /* Werteeinstellungen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Werteeinstellungen.h; sourceTree = "<group>"; };
@@ -505,8 +502,6 @@
 				EF2858F51A29CF1100070BAC /* WerteViewController.m */,
 				EF2858F61A29CF1100070BAC /* HbA1cViewController.h */,
 				EF2858F71A29CF1100070BAC /* HbA1cViewController.m */,
-				EF2858F81A29CF1100070BAC /* MaterialViewController.h */,
-				EF2858F91A29CF1100070BAC /* MaterialViewController.m */,
 			);
 			name = Einstellungen;
 			sourceTree = "<group>";
@@ -948,7 +943,6 @@
 				EF0BFB671A27DE2700F0F8AE /* DDXMLDocument.m in Sources */,
 				EF0BFB811A27DE4B00F0F8AE /* TIFHelper.m in Sources */,
 				EF0BFB891A27DE4B00F0F8AE /* TIFSoapError.m in Sources */,
-				EF2858FE1A29CF1100070BAC /* MaterialViewController.m in Sources */,
 				EF7EB27F1A254B9C001F1302 /* ReaderViewController.m in Sources */,
 				EF7EB2751A254B9C001F1302 /* ReaderDocumentOutline.m in Sources */,
 				EF0BFB8B1A27DE4B00F0F8AE /* TIFws_Pharma_V101Soap12.m in Sources */,
