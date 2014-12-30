@@ -21,6 +21,12 @@
 
 @synthesize tableView,managedObjectContext;
 @synthesize erinnernSwitch=_erinnernSwitch;
+/**
+ *  set action for the save button
+ *  sets the input values from the user to the textfield in each cell
+ *
+ *  @param sender
+ */
 -(IBAction)SaveData:(id)sender{
     UITextField *nameField,*dosisField,*mengeSchachtelField,*mengeAktuellField,*erinnernField;
     NSString *name,*dosis,*mengeSchachtel,*mengeAktuell,*erinnern;
@@ -30,19 +36,19 @@
         {
             UITableViewCell *nomeCell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
             if(section==0&&row==0){
-                 nameField=(UITextField*)[nomeCell.contentView viewWithTag:100];
+                nameField=(UITextField*)[nomeCell.contentView viewWithTag:100];
                 name=nameField.text;
             }
             if(section==0&&row==1){
-                 dosisField=(UITextField*)[nomeCell.contentView viewWithTag:101];
+                dosisField=(UITextField*)[nomeCell.contentView viewWithTag:101];
                 dosis=dosisField.text;
             }
             if(section==1&&row==0){
-                 mengeSchachtelField=(UITextField*)[nomeCell.contentView viewWithTag:102];
+                mengeSchachtelField=(UITextField*)[nomeCell.contentView viewWithTag:102];
                 mengeSchachtel=mengeSchachtelField.text;
             }
             if(section==1&&row==1){
-                 mengeAktuellField=(UITextField*)[nomeCell.contentView viewWithTag:103];
+                mengeAktuellField=(UITextField*)[nomeCell.contentView viewWithTag:103];
                 mengeAktuell=mengeAktuellField.text;
             }
             if(section==1&&row==3){
@@ -52,11 +58,11 @@
         }
     }
     Material  *materialObjekt = [NSEntityDescription insertNewObjectForEntityForName:@"Material"
-                                                        inManagedObjectContext:self.managedObjectContext];
+                                                              inManagedObjectContext:self.managedObjectContext];
     [materialObjekt setValue:name forKey:@"name"];
     [materialObjekt setValue:dosis forKey:@"dosis"];
-     [materialObjekt setValue:mengeSchachtel forKey:@"mengeSchachtel"];
-     [materialObjekt setValue:mengeAktuell forKey:@"mengeAktuell"];
+    [materialObjekt setValue:mengeSchachtel forKey:@"mengeSchachtel"];
+    [materialObjekt setValue:mengeAktuell forKey:@"mengeAktuell"];
     [materialObjekt setValue:erinnern forKey:@"erinnern"];
     [materialObjekt setValue:[NSNumber numberWithBool:_erinnernSwitch.on] forKey:@"nachfuellen"];
     NSError *error;
@@ -72,25 +78,36 @@
         [self.managedObjectContext processPendingChanges];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-
+    
 }
-
+/**
+ *  triggered when view is called by user.
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /**
+     * get the object context (to save and fetch data later)
+     */
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
-
     
+    /**
+     *  sets the title of the view
+     */
     self.title= @"Neues Material";
     _erinnernSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
-
     
+    /**
+     *  fill the tablerow textlabel data
+     */
     materialInformations = [[NSArray alloc] initWithObjects:
                             @"Name",
                             @"Dosis pro Tag",
                             nil];
-    
+    /**
+     *  fill the tablerow textlabel data
+     */
     materialDetailInformations = [[NSArray alloc] initWithObjects:
                                   @"Menge pro Schachtel",
                                   @"Aktuelle Menge",
@@ -100,7 +117,9 @@
                                   nil];
     
     
-    
+    /**
+     *  sets an save button on the right side in the navigation bar
+     */
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Sichern" style:UIBarButtonItemStyleDone target:self action:@selector(SaveData:)];
     [self.navigationItem setRightBarButtonItem:saveButton];
     
@@ -110,10 +129,21 @@
     [self.view addGestureRecognizer:tap];
     
 }
+/**
+ *  sets the number of sections in the tableView.
+ *
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
-
+/**
+ *  sets the number of rows in the specific section.
+ *
+ *  @param tableView
+ *  @param section
+ *
+ *  @return
+ */
 -(NSInteger)tableView :(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0)
@@ -122,7 +152,10 @@
         return materialDetailInformations.count;
     return 0;
 }
-
+/**
+ * sets the title of the headers in the different sections
+ *
+ */
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0)
         return @"Material Informationen";
@@ -130,21 +163,34 @@
         return @"Nachfüllungs Informationen";
     return @"undefined";
 }
-
-
+/**
+ *  sets the cell for a specific row in the tableview
+ *
+ *  @param tableView
+ *  @param indexPath
+ *
+ *  @return UITableViewCell
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
-    
+    /**
+     *  init the cells
+     */
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     if (cell==nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
+        /**
+         *  set cell selection style and accessory type
+         */
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryNone;
         
         if ([indexPath section] == 0) {
+            /**
+             *  init the textfield in the table, where the user can write the input
+             *  with a clearbutton
+             */
             UITextField *tableTextField = [[UITextField alloc] initWithFrame:CGRectMake(18, 10, 350, 30)];
             tableTextField.delegate =self;
             tableTextField.adjustsFontSizeToFitWidth = YES;
@@ -159,12 +205,20 @@
             
             
             if ([indexPath row] == 0) {
+                /**
+                 *  init cell material name at row 1 with a placeholder text in the textfield and a keyboard
+                 *  which appears when the user taps in the textfield
+                 */
                 tableTextField.placeholder = [materialInformations objectAtIndex:indexPath.row];
                 tableTextField.keyboardType = UIKeyboardTypeAlphabet;
                 tableTextField.returnKeyType = UIReturnKeyNext;
                 [cell.contentView addSubview:tableTextField];
             }
             else if ([indexPath row] == 1) {
+                /**
+                 *  init cell material dose per day at row 2 with a placeholder text in the textfield and a
+                 *  keyboard which appears when the user taps in the textfield
+                 */
                 tableTextField.placeholder = [materialInformations objectAtIndex:indexPath.row];                 tableTextField.keyboardType = UIKeyboardTypeAlphabet;
                 tableTextField.returnKeyType = UIReturnKeyNext;
                 tableTextField.tag = 101;
@@ -173,6 +227,10 @@
         }
         
         if([indexPath section] ==1){
+            /**
+             *  init the textfield in the table, where the user can write the input
+             *  with a clearbutton
+             */
             UITextField *table1TextField = [[UITextField alloc] initWithFrame:CGRectMake(18, 10, 350, 30)];
             table1TextField.adjustsFontSizeToFitWidth = YES;
             table1TextField.textColor = [UIColor blackColor];
@@ -186,21 +244,40 @@
             [table1TextField setEnabled: YES];
             
             if ([indexPath row] == 0) {
+                /**
+                 *  init cell material quantity per box at row 1 with a placeholder text in the textfield
+                 *  and a keyboard which appears when the user taps in the textfield
+                 */
                 table1TextField.placeholder = [materialDetailInformations objectAtIndex:indexPath.row];
                 table1TextField.keyboardType = UIKeyboardTypeDecimalPad;
                 [cell.contentView addSubview:table1TextField];
             }
             else if ([indexPath row] == 1) {
+                /**
+                 *  init cell material actual quantity at row 2 with a placeholder text in the textfield and
+                 *  a keyboard which appears when the user taps in the textfield
+                 */
                 table1TextField.placeholder = [materialDetailInformations objectAtIndex:indexPath.row];                 table1TextField.keyboardType = UIKeyboardTypeDecimalPad;
                 table1TextField.tag = 103;
                 [cell.contentView addSubview:table1TextField];
             }
             else if ([indexPath row] == 2){
+                /**
+                 *  init cell material refill reminder at row 3 with a textlabel and a switch
+                 */
                 cell.textLabel.text = [materialDetailInformations objectAtIndex:indexPath.row];
                 cell.accessoryView = _erinnernSwitch;
             }
             else if([indexPath row] ==3){
+                /**
+                 *  init the textfield in the table, where the user can write the input
+                 */
                 UITextField *table2TextField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 180, 30)];
+                /**
+                 *  init cell material automatic order at row 4 with a placeholder text in the textfield and
+                 *  a keyboard
+                 *  which appears when the user taps in the textfield
+                 */
                 cell.textLabel.text = [materialDetailInformations objectAtIndex:indexPath.row];
                 table2TextField.placeholder = @"z.B. 3 Tage vorher";
                 table2TextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -218,10 +295,15 @@
     return cell;
     
 }
-
+/**
+ *  sets that the keyboard dismisses when the user has ended the editing
+ */
 -(void)dismissKeyboard {
-[self.view endEditing:YES];
+    [self.view endEditing:YES];
 }
+/**
+ *  standard
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
