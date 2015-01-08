@@ -44,8 +44,6 @@
     materialDetailInformations = [[NSArray alloc] initWithObjects:
                                   @"Menge pro Schachtel",
                                   @"Aktuelle Menge",
-                                  @"Nachfüllungs Erinnerung",
-                                  @"Erinnern",
                                   nil];
 }
 /**

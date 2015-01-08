@@ -1115,7 +1115,7 @@ liegt bei der Berner Fachhochschule
         <scene sceneID="ZMU-hZ-L39">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dLZ-tr-Nsn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Werte" image="werte.png" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Werte" image="list-simple-7.png" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ehl-y8-NN1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1137,10 +1137,10 @@ liegt bei der Berner Fachhochschule
         <image name="hba1c.png" width="30" height="30"/>
         <image name="hba1caddimage.jpg" width="320" height="169"/>
         <image name="home.png" width="30" height="30"/>
+        <image name="list-simple-7.png" width="30" height="30"/>
         <image name="pulsimage.png" width="320" height="120"/>
         <image name="settings.png" width="30" height="30"/>
         <image name="tools.png" width="30" height="30"/>
-        <image name="werte.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LDd-Ec-oHA"/>

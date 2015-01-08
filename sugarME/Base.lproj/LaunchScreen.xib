@@ -36,20 +36,20 @@
                         <constraint firstAttribute="height" constant="116" id="NgC-2Z-UMh"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sugarMElogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yqr-wC-ch1">
-                    <rect key="frame" x="28" y="184" width="261" height="234"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bildschirmfoto 2015-01-08 um 14.05.46.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yqr-wC-ch1">
+                    <rect key="frame" x="41" y="184" width="234" height="234"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.85810122280000001" green="0.85810122280000001" blue="0.85810122280000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.99269239766421657" green="0.98444303527811172" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="MEP-fC-8iK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="87" id="7Rs-Hx-JE8"/>
                 <constraint firstItem="Iwq-q1-XMe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="18" id="8Ul-yj-ilh"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="27" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="MfP-vx-nX0"/>
-                <constraint firstItem="Iwq-q1-XMe" firstAttribute="leading" secondItem="Yqr-wC-ch1" secondAttribute="leading" id="YC3-Xa-MwJ"/>
+                <constraint firstItem="Iwq-q1-XMe" firstAttribute="leading" secondItem="Yqr-wC-ch1" secondAttribute="leading" constant="-13" id="YC3-Xa-MwJ"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" constant="-25.5" id="ZEH-qu-HZ9"/>
                 <constraint firstItem="Iwq-q1-XMe" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" constant="-68.5" id="eP8-2F-IwC"/>
-                <constraint firstAttribute="trailing" secondItem="Yqr-wC-ch1" secondAttribute="trailing" constant="31" id="lB1-4A-uUX"/>
+                <constraint firstAttribute="trailing" secondItem="Yqr-wC-ch1" secondAttribute="trailing" constant="45" id="lB1-4A-uUX"/>
                 <constraint firstItem="MEP-fC-8iK" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="lER-3C-hfi"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="Yqr-wC-ch1" secondAttribute="bottom" constant="92" id="mCr-QX-Mgy"/>
                 <constraint firstItem="Iwq-q1-XMe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="20" id="mQS-Ym-pmL"/>
@@ -61,7 +61,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Bildschirmfoto 2015-01-08 um 14.05.46.png" width="234" height="234"/>
         <image name="bfh-logo.png" width="265" height="197"/>
-        <image name="sugarMElogo.png" width="749" height="574"/>
     </resources>
 </document>

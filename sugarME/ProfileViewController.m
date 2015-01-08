@@ -93,7 +93,7 @@
     
     
     //    Unterunternavigationspunkte initialisieren
-    profileTitles = [[NSArray alloc] initWithObjects:@"Vorname", @"Nachname", @"E-Mail", @"Geschlecht", @"Geburtsdatum", @"Grösse", @"Gewicht", @"Diabetes-Typ", @"Diagnose-Jahr", @"Einheiten", nil];
+    profileTitles = [[NSArray alloc] initWithObjects:@"Vorname", @"Nachname", @"E-Mail", @"Geschlecht", @"Geburtsdatum", @"Grösse", @"Gewicht", @"Diabetes-Typ", @"Diagnose-Jahr", nil];
     
     //    Range zur Auswahl des Geschlechtes definieren
     genderData = [[NSArray alloc] initWithObjects:@"Weiblich", @"Männlich", nil];
@@ -314,11 +314,6 @@
         [myToolbar setItems:[NSArray arrayWithObject: doneButton] animated:NO];
         _pickerTextField5.inputAccessoryView = myToolbar;
         [cell.contentView addSubview:_pickerTextField5];
-    }
-    
-    //    Zeile: Einheiten
-    if (indexPath.row == 9) {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     return cell;

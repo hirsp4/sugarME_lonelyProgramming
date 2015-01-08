@@ -63,8 +63,7 @@
     [materialObjekt setValue:dosis forKey:@"dosis"];
     [materialObjekt setValue:mengeSchachtel forKey:@"mengeSchachtel"];
     [materialObjekt setValue:mengeAktuell forKey:@"mengeAktuell"];
-    [materialObjekt setValue:erinnern forKey:@"erinnern"];
-    [materialObjekt setValue:[NSNumber numberWithBool:_erinnernSwitch.on] forKey:@"nachfuellen"];
+    
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Failed to save - error: %@", [error localizedDescription]);
@@ -111,9 +110,6 @@
     materialDetailInformations = [[NSArray alloc] initWithObjects:
                                   @"Menge pro Schachtel",
                                   @"Aktuelle Menge",
-                                  @"Nachfüllungs Erinnerung",
-                                  @"Erinnern",
-                                  @"Automatische Bestellung",
                                   nil];
     
     

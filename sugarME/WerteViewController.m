@@ -160,10 +160,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.section==0) {
         cell.textLabel.text = [blutzuckerTitles objectAtIndex:indexPath.row];
-        if (indexPath.row==0) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        else if (indexPath.row==1){
+        if (indexPath.row==0){
             /**
              * set the pickerview for adding a zielbereich of the values
              *
@@ -191,7 +188,7 @@
             [cell.contentView addSubview:_pickerTextField1];
             
         }
-        else if (indexPath.row==2){
+        else if (indexPath.row==1){
             /**
              * set the pickerview for adding a zielbereich of the values
              *
@@ -218,16 +215,13 @@
             _pickerTextField2.inputAccessoryView = myToolbar;
             [cell.contentView addSubview:_pickerTextField2];
         }
-        else if (indexPath.row==3){
+        else if (indexPath.row==2){
             cell.accessoryView = _bzErinnerungSwitch;
         }
     }
     if (indexPath.section==1){
         cell.textLabel.text = [bdpulsTitles objectAtIndex:indexPath.row];
-        if (indexPath.row==0) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        else if (indexPath.row==1){
+        if (indexPath.row==0){
             /**
              * set the pickerview for adding a zielbereich of the values
              *
@@ -254,7 +248,7 @@
             _pickerTextField3.inputAccessoryView = myToolbar;
             [cell.contentView addSubview:_pickerTextField3];
         }
-        else if (indexPath.row==2){
+        else if (indexPath.row==1){
             /**
              * set the pickerview for adding a zielbereich of the values
              *
@@ -281,7 +275,7 @@
             _pickerTextField4.inputAccessoryView = myToolbar;
             [cell.contentView addSubview:_pickerTextField4];
         }
-        else if (indexPath.row==3){
+        else if (indexPath.row==2){
             /**
              * set the pickerview for adding a zielbereich of the values
              *
@@ -308,7 +302,7 @@
             _pickerTextField5.inputAccessoryView = myToolbar;
             [cell.contentView addSubview:_pickerTextField5];
         }
-        else if (indexPath.row==4){
+        else if (indexPath.row==3){
             /**
              * set the pickerview for adding a zielbereich of the values
              *
@@ -335,7 +329,7 @@
             _pickerTextField6.inputAccessoryView = myToolbar;
             [cell.contentView addSubview:_pickerTextField6];
         }
-        else if (indexPath.row==5){
+        else if (indexPath.row==4){
             cell.accessoryView = _pulsErinnerungSwitch;
         }
         
@@ -507,7 +501,7 @@
             return [pulszielData objectAtIndex:row];
         }
         else if (component==3){
-            return @"bpm";
+            return @"s/min";
         }else {return 0;}
     }
     else if ([pickerView isEqual:_pickerView6]){
@@ -581,11 +575,11 @@
     /**
      *  fill the blood sugar tablerow header data
      */
-    blutzuckerTitles = [[NSArray alloc]initWithObjects:@"Messgerät", @"Zielbereich", @"Anzahl Messungen pro Tag", @"Erinnerung", nil];
+    blutzuckerTitles = [[NSArray alloc]initWithObjects:@"Zielbereich", @"Anzahl Messungen pro Tag", @"Erinnerung", nil];
     /**
      *  fill the blood pressure tablerow header data
      */
-    bdpulsTitles = [[NSArray alloc] initWithObjects:@"Messgerät", @"Zielbereich Systole", @"Zielbereich Diastole", @"Zielbereich Ruhepuls", @"Anzahl Messungen pro Tag", @"Erinnerung", nil];
+    bdpulsTitles = [[NSArray alloc] initWithObjects:@"Zielbereich Systole", @"Zielbereich Diastole", @"Zielbereich Ruhepuls", @"Anzahl Messungen pro Tag", @"Erinnerung", nil];
     
     /**
      *set low range of blood sugar values

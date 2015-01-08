@@ -124,6 +124,9 @@
 		EF92FFE41A02F764000AAE45 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF92FFE31A02F764000AAE45 /* UserCell.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EFB325C81A24E9280043C718 /* hba1cimage.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB325C71A24E9280043C718 /* hba1cimage.png */; };
 		EFBF64F81A0A312A00D31A8B /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF64F71A0A312A00D31A8B /* GraphView.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		EFD1B5561A5EB8D800D7AAA1 /* Bildschirmfoto 2015-01-08 um 14.05.46.png in Resources */ = {isa = PBXBuildFile; fileRef = EFD1B5551A5EB8D800D7AAA1 /* Bildschirmfoto 2015-01-08 um 14.05.46.png */; };
+		EFD1B5591A5EB9B300D7AAA1 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFD1B5571A5EB9B300D7AAA1 /* Icon-Small@2x.png */; };
+		EFD1B55A1A5EB9B300D7AAA1 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFD1B5581A5EB9B300D7AAA1 /* Icon-Small@3x.png */; };
 		EFD35D0C1A1607DF009A02AC /* HbA1c.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0B1A1607DF009A02AC /* HbA1c.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EFD35D0F1A160A52009A02AC /* AddHbA1cViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D0E1A160A52009A02AC /* AddHbA1cViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EFD35D121A160FED009A02AC /* AmpelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD35D111A160FED009A02AC /* AmpelView.m */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -132,6 +135,7 @@
 		EFEB47EF1A27514900284B64 /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEB47EE1A27514900284B64 /* Barcode.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EFEB47F21A2751CE00284B64 /* ScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEB47F11A2751CE00284B64 /* ScannerViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EFEB47F61A276F8700284B64 /* blutzucker.png in Resources */ = {isa = PBXBuildFile; fileRef = EFEB47F51A276F8700284B64 /* blutzucker.png */; };
+		EFEC12D81A5EAD6600200569 /* list-simple-7.png in Resources */ = {isa = PBXBuildFile; fileRef = EFEC12D71A5EAD6600200569 /* list-simple-7.png */; };
 		EFF89A681A06415700398332 /* sugarmeDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A661A06415700398332 /* sugarmeDB.xcdatamodeld */; };
 		EFF89A6C1A06428B00398332 /* Blutzucker.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF89A6B1A06428B00398332 /* Blutzucker.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		EFF89A6E1A0642C700398332 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF89A6D1A0642C700398332 /* CoreData.framework */; };
@@ -345,6 +349,9 @@
 		EFB325C71A24E9280043C718 /* hba1cimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hba1cimage.png; sourceTree = "<group>"; };
 		EFBF64F61A0A312A00D31A8B /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		EFBF64F71A0A312A00D31A8B /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		EFD1B5551A5EB8D800D7AAA1 /* Bildschirmfoto 2015-01-08 um 14.05.46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bildschirmfoto 2015-01-08 um 14.05.46.png"; sourceTree = "<group>"; };
+		EFD1B5571A5EB9B300D7AAA1 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		EFD1B5581A5EB9B300D7AAA1 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
 		EFD35D0A1A1607DF009A02AC /* HbA1c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HbA1c.h; sourceTree = "<group>"; };
 		EFD35D0B1A1607DF009A02AC /* HbA1c.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HbA1c.m; sourceTree = "<group>"; };
 		EFD35D0D1A160A52009A02AC /* AddHbA1cViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHbA1cViewController.h; sourceTree = "<group>"; };
@@ -359,6 +366,7 @@
 		EFEB47F01A2751CE00284B64 /* ScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScannerViewController.h; sourceTree = "<group>"; };
 		EFEB47F11A2751CE00284B64 /* ScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScannerViewController.m; sourceTree = "<group>"; };
 		EFEB47F51A276F8700284B64 /* blutzucker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blutzucker.png; sourceTree = "<group>"; };
+		EFEC12D71A5EAD6600200569 /* list-simple-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-simple-7.png"; sourceTree = "<group>"; };
 		EFF89A671A06415700398332 /* sugarmeDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sugarmeDB.xcdatamodel; sourceTree = "<group>"; };
 		EFF89A6A1A06428B00398332 /* Blutzucker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blutzucker.h; sourceTree = "<group>"; };
 		EFF89A6B1A06428B00398332 /* Blutzucker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blutzucker.m; sourceTree = "<group>"; };
@@ -582,9 +590,11 @@
 		EF68ECC31A02D44C00AD9663 /* Bilder */ = {
 			isa = PBXGroup;
 			children = (
+				EFD1B5551A5EB8D800D7AAA1 /* Bildschirmfoto 2015-01-08 um 14.05.46.png */,
 				EF92FFE01A02F6A0000AAE45 /* user-icon.png */,
 				EFFFA2011A14B315003D55D7 /* bfh-logo.png */,
 				EF867F1A1A24C70C00D3D1EA /* blutdruckmesser-2.jpg */,
+				EFEC12D71A5EAD6600200569 /* list-simple-7.png */,
 				EF438CC11A2F6DE700AA2292 /* hba1caddimage.jpg */,
 				EF68ECD01A02D78A00AD9663 /* tools@2x.png */,
 				EF68ECD11A02D78A00AD9663 /* tools.png */,
@@ -599,6 +609,8 @@
 				EFFFA20F1A14BAEF003D55D7 /* thumbsoftzellin.jpg */,
 				EF867F161A24C4DE00D3D1EA /* pulsimage.png */,
 				EFFFA2131A14BD85003D55D7 /* thumbaccucheck.jpg */,
+				EFD1B5571A5EB9B300D7AAA1 /* Icon-Small@2x.png */,
+				EFD1B5581A5EB9B300D7AAA1 /* Icon-Small@3x.png */,
 				EFFFA2081A14BAE7003D55D7 /* thumblantus.jpg */,
 				EF68ECD41A02D82F00AD9663 /* hba1c.png */,
 				EF68ECD51A02D82F00AD9663 /* hba1c@2x.png */,
@@ -845,6 +857,7 @@
 				EF7EB2651A254B9C001F1302 /* Reader-Export.png in Resources */,
 				EF7EB2631A254B9C001F1302 /* Reader-Email.png in Resources */,
 				EFFFA2141A14BD85003D55D7 /* thumbaccucheck.jpg in Resources */,
+				EFD1B5591A5EB9B300D7AAA1 /* Icon-Small@2x.png in Resources */,
 				EF7EB2661A254B9C001F1302 /* Reader-Export@2x.png in Resources */,
 				EFFFA2101A14BAEF003D55D7 /* thumbsoftzellin.jpg in Resources */,
 				EF867F1B1A24C70C00D3D1EA /* blutdruckmesser-2.jpg in Resources */,
@@ -853,6 +866,7 @@
 				EF7EB25E1A254B9C001F1302 /* Default-568h@2x.png in Resources */,
 				EF1915BD1A04004400605B73 /* ValueCell.xib in Resources */,
 				EF7EB2581A254B9C001F1302 /* AppIcon-076.png in Resources */,
+				EFD1B55A1A5EB9B300D7AAA1 /* Icon-Small@3x.png in Resources */,
 				EF68ECCF1A02D68200AD9663 /* settings@2x.png in Resources */,
 				EF68ECD31A02D78A00AD9663 /* tools.png in Resources */,
 				EFB325C81A24E9280043C718 /* hba1cimage.png in Resources */,
@@ -885,7 +899,9 @@
 				EF7EB2571A254B9C001F1302 /* AppIcon-072.png in Resources */,
 				EFFFA20A1A14BAE7003D55D7 /* thumblantus.jpg in Resources */,
 				EFFFA2021A14B315003D55D7 /* bfh-logo.png in Resources */,
+				EFEC12D81A5EAD6600200569 /* list-simple-7.png in Resources */,
 				EFFFA2061A14B782003D55D7 /* sugarMElogo.png in Resources */,
+				EFD1B5561A5EB8D800D7AAA1 /* Bildschirmfoto 2015-01-08 um 14.05.46.png in Resources */,
 				EF7EB2681A254B9C001F1302 /* Reader-Mark-N@2x.png in Resources */,
 				EFFFA2091A14BAE7003D55D7 /* thumbnovo2.jpg in Resources */,
 				EF92FFD31A02E541000AAE45 /* HighLowCell.xib in Resources */,
